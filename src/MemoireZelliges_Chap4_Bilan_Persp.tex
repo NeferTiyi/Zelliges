@@ -32,7 +32,7 @@ Dans les quatre autres zelliges, on trouve également des cristaux de dévitrifi
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}
   \begin{tikzpicture}
-    \pgfplotstableread{../Data/SpectroRX/PaM_BDX_SRX_gla.dat}%
+    \pgfplotstableread{\datadir/SpectroRX/PaM_BDX_SRX_gla.dat}
                       {\gladata}
     \pgfplotstablesort[sort key={bilan}]{\glasorted}{\gladata}
 
@@ -102,7 +102,7 @@ La glaçure bleue ne contient quasiment pas d'oxyde d'aluminium, connu pour augm
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
   \begin{tikzpicture}
-    \pgfplotstableread{../Data/SpectroRX/PaM_BDX_SRX_tc.dat}%
+    \pgfplotstableread{\datadir/SpectroRX/PaM_BDX_SRX_tc.dat}%
                       {\tcdata}
     \pgfplotstablesort[sort key={bilan}]{\tcsorted}{\tcdata}
 
@@ -209,27 +209,27 @@ Cette dernière disparaît vers \SI{850}{\degC}. Son association avec des phases
       \textbf{Quartz} (\ce{SiO2}) & 
       \blackstar & \blackstar & \blackstar & \blackstar & \blackstar
     \tabularnewline
-    \midrule
+    % \midrule
       \textbf{Calcite} (\ce{CaCO3}) & 
       \blackstar & \blackstar & \blackstar & \blackstar & \blackstar
     \tabularnewline
-    \midrule
+    % \midrule
       \textbf{Albite} &
        ~         & \bluestar  & \bluestar  & \bluestar  & ~
     \tabularnewline
-    \midrule
+    % \midrule
       \textbf{Diopside} &
       \blackstar & \blackstar & \blackstar & ~          & \blackstar
     \tabularnewline
-    \midrule
-      \textbf{Gehlenite} &
+    % \midrule
+      \textbf{Gehlénite} &
       \blackstar & \blackstar & ~          & \blackstar & \blackstar
     \tabularnewline
-    \midrule
+    % \midrule
       \textbf{Anorthite} &
       \blackstar & ~          & ~          & \blackstar & \blackstar
     \tabularnewline
-    \midrule
+    % \midrule
       \textbf{Température de \mbox{cuisson} associée} (\si{\degC}) & 
       \numrange{900}{950} & \numrange{850}{900} & 
       \numrange{850}{900} & \numrange{850}{900} & 
