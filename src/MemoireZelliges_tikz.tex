@@ -1,0 +1,99 @@
+\newcommand{\drawhatim}{%
+  (    0.000 , {sqrt(2)}) -- ({1-sqrt(2)},     1.000 ) --
+  (   -1.000 ,    1.000 ) -- (    -1.000 ,{sqrt(2)-1}) --
+  ({-sqrt(2)},    0.000 ) -- (    -1.000 ,{1-sqrt(2)}) --
+  (   -1.000 ,   -1.000 ) -- ({1-sqrt(2)},    -1.000 ) --
+  (    0.000 ,-{sqrt(2)}) -- ({sqrt(2)-1},    -1.000 ) --
+  (    1.000 ,   -1.000 ) -- (     1.000 ,{1-sqrt(2)}) --
+  ( {sqrt(2)},    0.000 ) -- (     1.000 ,{sqrt(2)-1}) --
+  (    1.000 ,    1.000 ) -- ({sqrt(2)-1},     1.000 ) -- cycle
+}
+
+\newcommand{\drawluza}{%
+  (     0.000 ,   0.000 ) -- ({2-sqrt(2)},     0.000 ) -- 
+  ({2-sqrt(2)},{sqrt(2)}) -- ({1-sqrt(2)},{sqrt(2)-1}) -- cycle
+}
+
+\newcommand{\drawsaft}{%
+  (-2,0) -- (-1,1) -- (1,1) -- (2,0) -- (1,-1) -- (-1,-1) -- cycle
+}
+
+\newcommand{\squeletteb}{%
+    \draw [domain=-1:1] plot( \x, {-\x} ) ;
+    \draw [domain=-2:2] plot( 0, \x ) ;
+    \draw [domain=0:{2-2*sqrt(2)}] plot(-2, \x ) ;
+    \draw [domain=0:{2*sqrt(2)-2}] plot( 2, \x ) ;
+    \draw [domain=-2:2] plot( \x, {+sqrt(2)} ) ;
+    \draw [domain=-2:2] plot( \x, {-sqrt(2)}   ) ;
+    \draw [domain=0:5]  plot( \x, {+sqrt(2)+2} ) ;
+    \draw [domain=-5:0] plot( \x, {-sqrt(2)-2}   ) ;
+
+    \draw [domain=2:1] plot(\x, {-\x + 2*sqrt(2)}) ;
+    \draw [domain=-2:-1] plot(\x, {-\x - 2*sqrt(2)}) ;
+
+    \draw [domain=-1:-3] plot( \x, {\x + 2}) ;
+    \draw [domain=1:3] plot( \x, {\x - 2}) ;
+    \draw [domain=-6:-2] plot( \x, {\x + 2*sqrt(2) + 2}) ;
+    \draw [domain=2:6] plot( \x, {\x - 2*sqrt(2) - 2}) ;
+
+    \filldraw [shift={( 1 , {-sqrt(2)-1} )}] 
+          \drawhatim ;
+    \filldraw [shift={( -1 , {sqrt(2)+1} )}] 
+          \drawhatim ;
+    \filldraw [shift={( {-2*sqrt(2)-3} , {-sqrt(2)-1} )}] 
+          \drawhatim ;
+    \filldraw [shift={( {2*sqrt(2)+3} , {sqrt(2)+1} )}] 
+          \drawhatim ;
+
+    \filldraw [shift={( {-sqrt(2)-1} , {-sqrt(2)-1} )}] 
+          \drawsaft ;
+    \filldraw [shift={( {sqrt(2)+1} , {sqrt(2)+1} )}] 
+          \drawsaft ;
+    \filldraw [shift={( {-sqrt(2)-2} , 0 )}, rotate=45] 
+          \drawsaft ;
+    \filldraw [shift={( {sqrt(2)+2} , 0 )}, rotate=45] 
+          \drawsaft ;
+}
+
+\newcommand{\squelettea}{%
+    \begin{scope}
+      \clip (-4,-4) rectangle (4,4) ;
+      \draw plot( \x, {\x + sqrt(2)}) ;
+      \draw plot( \x, {\x - sqrt(2)}) ;
+      \draw plot(-\x, {\x + sqrt(2)}) ;
+      \draw plot(-\x, {\x - sqrt(2)}) ;
+    \end{scope}
+
+    \draw ( {-1-sqrt(2)} , {-1-sqrt(2)} ) rectangle
+          ( {+1+sqrt(2)} , {+1+sqrt(2)} ) ;
+    \draw ( {-3-sqrt(2)} , {-3-sqrt(2)} ) rectangle
+          ( {+3+sqrt(2)} , {+3+sqrt(2)} ) ;
+
+    \filldraw [shift={( {+2+sqrt(2)} , {+2+sqrt(2)} )}] 
+              \drawhatim ;
+    \filldraw [shift={( {+2+sqrt(2)} , {-2-sqrt(2)} )}] 
+              \drawhatim ;
+    \filldraw [shift={( {-2-sqrt(2)} , {+2+sqrt(2)} )}] 
+              \drawhatim ;
+    \filldraw [shift={( {-2-sqrt(2)} , {-2-sqrt(2)} )}] 
+              \drawhatim ;
+
+    \filldraw [shift={( 0 , {-2-sqrt(2)} )}] 
+              \drawsaft ;
+    \filldraw [shift={( 0 , {+2+sqrt(2)} )}] 
+              \drawsaft ;
+    \filldraw [shift={( {-2-sqrt(2)} , 0 )} , rotate=90] 
+              \drawsaft ;
+    \filldraw [shift={( {+2+sqrt(2)} , 0 )} , rotate=90] 
+              \drawsaft ;
+
+
+}
+
+
+
+% Fawrkat
+% \fill[color=ffqqff,fill=ffqqff,fill opacity=0.1] (0.414,-1) -- (-1,-1) -- (-2,0) -- (-1,1) -- (0.414,1) -- (0.414,0.414) -- (0,0) -- (0.414,-0.414) -- cycle;
+
+
+

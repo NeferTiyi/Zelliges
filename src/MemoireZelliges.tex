@@ -1,0 +1,755 @@
+\documentclass[%
+  % draft, %
+  % background, %
+  dvipsnames, %
+  svgnames, %
+  a4paper, %
+  twoside, %
+  openany, %
+  10pt, %
+  oldfontcommands %
+]{nefermemoir}
+
+\includeonly{%
+  MemoireZelliges_Chap0_Intro,
+  MemoireZelliges_Chap1_Contexte,
+  MemoireZelliges_Chap2_Materiel_Methodo,
+  MemoireZelliges_Chap3_Resultats_6528,
+  MemoireZelliges_Chap3_Resultats_6529,
+  MemoireZelliges_Chap3_Resultats_6530,
+  MemoireZelliges_Chap3_Resultats_6531,
+  MemoireZelliges_Chap3_Resultats_6532,
+  MemoireZelliges_Chap4_Bilan_Persp,
+  MemoireZelliges_Chap9_Abstract,
+}
+\usepackage{pgfplots, pgfplotstable}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{%
+  backgrounds,
+  calc,
+  patterns,
+  shapes.multipart,
+  arrows,
+  arrows.meta,
+  positioning,
+  shadows,
+  decorations.text,
+  decorations.markings
+}
+% \usepackage{pdfpages}
+% \usepackage{multicol}
+% \usepackage{minitoc}
+% \usepackage{rotating}
+\usepackage[version=3]{mhchem}
+% \usepackage{neferkheops}
+\usepackage{xstring}  % => \makefirstuc
+\usepackage{mfirstuc}
+\usepackage{arabtex}
+
+% \makeindex
+% \makeglossary
+
+\makeatletter
+  \renewcommand\@memfront@floats{%
+    \counterwithin{figure}{chapter}
+    \counterwithin{table}{chapter}
+  }
+  \renewcommand\@memmain@floats{%
+    \counterwithin{figure}{chapter}
+    \counterwithin{table}{chapter}
+  }
+  \renewcommand\@memback@floats{%
+    \counterwithin{figure}{chapter}
+    \counterwithin{table}{chapter}
+    % \setcounter{figure}{0}
+    % \setcounter{table}{0}
+  }
+\makeatother
+
+
+
+
+% \makeatletter
+
+% \def\somemagiccommand#1{%
+% \let\tc@w\@empty
+% \protected@edef\tmp{\noexpand\tc@a#1\relax}\expandafter\tc@uc@\tmp}
+
+% \def\tc@a{\futurelet\tmp\tc@aa}
+
+% \def\tc@aa{%
+% \ifcat a\noexpand\tmp\expandafter\tc@ab
+% \else\expandafter\tc@ac\fi}
+
+% \def\tc@ab#1{\edef\tc@w{\tc@w#1}\tc@a}
+
+% \def\tc@ac{%
+% \csname tc@@\tc@w\endcsname\expandafter\tc@uc\tc@w
+% \let\tc@w\@empty
+% \ifx\tmp\@sptoken\let\next\tc@sp
+% \else\ifx\tmp\relax\let\next\relax
+% \else\let\next\tc@nxt
+% \fi\fi\next}
+
+% \def\tc@sp#1{ \tc@a#1}
+% \def\tc@nxt#1{#1\tc@a}
+
+% \def\tc@uc#1{\uppercase{#1}}
+% \def\tc@uc@#1#2{\uppercase{#1#2}}
+
+% \let\tc@@the\@gobbletwo
+% \let\tc@@and\@gobbletwo
+
+% \makeatother
+
+
+
+
+
+\addtolength{\columnsep}{15pt}
+
+\newcommand{\DirUtils}{../../../../utils}
+\newcommand{\DirImage}{../../../../images}
+
+\graphicspath{%
+  {../Images/}%
+  {../Echantillons/Dessins/}%
+  {../Data/}%
+  {../Data/description/}%
+  {../Data/surface/}%
+  {../Data/texture/}%
+  {../Data/MEB_image/}%
+  {../Data/MEB_carto/}%
+  {../Data/DX/}%
+}
+
+% \addtolength{\intextsep}{-0.5\baselineskip}
+% % \addtolength{\intextsep}{-\baselineskip}
+
+\sideparmargin{outer}
+
+\setlength\fboxsep{0.5mm}
+%\setlength\tabcolsep{0mm}
+%\setlength\parskip{1.0\baselineskip}
+
+
+\setlength{\heavyrulewidth}{0.1em}
+
+\renewcommand{\tabularxcolumn}[1]{L{#1}}
+
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{%
+  \gdef\currentrowstyle{#1}#1\ignorespaces%
+}
+
+\DeclareSIUnit{\degC}{\si{\degreeCelsius}}
+
+
+\newcommand{\fakeimg}[1]{%
+  \sffamily
+  \setlength{\fboxsep}{1em}
+  \framebox[\textwidth]{#1}
+}
+
+
+\newcommand{\blackstar}{\ding{88}}
+\newcommand{\bluestar}{{\color{blue}\ding{88}}}
+
+\newcommand{\bdx}[1]{BDX\,#1\xspace}
+% \newcommand{\PaM}{palais Al-Mansour\xspace}
+\newcommand{\PaM}{{\color{red}palais Al-Mansour}\xspace}
+\newcommand{\Zell}[2][]{%
+  Zellige#1 monochrome#1 #2 provenant du \PaM, \scl{xvii}\xspace
+}
+\newcommand{\zlaygi}{\emph{zl\={a}y\u{g}\={\i}}\xspace}
+\newcommand{\hatim}{\emph{h\={a}tim}\xspace}
+
+\newcommand{\legendeA}{Meknès (Maroc), \bdx{6528}. \Zell{vert}}
+\newcommand{\legendeB}{Meknès (Maroc), \bdx{6529}. \Zell{bleu vert}}
+\newcommand{\legendeC}{Meknès (Maroc), \bdx{6530}. \Zell{noir}}
+\newcommand{\legendeD}{Meknès (Maroc), \bdx{6531}. \Zell{miel}}
+\newcommand{\legendeE}{Meknès (Maroc), \bdx{6532}. \Zell{blanc}}
+
+\newcommand{\legendeAll}{%
+  Meknès (Maroc), \bdx{6528}, \bdx{6529}, \bdx{6530}, \bdx{6531} et 
+  \bdx{6532}. \Zell[s]{vert, bleu, noir, miel et blanc}%
+}
+
+\newcommand{\Yxy}{\ensuremath{Yxy}\xspace}
+\newcommand{\Lab}{\ensuremath{L^*a^*b^*}\xspace}
+
+% \newcommand{\spectro}{spectrométrie\xspace}
+% \newcommand{\RX}{rayons~X\xspace}
+% \newcommand{\DX}{diffraction de \RX\xspace}
+% \newcommand{\MEB}[1][e]{microscop#1 électronique à balayage\xspace}
+% \newcommand{\CL}{cathodoluminescence\xspace}
+% \newcommand{\AO}{absorption optique\xspace}
+% \newcommand{\SAO}{\spectro d'\AO\xspace}
+% \newcommand{\ERD}{électrons rétrodiffusés\xspace}
+% \newcommand{\EDS}{\spectro de \RX en dispersion d'énergie\xspace}
+% \newcommand{\CHRO}{chromamétrie\xspace}
+\newcommand{\spectro}{{\color{red}spectrométrie}\xspace}
+\newcommand{\carto}{{\color{red}cartographie}\xspace}
+\newcommand{\RX}{{\color{red}rayons~X}\xspace}
+\newcommand{\DX}{{\color{red}diffraction de \RX}\xspace}
+\newcommand{\MEB}[1][e]{{\color{red}microscop#1 électronique à balayage}\xspace}
+\newcommand{\CL}{{\color{red}cathodoluminescence}\xspace}
+\newcommand{\AO}{{\color{red}absorption optique}\xspace}
+\newcommand{\SAO}{{\color{red}\spectro d'\AO}\xspace}
+\newcommand{\ERD}{{\color{red}électrons rétrodiffusés}\xspace}
+\newcommand{\EDS}{{\color{red}\spectro de \RX en dispersion d'énergie}\xspace}
+\newcommand{\CHRO}{{\color{red}chromamétrie}\xspace}
+
+\newcommand{\DimText}{%
+  \emph{Dimensions} (L\,\texttimes\,l\,\texttimes\,e)\xspace%
+}
+
+% \newcommand{\PMO}{\si{\percent} massique d'oxyde\xspace}
+% \newcommand{\zone}[2]{zone analysée : \SI{#1}{#2}}
+\newcommand{\PMO}{{\color{red}\si{\percent} massique d'oxyde}\xspace}
+\newcommand{\zone}[2]{{\color{red}zone analysée : \SI{#1}{#2}}\xspace}
+
+
+\newenvironment{cartotab}
+  {%
+    \smaller%
+    \noindent\ignorespaces
+    \tabular{R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}}
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}} 
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}} 
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S }%
+      \toprule
+  }
+  {%
+      \midrule
+        \cartolgntt
+      \bottomrule
+    \endtabular%
+  }
+
+\newcommand{\cartolgn}[3]{\ce{#1}  & #2  & #3}
+\newcommand{\cartolgnnd}[1]{\ce{#1}  & \multicolumn{2}{c}{\emph{nd}}}
+\newcommand{\cartolgntt}{%
+  \multicolumn{10}{r}{\RaggedLeft Total :} & 
+  \multicolumn{2}{S}{100.00}
+  \tabularnewline
+}
+
+\newenvironment{saotab}[1][Zone \\ étudiée]
+  {%
+    \noindent\ignorespaces%
+    \smaller%
+    \setlength\tabcolsep{0}%
+    \renewcommand{\tabularxcolumn}[1]{M{##1}}
+    % \tabular{>{\bfseries}M{2cm} @{\hspace*{3em}} 
+    %          SS @{\hspace*{3em}} 
+    %          SSS @{\hspace*{3em}} 
+    %          SSS @{\hspace*{3em}} 
+    %          >{\bfseries}M{2cm}}
+    \tabularx{1.0\textwidth}
+             {>{\bfseries}X @{\hspace*{2em}} 
+              SS @{\hspace*{2em}} 
+              SSS @{\hspace*{2em}} 
+              SSS @{\hspace*{2em}} 
+              >{\bfseries}X}
+        \multirow{2}{2cm}{#1} & 
+        {$\lambda_D$} & {$P_e$} &
+        \multirow{2}{2em}{{$Y$}}  & \multirow{2}{2em}{{$x$}}  & \multirow{2}{2em}{{$y$}}  & 
+        \multirow{2}{2em}{{$L*$}} & \multirow{2}{2em}{{$a*$}} & \multirow{2}{2em}{{$b*$}} & 
+        \multirow{2}{2cm}{Couleur\\associée}
+      \tabularnewline
+         & 
+        {(\si{\nm})} & {(\si{\percent})} &
+         & & & & & &
+      \tabularnewline
+      \otoprule
+  }
+  {%
+      \bottomrule
+    \endtabularx%
+  }
+% \newenvironment{saotab}[1][Zone \\ étudiée]
+%   {%
+%     \noindent\ignorespaces%
+%     \smaller%
+%     \tabular{|>{\bfseries}M{2cm}|SS|SSS|SSS|>{\bfseries}M{2cm}|}
+%     \hhline{----------}
+%       #1 & % Zone \\ étudiée & 
+%       {$\lambda_D$ (\si{\nm})} & {$P_e$ (\si{\percent})} &
+%       {$Y$}  & {$x$}  & {$y$}  & 
+%       {$L*$} & {$a*$} & {$b*$} & 
+%       Couleur \\ associée 
+%     \tabularnewline
+%     \hhline{----------}
+%   }
+%   {%
+%       \hhline{----------}
+%     \endtabular%
+%   }
+
+
+\newcommand{\saolgna}[9]{%
+  #1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9
+}
+\newcommand{\saolgnb}[5]{%
+  \mbox{#1} {\normalfont(\mbox{#2} \mbox{\SIrange{#3}{#4}{\nm}#5})}
+}
+
+% \newcommand{\spectreaxes}{%
+%   \draw (200,0.1) -- (900,0.1) ;
+%   \draw (200,0.1) -- (200,1.1) ;
+%   \foreach \x in {200, 300, ..., 900} {%
+%     \draw (\x,0.1) -- ++ (0,-3pt) 
+%           node [below] {\footnotesize\textsf\x} ;
+%   }
+%   \foreach \y in {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1}{%
+%     \draw (200,\y) -- ++ (-3pt,0)
+%           node [left] {\footnotesize\textsf\y} ;
+%   }
+% }
+
+% \newenvironment{spectreplot}
+% {%
+%   \noindent\ignorespaces
+%   \begin{tikzpicture}[x=0.5,y=175]
+%   \spectreaxes
+%   \clip (200,0.1) rectangle (900,1.1) ;
+%   \begin{scope}[domain=200:900]
+% }
+% {%
+%   \end{scope}
+%   \end{tikzpicture}
+% }
+
+\newenvironment{plotspectre}
+{%
+  \noindent\ignorespaces
+  \begin{tikzpicture}
+    \pgfplotstableread{../Data/SAO/PaM_BDX_SAO_gla.dat}%
+                      {\gladata}
+    \pgfplotstableread{../Data/SAO/PaM_BDX_SAO_tc.dat}%
+                      {\tcdata}
+    \begin{axis}[
+      width=\textwidth, height=8cm,
+      legend style={
+        font=\small,
+        draw=none,
+        cells={anchor=west},
+      },
+      enlargelimits=false,
+      xmin=200, xmax=900,
+      xtick={200, 300, ..., 900},
+      ymin=0.1, ymax=1.3,
+      ytick={0.1, 0.2, ..., 1.3},
+      axis lines*=left,
+      tick align=outside,
+      tick style={black, thin},
+      ticklabel style={font=\small},
+      yticklabel style={
+        font=\small,
+        /pgf/number format/fixed,
+        /pgf/number format/fixed zerofill,
+        /pgf/number format/precision=1,
+      },
+    ]
+}
+{%
+    \end{axis}
+  \end{tikzpicture}
+}
+
+
+\newcommand{\labinneraxes}{%
+  \begin{scope}[thick]
+    \draw (axis cs:\pgfkeysvalueof{/pgfplots/xmin},0) -- 
+          (axis cs:\pgfkeysvalueof{/pgfplots/xmax},0) ;
+    \draw (axis cs:0,\pgfkeysvalueof{/pgfplots/ymin}) -- 
+          (axis cs:0,\pgfkeysvalueof{/pgfplots/ymax}) ;
+  \end{scope}
+}
+\newcommand{\labcolorlabels}{%
+  \begin{scope}[
+    every node/.style={
+      fill=white, 
+      inner sep=1pt, 
+      text depth=0.33ex, text height=1.75ex,
+    }
+  ]
+    \pgfmathsetmacro{\offset}{3}
+    \node at (axis cs: 0., \pgfkeysvalueof{/pgfplots/ymin}+\offset)
+          [above] {bleu} ;
+    \node at (axis cs: 0., \pgfkeysvalueof{/pgfplots/ymax}-\offset)
+          [below] {jaune} ;
+    \node at (axis cs: \pgfkeysvalueof{/pgfplots/xmin}+\offset, 0.)
+          [rotate=90, below] {vert} ;
+    \node at (axis cs: \pgfkeysvalueof{/pgfplots/xmax}-\offset, 0.)
+          [rotate=-90, below] {rouge} ;
+  \end{scope}
+}
+
+
+\pgfplotsset{
+  chro/.style={
+    title style={at={(1.,1.)}, anchor=north east},
+    width=8cm, height=8cm,
+    minor tick num=3,
+    tick align=outside,
+    tick style={black, thin},
+    ticklabel style={font=\small},
+    enlargelimits=false,
+    mark size=3pt,
+  },
+  Yxy/.style={
+    title={\Yxy},
+    axis lines=left,
+    xmin=0, xmax=0.85,
+    ymin=0, ymax=0.85,
+    xlabel={$x$}, ylabel={$y$},
+    xlabel near ticks, ylabel near ticks,
+    every axis x label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=south,
+    },
+    chro,
+  },
+  Lab/.style={
+    title={\Lab}, 
+    axis lines*=left,
+    xmin=-60, xmax=60,
+    ymin=-60, ymax=60,
+    xlabel={$a*$},
+    ylabel={$b*$},
+    every axis x label/.style={
+        at={(axis cs:\pgfkeysvalueof{/pgfplots/xmax},0)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(axis cs:0,\pgfkeysvalueof{/pgfplots/ymax})},
+        anchor=south,
+    },
+    after end axis/.code={
+      \labinneraxes
+      \labcolorlabels
+    },
+    chro,
+  },
+}
+
+
+\newcommand{\filtreSample}[3]{%
+  \pgfplotstablegetelem{\coordindex}{#2}\of{#3}
+  \IfStrEq{\pgfplotsretval}{#1}{}{\def\pgfmathresult{}}
+}
+
+\newcommand{\filtreSamples}[3]{%
+  \pgfplotstablegetelem{\coordindex}{#2}\of{#3}
+  \IfStrEq{\pgfplotsretval}{#1}{}{%
+    \IfStrEq{\pgfplotsretval}{D65}{}{\def\pgfmathresult{}}
+  }
+}
+
+
+\newcommand{\plotYxyPaV}{%
+  \addplot [thick] table [x=x, y=y] {\CIEdata} -- cycle ;
+  \draw [->, >=stealth, thin] 
+        (axis cs: 0.18, 0.81) -- (axis cs: 0.30, 0.72) 
+   node [pos=0.33, above right, font=\tiny] 
+        {$\lambda$ (\si{\nm})} ;
+}
+\newcommand{\plotYxyIlluminant}{%
+  \addplot [
+    only marks, mark=diamond*, fill=white,
+    x filter/.code={
+      \filtreSample{D65}{sample}{\chrodata}
+    },
+  ]
+    table [x=x, y=y] {\chrodata} ;
+}
+\newcommand{\plotYxySample}[2]{%
+  \addplot [
+    only marks, mark=diamond*, fill=#2,
+    x filter/.code={
+      \filtreSample{#1}{sample}{\chrodata}
+    },
+  ]
+    table [x=x, y=y] {\chrodata} ;
+}
+\newcommand{\plotLabSample}[2]{%
+  \addplot [
+    only marks, mark=diamond*, fill=#2,
+    x filter/.code={
+      \filtreSample{#1}{sample}{\chrodata}
+    },
+  ]
+    table [x=a, y=b] {\chrodata} ;
+}
+\newcommand{\plotYxyLigne}[1]{%
+  \addplot [
+    thick, dotted,
+    x filter/.code={
+      \filtreSamples{#1ref}{sample}{\chrodata}
+    },
+  ]
+    table [x=x, y=y] {\chrodata} ;
+}
+\newcommand{\plotYxyAnnot}[2]{%
+  \addplot[
+    only marks, mark=*, mark size=1pt,
+    visualization depends on={\thisrow{lambdaD} \as \lambda},
+    every node near coord/.append style={
+      font={\tiny}, 
+      anchor=#2,
+    },
+    nodes near coords={\pgfmathprintnumber{\lambda}},
+    x filter/.code={
+      \filtreSample{#1ref}{sample}{\chrodata}
+    },
+  ] 
+    table [x=x,y=y] {../Data/Chro/PaM_BDX_Chro.dat} ;
+}
+
+
+\newenvironment{plotYxy}
+{%
+  \centering
+  \noindent\ignorespaces
+  \begin{tikzpicture}[baseline]
+    \pgfplotstableread{../Data/Chro/CIE_espaces2D.dat}%
+                      {\CIEdata}
+    \pgfplotstableread{../Data/Chro/PaM_BDX_Chro.dat}%
+                      {\chrodata}
+    \begin{axis}[Yxy]%
+}
+{%
+    \end{axis}%
+  \expandafter\aftergroup\csname pgf@restore@layerlist@from@global\endcsname
+  \end{tikzpicture}%
+}
+
+\newenvironment{plotLab}
+{%
+  \centering
+  \noindent\ignorespaces
+  \begin{tikzpicture}[baseline]
+    \pgfplotstableread{../Data/Chro/PaM_BDX_Chro.dat}%
+                      {\chrodata}
+    \begin{axis}[Lab]%
+}
+{%
+    \end{axis}%
+  \expandafter\aftergroup\csname pgf@restore@layerlist@from@global\endcsname
+  \end{tikzpicture}%
+}
+
+
+\newcommand{\coordYxy}{%
+  \coordinate (D65) at (0.312727, 0.329024) ;
+
+  \coordinate (BDX6528)  at (0.3300, 0.3844) ;
+  \coordinate (BDX6529)  at (0.3041, 0.3229) ;
+  \coordinate (BDX6529b) at (0.3127, 0.3425) ;
+  \coordinate (BDX6530)  at (0.3382, 0.3353) ;
+  \coordinate (BDX6531)  at (0.3977, 0.4000) ;
+  \coordinate (BDX6532)  at (0.3360, 0.3552) ;
+}
+% BDX 6528 - point d'intersect : (0.3974610,0.600675)
+% BDX 6529 - point d'intersect : (0.3120220,0.682680)
+% BDX 6529 - point d'intersect : (0.0802705,0.164021)
+% BDX 6530 - point d'intersect : (0.5996930,0.399731)
+% BDX 6531 - point d'intersect : (0.5074170,0.491645)
+% BDX 6532 - point d'intersect : (0.4808570,0.518128)
+
+\newcommand{\coordLab}{%
+  \coordinate (BDX6528)  at (-10.9271,15.6733) ;
+  \coordinate (BDX6529)  at ( -1.0063,-2.6014) ;
+  \coordinate (BDX6529b) at ( -4.3453, 3.3824) ;
+  \coordinate (BDX6530)  at (  4.0358, 2.9336) ;
+  \coordinate (BDX6531)  at (  4.6173,27.6190) ;
+  \coordinate (BDX6532)  at ( -0.6354,11.4856) ;
+}
+\newenvironment{Labplot}
+{%
+  \noindent\ignorespaces
+  \begin{tikzpicture}[x=200, y=200]
+    \coordYxy
+
+    \draw [help lines] (0.0,0.0) -- (0.9,0.0) ;
+    \draw [help lines] (0.0,0.0) -- (0.0,0.9) ;
+
+    \draw (0.45, 0.0) node [below] {\bfseries\sffamily x} ;
+    \draw (0.0, 0.45) node [left]  {\bfseries\sffamily y} ;
+
+    \foreach \x in {0, 2, ..., 8} {%
+      \draw (\x/10,0) -- ++ (0,-3pt) 
+            node [below] {\footnotesize\textsf0.\x0} ;
+      \draw (0,\x/10) -- ++ (-3pt,0) 
+            node [left] {\footnotesize\textsf0.\x0} ;
+    }
+
+    \draw [thick] plot file {Utils/CIE_espaces2D.dat} ;
+    \draw [mark=diamond,  mark size=3, black] 
+          plot coordinates {(D65)} ;
+}
+{%
+  \end{tikzpicture}
+}
+
+
+\newenvironment{Yxyplot}
+{%
+  \noindent\ignorespaces
+  \begin{tikzpicture}[x=1.5, y=1.5]
+    \coordLab
+
+    \draw [help lines] (-60.0,-60.0) -- ( 60.0,-60.0) ;
+    \draw [help lines] (-60.0,-60.0) -- (-60.0, 60.0) ;
+
+    \draw (-60.0,  0.0) node [above, rotate=90] 
+                             {\bfseries\sffamily vert} -- 
+          ( 60.0,  0.0) node [above,rotate=-90] 
+                             {\bfseries\sffamily rouge} ;
+    \draw (  0.0,-60.0) node [below,shift={(0,-2)}] 
+                             {\bfseries\sffamily bleu} -- 
+          (  0.0, 60.0) node [above] 
+                             {\bfseries\sffamily jaune} ;
+
+    \foreach \x in {-60, -40, ..., 60} {%
+      \draw (\x,-60) -- ++ (0,-3pt) 
+            node [below] {\footnotesize\textsf\x} ;
+      \draw (-60,\x) -- ++ (-3pt,0) 
+            node [left] {\footnotesize\textsf\x} ;
+    }
+}
+{%
+  \end{tikzpicture}
+}
+
+
+\pgfplotsset{
+  title style={font=\bfseries\large, fill=white},
+  bilan/.style={
+    legend style={font=\small, at={(1,1), anchor=north east}},
+    width=\textwidth, height=10cm,
+    enlarge y limits=upper,
+    ylabel style={font=\bfseries\small},
+    yticklabel style={font=\bfseries\small},
+    xticklabel style={font=\bfseries\small},
+    minor tick num=1,
+    minor tick length=0,
+    xminorgrids,
+    error bars/y dir=both, error bars/y explicit,
+  }
+}
+
+
+\newenvironment{motsclef}{%
+  \bigskip
+  \begin{list}{Mots clés}{%
+    \renewcommand\makelabel[1]{\bfseries\uline{##1} :}%
+    \settowidth\labelwidth{\makelabel{Mots clés}}%
+    \setlength\leftmargin{\labelwidth + \labelsep}%
+  }%
+  \item\ignorespaces%
+}%
+{%
+  \unskip\end{list}%
+  \bigskip%
+}
+
+
+
+\newcommand{\sclnum}[1]{\bsc{#1}\ieme}
+\newcommand{\scl}[1]{\sclnum{#1}~s.}
+\renewcommand{\siecle}[1]{\sclnum{#1}~siècle}
+
+
+\input{MemoireZelliges_tikz}
+
+
+
+
+
+%======================================================================
+\title{Zelliges}
+% \short{Histoire de l'\kmt}
+% \subtitle{de la Préhistoire au \NK}
+% \lecturer{\PG}
+% \orga{Cours de \textsf{l'\IK} par}
+\author{\SL}
+\date{2000}
+
+\hypersetup{%
+  pdftitle  = {Zelliges}, 
+  pdfauthor = {Sonia Labetoulle}
+}
+% pdfsubject % pdfcreator % pdfproducer % pdfkeywords
+
+%======================================================================
+
+\addbibresource{../bib/MemoireZelliges_jabref.bib}
+
+% \backgroundsetup{%
+%   opacity   = 0.18,
+%   contents  = \includegraphics{DeB_Hathor},
+%   % position  = current page.center,
+%   scale     = 0.5
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \CaptionNormal
+\CaptionPetit
+
+\frontmatter
+\tableofcontents*
+
+\mainmatter
+\part{Contexte de l'étude}
+\include{MemoireZelliges_Chap1_Contexte}
+
+\part{Matériel et méthodologie}
+\include{MemoireZelliges_Chap2_Materiel_Methodo}
+
+\part{Résultats expérimentaux}
+\include{MemoireZelliges_Chap3_Resultats_6528}
+\include{MemoireZelliges_Chap3_Resultats_6529}
+\include{MemoireZelliges_Chap3_Resultats_6530}
+\include{MemoireZelliges_Chap3_Resultats_6531}
+\include{MemoireZelliges_Chap3_Resultats_6532}
+
+\part{Bilan et perspectives}
+\include{MemoireZelliges_Chap4_Bilan_Persp}
+
+\appendix
+% \appendixpage
+
+% \phantomsection
+% \addcontentsline{toc}{book}{\appendixpagename}
+% \book*{\appendixpagename}
+
+\backmatter
+\newpage
+\listoffigures
+\listoftables
+
+\nocite{*}
+\printbibliography[heading=memoir,title=Bibliographie]
+
+\cleardoublepage
+\pagestyle{empty}
+~\newpage
+\include{MemoireZelliges_Chap9_Abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
