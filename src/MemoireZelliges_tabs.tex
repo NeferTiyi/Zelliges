@@ -1,0 +1,67 @@
+% .. tabular for chemical composition ..
+% ======================================
+\newenvironment{cartotab}
+  {%
+    \smaller%
+    \noindent\ignorespaces
+    \tabular{R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}}
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}} 
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S @{\hspace*{3em}} 
+             R{0.9cm} @{\ =\ } S @{\ $\pm$\ } S }%
+      \toprule
+  }
+  {%
+      \midrule
+        \cartolgntt
+      \bottomrule
+    \endtabular%
+  }
+\newcommand{\cartolgn}[3]{\ce{#1}  & #2  & #3}
+\newcommand{\cartolgnnd}[1]{\ce{#1}  & \multicolumn{2}{c}{\emph{nd}}}
+\newcommand{\cartolgntt}{%
+  \multicolumn{10}{r}{\RaggedLeft Total :} & 
+  \multicolumn{2}{S}{100.00}
+  \tabularnewline
+}
+
+
+% .. tabular for chromametry result ..
+% ====================================
+\newenvironment{saotab}[1][Zone \\ étudiée]
+  {%
+    \renewcommand{\tabularxcolumn}[1]{M{##1}}
+    \noindent\ignorespaces%
+    \smaller%
+    \setlength\tabcolsep{0}%
+    \tabularx{1.0\textwidth}
+             {>{\bfseries}X @{\hspace*{2em}} 
+              SS @{\hspace*{2em}} 
+              SSS @{\hspace*{2em}} 
+              SSS @{\hspace*{2em}} 
+              >{\bfseries}X}
+        \multirow{2}{2cm}{#1}     & 
+        {$\lambda_D$} & {$P_e$}   &
+        \multirow{2}{2em}{{$Y$}}  & 
+        \multirow{2}{2em}{{$x$}}  & 
+        \multirow{2}{2em}{{$y$}}  & 
+        \multirow{2}{2em}{{$L*$}} & 
+        \multirow{2}{2em}{{$a*$}} & 
+        \multirow{2}{2em}{{$b*$}} & 
+        \multirow{2}{2cm}{Couleur\\associée}
+      \tabularnewline
+         & 
+        {(\si{\nm})} & {(\si{\percent})} &
+         & & & & & &
+      \tabularnewline
+      \otoprule
+  }
+  {%
+      \bottomrule
+    \endtabularx%
+  }
+\newcommand{\saolgna}[9]{%
+  #1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9
+}
+\newcommand{\saolgnb}[5]{%
+  \mbox{#1} {\normalfont(\mbox{#2} \mbox{\SIrange{#3}{#4}{\nm}#5})}
+}
