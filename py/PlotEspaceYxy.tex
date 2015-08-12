@@ -1,53 +1,20 @@
-\documentclass[dvipsnames,a4paper,10pt]{minimal}
+\documentclass[a4paper,10pt]{%
+  standalone%
+}
 
 % Encoding
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 %
-% Code
-\usepackage{ifthen}
-\usepackage{multido}
-\usepackage{calc}
 \usepackage{pgfplots}
-\usepackage{pgf,tikz}
-\usetikzlibrary{%
-  calc,
-  patterns,
-  arrows,
-  positioning,
-  shadows,
-  decorations.text
-}
+% \usepgfplotslibrary{external}
+% \tikzexternalize[%
+%   system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}%
+% ]
+% \usepackage{tikz}
+% \usetikzlibrary{backgrounds}
+\pgfplotsset{compat=1.11}
 %
-\usepackage{geometry}
-%
-\usepackage[english,french]{babel}
-\usepackage[hidelinks,unicode,pdfhighlight=/P]{hyperref}
-\usepackage{bookmark}
-\usepackage{siunitx}
-%
-% Babel options
-% =============
-\frenchbsetup{ItemLabelii=\pucea}
-\addto\captionsfrench{\def\contentsname{Sommaire}}
-
-% siunitx options
-% ===============
-\sisetup{
-  locale            = FR, 
-  detect-all,
-  input-comparators = {x<=>\approx\ge\geq\gg\le\leq\ll\sim\pm\no},
-  exponent-product  = \cdot, 
-  range-phrase      = -, 
-  list-final-separator = \ et\ ,
-  list-pair-separator  = \ et\ ,
-  color             = red,
-  list-units        = single,
-  range-units       = single,
-  multi-part-units  = single,
-  retain-unity-mantissa = false
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,51 +27,69 @@
 % \end{tikzpicture}
 
 
+% \begin{tikzpicture}  % [show background rectangle]
+
+%   \pgfplotstableread{PaV.dat}{\pavdata}
+
+%   \begin{axis}[%
+%     xmin=0, xmax=0.9,
+%     ymin=0, ymax=0.9,
+%     width=10cm, height=10cm,
+%     xtick=\empty, ytick=\empty, 
+%     axis line style={white},
+%     % axis line style={gray!25!white, ultra thin},
+%     % hide axis=true,
+%     % grid=both,
+%     % xlabel=x, ylabel=y,
+%     clip mode=individual,
+%   ]
+
+%   \begin{scope}
+%     \clip plot file {CIE_espaces2D.dat} -- cycle ;
+
+%     \addplot[
+%       scatter,%
+%       only marks, mark=square*, mark size=0.7,
+%       scatter/@pre marker code/.code={%
+%         \edef\temp{%
+%           \noexpand\definecolor{mapped color}{rgb}{\pgfplotspointmeta}
+%         }%
+%         \temp
+%         \scope[draw=mapped color,fill=mapped color]%
+%       },%
+%       scatter/@post marker code/.code={%
+%         \endscope
+%       },%
+%       point meta={TeX code symbolic={%
+%         \edef\pgfplotspointmeta{%
+%           \thisrow{r},\thisrow{g},\thisrow{b}%
+%         }%
+%       }},
+%     ]
+%     table [x=x, y=y] {PaV.dat} ;
+%   \end{scope}
+
+%   \begin{scope}[thick, line cap=round, line join=round]
+%     \addplot [thick, mark=none]
+%        table {CIE_espaces2D.dat} -- cycle ;
+%     % \draw plot file {CIE_espaces2D.dat} -- cycle ;
+%   \end{scope}
+
+%   \end{axis}
+% \end{tikzpicture}
+
+
 \begin{tikzpicture}
-
-  \pgfplotstableread{
-    % PaV.dat
-    x     y     r1     g1     b1
-    1   1  0.2    0.3    0.5
-    2   4  0.3    0.3    0.4
-    4   6  0.1    0.8    0.1
-    3   9  0.0    0.1    0.9
-  }{\pavdata}
-
-
-  \begin{axis}[%
-    xmin=0, xmax=9,
-    ymin=0, ymax=9,
+  \begin{axis}[
+    enlargelimits=false,
+    axis on top,
     width=10cm, height=10cm,
-    grid=both,
-    xlabel=Xtest, ylabel=Ytest,
   ]
-    \addplot[
-      scatter,%
-      only marks, mark=*,
-      scatter/@pre marker code/.code={%
-        \edef\temp{%
-          \noexpand\definecolor{mapped color}{rgb}{\pgfplotspointmeta}
-        }%
-        \temp
-        \scope[draw=mapped color!80!black,fill=mapped color]%
-      },%
-      scatter/@post marker code/.code={%
-        \endscope
-      },%
-      point meta={TeX code symbolic={%
-        \edef\pgfplotspointmeta{%
-          \thisrow{r2},\thisrow{g1},\thisrow{b1}%
-        }%
-      }},
+    \addplot graphics [
+      xmin=0, xmax=0.9,
+      ymin=0, ymax=0.9
     ]
-    % table [x=x, y=y] {
-      % 1   11  0.2    0.3    0.5
-      % 2   14  0.3    0.3    0.4
-      % 4   26  0.1    0.8    0.1
-      % 3   39  0.0    0.1    0.9
-    % };
-    table [x=x, y=y] {\pavdata} ;
+    {EspaceYxy};
   \end{axis}
 \end{tikzpicture}
 
