@@ -15,14 +15,14 @@ LTXCL := latexmk -f
 # the target, and '$<' is a variable holding the (first) dependancy 
 # of a rule.
 
-HTXSRCS := $(shell ls *.htx)
-HTXOBJS := $(HTXSRCS:.htx=.tex)
+# HTXSRCS := $(shell ls *.htx)
+# HTXOBJS := $(HTXSRCS:.htx=.tex)
 TMPOBJS := $(ROOTDOC).bbl \
 	   $(ROOTDOC).dic \
 	   $(ROOTDOC).run.xml
 
-%.tex: %.htx
-	htx2tex $<
+# %.tex: %.htx
+# 	htx2tex $<
 
 # MAIN LATEXMK RULE
 
@@ -35,7 +35,8 @@ TMPOBJS := $(ROOTDOC).bbl \
 # at a missing file reference and interactively asking you for an 
 # alternative.
 
-$(ROOTDOC).pdf: $(HTXOBJS)
+# $(ROOTDOC).pdf: $(HTXOBJS)
+$(ROOTDOC).pdf:
 	$(LTXMK) $(ROOTDOC).tex
 
 # Cleaning
