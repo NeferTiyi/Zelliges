@@ -25,45 +25,102 @@
 }
 
 
-http://tex.stackexchange.com/questions/6910/bottomrule-not-working-in-a-self-made-environment
+% http://tex.stackexchange.com/questions/6910/bottomrule-not-working-in-a-self-made-environment
 
 % .. tabular for chromametry result ..
 % ====================================
-\newenvironment{saotab}[1][Zone étudiée]
-  {%
-    \renewcommand{\tabularxcolumn}[1]{M{##1}}
-    \noindent\ignorespaces%
-    \smaller%
-    \setlength{\tabcolsep}{0pt}%
-    \tabularx{1.0\textwidth}
-             {>{\bfseries}M{2cm} @{\hspace*{2em}} 
-              SS @{\hspace*{2em}} 
-              SSS @{\hspace*{2em}} 
-              SSS @{\hspace*{2em}} 
-              >{\bfseries}X}
-        \multirow{2}{2cm}{#1}     & 
-        {$\lambda_D$} & {$P_e$}   &
-        \multirow{2}{2em}{{$Y$}}  & 
-        \multirow{2}{2em}{{$x$}}  & 
-        \multirow{2}{2em}{{$y$}}  & 
-        \multirow{2}{2em}{{$L*$}} & 
-        \multirow{2}{2em}{{$a*$}} & 
-        \multirow{2}{2em}{{$b*$}} & 
-        \multirow{2}{2cm}{Couleur associée}
-      \tabularnewline
-         & 
-        {(\si{\nm})} & {(\si{\percent})} &
-         & & & & & &
-      \tabularnewline
-      \otoprule
-  }
-  {%
-      \bottomrule
-    \endtabularx%
-  }
-\newcommand{\saolgna}[9]{%
+% \newenvironment{saotab}[1][Zone étudiée]
+%   {%
+%     \renewcommand{\tabularxcolumn}[1]{M{##1}}
+%     \noindent\ignorespaces%
+%     \smaller%
+%     \setlength{\tabcolsep}{0pt}%
+%     \tabularx{1.0\textwidth}
+%              {>{\bfseries}M{2cm} @{\hspace*{2em}} 
+%               SS @{\hspace*{2em}} 
+%               SSS @{\hspace*{2em}} 
+%               SSS @{\hspace*{2em}} 
+%               >{\bfseries}X}
+%         \multirow{2}{2cm}{#1}     & 
+%         {$\lambda_D$} & {$P_e$}   &
+%         \multirow{2}{2em}{{$Y$}}  & 
+%         \multirow{2}{2em}{{$x$}}  & 
+%         \multirow{2}{2em}{{$y$}}  & 
+%         \multirow{2}{2em}{{$L*$}} & 
+%         \multirow{2}{2em}{{$a*$}} & 
+%         \multirow{2}{2em}{{$b*$}} & 
+%         \multirow{2}{2cm}{Couleur associée}
+%       \tabularnewline
+%          & 
+%         {(\si{\nm})} & {(\si{\percent})} &
+%          & & & & & &
+%       \tabularnewline
+%       \otoprule
+%   }
+%   {%
+%       \bottomrule
+%     \endtabularx%
+%   }
+\newcommand{\chrolgna}[9]{%
   #1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9
 }
-\newcommand{\saolgnb}[5]{%
+\newcommand{\chrolgnb}[5]{%
   \mbox{#1} {\normalfont(\mbox{#2} \mbox{\SIrange{#3}{#4}{\nm}#5})}
+}
+
+\NewEnviron{chrotab}[1][Zone\\étudiée]{%
+  \renewcommand{\tabularxcolumn}[1]{M{##1}}
+  \noindent\ignorespaces%
+  \smaller%
+  \setlength{\tabcolsep}{0pt}%
+  \begin{tabularx}{1.0\textwidth}
+                  {>{\bfseries}M{2cm} @{\hspace*{2em}}
+                   SS @{\hspace*{2em}} 
+                   SSS @{\hspace*{2em}} 
+                   SSS @{\hspace*{2em}} 
+                   >{\bfseries}X}
+      \multirow{2}{2cm}{#1}     & 
+      {$\lambda_D$} & {$P_e$}   &
+      \multirow{2}{2em}{{$Y$}}  & 
+      \multirow{2}{2em}{{$x$}}  & 
+      \multirow{2}{2em}{{$y$}}  & 
+      \multirow{2}{2em}{{$L*$}} & 
+      \multirow{2}{2em}{{$a*$}} & 
+      \multirow{2}{2em}{{$b*$}} & 
+      \multirow{2}{2cm}{Couleur associée}
+    \tabularnewline
+       & 
+      {(\si{\nm})} & {(\si{\percent})} &
+       & & & & & &
+    \tabularnewline
+    \otoprule
+
+    \BODY
+
+    \bottomrule
+  \end{tabularx}%
+}
+
+
+\NewEnviron{testtab}{%
+  \renewcommand{\tabularxcolumn}[1]{M{##1}}
+  \begin{tabularx}{1.0\textwidth}
+                  {>{\bfseries}X @{\qquad}
+                   SS @{\qquad} 
+                   SSS @{\qquad} 
+                   SSS @{\qquad} 
+                   >{\bfseries}X}
+    \toprule
+
+    Zone étudiée & 
+    {$\lambda_D$} & {$P_e$} &
+    {$Y$}  & {$x$}  & {$y$}  &
+    {$L*$} & {$a*$} & {$b*$} &
+    Couleur
+    \tabularnewline
+
+    \BODY
+
+    \bottomrule
+  \end{tabularx}
 }
