@@ -32,7 +32,7 @@ Dans les quatre autres zelliges, on trouve également des cristaux de dévitrifi
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}
   \begin{tikzpicture}
-    \pgfplotstableread{\datadir/SpectroRX/PaM_BDX_SRX_gla.dat}
+    \pgfplotstableread{\datadir/meb/eds/PaM_BDX_EDS_gla.dat}
                       {\gladata}
     \pgfplotstablesort[sort key={bilan}]{\glasorted}{\gladata}
 
@@ -102,7 +102,7 @@ La glaçure bleue ne contient quasiment pas d'oxyde d'aluminium, connu pour augm
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
   \begin{tikzpicture}
-    \pgfplotstableread{\datadir/SpectroRX/PaM_BDX_SRX_tc.dat}%
+    \pgfplotstableread{\datadir/meb/eds/PaM_BDX_EDS_tc.dat}%
                       {\tcdata}
     \pgfplotstablesort[sort key={bilan}]{\tcsorted}{\tcdata}
 

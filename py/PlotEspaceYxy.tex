@@ -7,13 +7,7 @@
 \usepackage[utf8]{inputenc}
 %
 \usepackage{pgfplots}
-% \usepgfplotslibrary{external}
-% \tikzexternalize[%
-%   system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}%
-% ]
-% \usepackage{tikz}
-% \usetikzlibrary{backgrounds}
-\pgfplotsset{compat=1.11}
+\pgfplotsset{compat=1.12}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -27,71 +21,74 @@
 % \end{tikzpicture}
 
 
-% \begin{tikzpicture}  % [show background rectangle]
+\begin{tikzpicture}  % [show background rectangle]
 
-%   \pgfplotstableread{PaV.dat}{\pavdata}
+  \pgfplotstableread{PaV.dat}{\pavdata}
 
-%   \begin{axis}[%
-%     xmin=0, xmax=0.9,
-%     ymin=0, ymax=0.9,
-%     width=10cm, height=10cm,
-%     xtick=\empty, ytick=\empty, 
-%     axis line style={white},
-%     % axis line style={gray!25!white, ultra thin},
-%     % hide axis=true,
-%     % grid=both,
-%     % xlabel=x, ylabel=y,
-%     clip mode=individual,
-%   ]
-
-%   \begin{scope}
-%     \clip plot file {CIE_espaces2D.dat} -- cycle ;
-
-%     \addplot[
-%       scatter,%
-%       only marks, mark=square*, mark size=0.7,
-%       scatter/@pre marker code/.code={%
-%         \edef\temp{%
-%           \noexpand\definecolor{mapped color}{rgb}{\pgfplotspointmeta}
-%         }%
-%         \temp
-%         \scope[draw=mapped color,fill=mapped color]%
-%       },%
-%       scatter/@post marker code/.code={%
-%         \endscope
-%       },%
-%       point meta={TeX code symbolic={%
-%         \edef\pgfplotspointmeta{%
-%           \thisrow{r},\thisrow{g},\thisrow{b}%
-%         }%
-%       }},
-%     ]
-%     table [x=x, y=y] {PaV.dat} ;
-%   \end{scope}
-
-%   \begin{scope}[thick, line cap=round, line join=round]
-%     \addplot [thick, mark=none]
-%        table {CIE_espaces2D.dat} -- cycle ;
-%     % \draw plot file {CIE_espaces2D.dat} -- cycle ;
-%   \end{scope}
-
-%   \end{axis}
-% \end{tikzpicture}
-
-
-\begin{tikzpicture}
-  \begin{axis}[
-    enlargelimits=false,
-    axis on top,
+  \begin{axis}[%
+    xmin=0, xmax=0.85,
+    ymin=0, ymax=0.85,
     width=10cm, height=10cm,
+    xtick=\empty, ytick=\empty, 
+    axis lines=left,
+    axis line style={white},
+    tick align=outside,
+    tick style={white, thin},
+    % axis line style={gray!25!white, ultra thin},
+    % hide axis=true,
+    % grid=both,
+    % xlabel=x, ylabel=y,
+    clip mode=individual,
   ]
-    \addplot graphics [
-      xmin=0, xmax=0.9,
-      ymin=0, ymax=0.9
+
+  \begin{scope}
+    \clip plot file {CIE_espaces2D.dat} -- cycle ;
+
+    \addplot[
+      scatter,%
+      only marks, mark=square*, mark size=0.6,
+      scatter/@pre marker code/.code={%
+        \edef\temp{%
+          \noexpand\definecolor{mapped color}{rgb}{\pgfplotspointmeta}
+        }%
+        \temp
+        \scope[draw=mapped color,fill=mapped color]%
+      },%
+      scatter/@post marker code/.code={%
+        \endscope
+      },%
+      point meta={TeX code symbolic={%
+        \edef\pgfplotspointmeta{%
+          \thisrow{r},\thisrow{g},\thisrow{b}%
+        }%
+      }},
     ]
-    {EspaceYxy};
+    table [x=x, y=y] {PaV.dat} ;
+  \end{scope}
+
+  \begin{scope}[thick, line cap=round, line join=round]
+    \addplot [thick, mark=none]
+       table {CIE_espaces2D.dat} -- cycle ;
+    % \draw plot file {CIE_espaces2D.dat} -- cycle ;
+  \end{scope}
+
   \end{axis}
 \end{tikzpicture}
+
+
+% \begin{tikzpicture}
+%   \begin{axis}[
+%     enlargelimits=false,
+%     axis on top,
+%     width=10cm, height=10cm,
+%   ]
+%     \addplot graphics [
+%       xmin=0, xmax=0.9,
+%       ymin=0, ymax=0.9
+%     ]
+%     {EspaceYxy};
+%   \end{axis}
+% \end{tikzpicture}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

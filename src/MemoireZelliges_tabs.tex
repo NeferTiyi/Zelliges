@@ -25,16 +25,18 @@
 }
 
 
+http://tex.stackexchange.com/questions/6910/bottomrule-not-working-in-a-self-made-environment
+
 % .. tabular for chromametry result ..
 % ====================================
-\newenvironment{saotab}[1][Zone \\ étudiée]
+\newenvironment{saotab}[1][Zone étudiée]
   {%
     \renewcommand{\tabularxcolumn}[1]{M{##1}}
     \noindent\ignorespaces%
     \smaller%
-    \setlength\tabcolsep{0}%
+    \setlength{\tabcolsep}{0pt}%
     \tabularx{1.0\textwidth}
-             {>{\bfseries}X @{\hspace*{2em}} 
+             {>{\bfseries}M{2cm} @{\hspace*{2em}} 
               SS @{\hspace*{2em}} 
               SSS @{\hspace*{2em}} 
               SSS @{\hspace*{2em}} 
@@ -47,7 +49,7 @@
         \multirow{2}{2em}{{$L*$}} & 
         \multirow{2}{2em}{{$a*$}} & 
         \multirow{2}{2em}{{$b*$}} & 
-        \multirow{2}{2cm}{Couleur\\associée}
+        \multirow{2}{2cm}{Couleur associée}
       \tabularnewline
          & 
         {(\si{\nm})} & {(\si{\percent})} &
