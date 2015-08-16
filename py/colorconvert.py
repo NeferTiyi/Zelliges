@@ -71,7 +71,7 @@ if __name__ == "__main__":
   ymax = 0.84
   valinc = 5.0e-3
 
-  Y = 1.
+  Y = 0.7
   obs = "2"
   ill = "d65"
 

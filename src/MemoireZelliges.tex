@@ -11,16 +11,16 @@
 ]{nefermemoir}
 
 \includeonly{%
-  % MemoireZelliges_Chap0_Intro,
-  % MemoireZelliges_Chap1_Contexte,
-  % MemoireZelliges_Chap2_Materiel_Methodo,
+  MemoireZelliges_Chap0_Intro,
+  MemoireZelliges_Chap1_Contexte,
+  MemoireZelliges_Chap2_Materiel_Methodo,
   MemoireZelliges_Chap3_Resultats_6528,
   MemoireZelliges_Chap3_Resultats_6529,
   MemoireZelliges_Chap3_Resultats_6530,
   MemoireZelliges_Chap3_Resultats_6531,
   MemoireZelliges_Chap3_Resultats_6532,
-  % MemoireZelliges_Chap4_Bilan_Persp,
-  % MemoireZelliges_Chap9_Abstract,
+  MemoireZelliges_Chap4_Bilan_Persp,
+  MemoireZelliges_Chap9_Abstract,
 }
 
 % Lua :
@@ -118,8 +118,6 @@
 
 \addtolength{\columnsep}{15pt}
 
-% \newcommand{\DirUtils}{../../../../utils}
-% \newcommand{\DirImage}{../../../../images}
 \newcommand{\rootdir}{..}
 \newcommand{\datadir}{\rootdir/data}
 \newcommand{\imgdir}{\rootdir/img}
@@ -168,54 +166,29 @@
   \framebox[\textwidth]{#1}
 }
 
+% \newcommand{\spectro}{{\color{red}spectrométrie}\xspace}
+% \newcommand{\carto}{{\color{red}cartographie}\xspace}
+% \newcommand{\trichro}{{\color{red}trichromatique}\xspace}
+% \newcommand{\trichros}{{\color{red}trichromatiques}\xspace}
+% \newcommand{\cristallo}{{\color{red}cristallographique}\xspace}
+% \newcommand{\cristallos}{{\color{red}cristallographiques}\xspace}
 
-\newcommand{\blackstar}{\ding{88}}
-\newcommand{\bluestar}{{\color{blue}\ding{88}}}
+% \newcommand{\RX}{{\color{red}rayons~X}\xspace}
+% \newcommand{\DX}{{\color{red}diffraction de \RX}\xspace}
+% \newcommand{\MEB}[1][e]{{\color{red}microscop#1 électronique à balayage}\xspace}
+% \newcommand{\CL}{{\color{red}cathodoluminescence}\xspace}
+% \newcommand{\AO}{{\color{red}absorption optique}\xspace}
+% \newcommand{\SAO}{{\color{red}\spectro d'\AO}\xspace}
+% \newcommand{\ERD}{{\color{red}électrons rétrodiffusés}\xspace}
+% \newcommand{\EDS}{{\color{red}\spectro de \RX en dispersion d'énergie}\xspace}
+% \newcommand{\CHRO}{{\color{red}chromamétrie}\xspace}
 
-\newcommand{\bdx}[1]{BDX\,#1\xspace}
-% \newcommand{\PaM}{palais Al-Mansour\xspace}
-\newcommand{\PaM}{{\color{red}palais Al-Mansour}\xspace}
-\newcommand{\Zell}[2][]{%
-  Zellige#1 monochrome#1 #2 provenant du \PaM, \scl{xvii}\xspace
-}
-\newcommand{\zlaygi}{\emph{zl\={a}y\u{g}\={\i}}\xspace}
-\newcommand{\hatim}{\emph{h\={a}tim}\xspace}
+% \newcommand{\DimText}{%
+%   \emph{Dimensions} (L\,\texttimes\,l\,\texttimes\,e)\xspace%
+% }
 
-\newcommand{\legendeA}{Meknès (Maroc), \bdx{6528}. \Zell{vert}}
-\newcommand{\legendeB}{Meknès (Maroc), \bdx{6529}. \Zell{bleu vert}}
-\newcommand{\legendeC}{Meknès (Maroc), \bdx{6530}. \Zell{noir}}
-\newcommand{\legendeD}{Meknès (Maroc), \bdx{6531}. \Zell{miel}}
-\newcommand{\legendeE}{Meknès (Maroc), \bdx{6532}. \Zell{blanc}}
-
-\newcommand{\legendeAll}{%
-  Meknès (Maroc), \bdx{6528}, \bdx{6529}, \bdx{6530}, \bdx{6531} et 
-  \bdx{6532}. \Zell[s]{vert, bleu, noir, miel et blanc}%
-}
-
-\newcommand{\Yxy}{\ensuremath{Yxy}\xspace}
-\newcommand{\Lab}{\ensuremath{L^*a^*b^*}\xspace}
-
-\newcommand{\spectro}{{\color{red}spectrométrie}\xspace}
-\newcommand{\carto}{{\color{red}cartographie}\xspace}
-\newcommand{\trichro}{{\color{red}trichromatique}\xspace}
-\newcommand{\cristallo}{{\color{red}cristallographique}\xspace}
-
-\newcommand{\RX}{{\color{red}rayons~X}\xspace}
-\newcommand{\DX}{{\color{red}diffraction de \RX}\xspace}
-\newcommand{\MEB}[1][e]{{\color{red}microscop#1 électronique à balayage}\xspace}
-\newcommand{\CL}{{\color{red}cathodoluminescence}\xspace}
-\newcommand{\AO}{{\color{red}absorption optique}\xspace}
-\newcommand{\SAO}{{\color{red}\spectro d'\AO}\xspace}
-\newcommand{\ERD}{{\color{red}électrons rétrodiffusés}\xspace}
-\newcommand{\EDS}{{\color{red}\spectro de \RX en dispersion d'énergie}\xspace}
-\newcommand{\CHRO}{{\color{red}chromamétrie}\xspace}
-
-\newcommand{\DimText}{%
-  \emph{Dimensions} (L\,\texttimes\,l\,\texttimes\,e)\xspace%
-}
-
-\newcommand{\PMO}{{\color{red}\si{\percent} massique d'oxyde}\xspace}
-\newcommand{\zone}[2]{{\color{red}zone analysée : \SI{#1}{#2}}\xspace}
+% \newcommand{\PMO}{{\color{red}\si{\percent} massique d'oxyde}\xspace}
+% \newcommand{\zone}[2]{{\color{red}zone analysée : \SI{#1}{#2}}\xspace}
 
 
 \newenvironment{motsclef}{%
@@ -233,11 +206,12 @@
 }
 
 
-\newcommand{\sclnum}[1]{\bsc{#1}\ieme}
-\newcommand{\scl}[1]{\sclnum{#1}~s.}
-\renewcommand{\siecle}[1]{\sclnum{#1}~siècle}
+% \newcommand{\sclnum}[1]{\bsc{#1}\ieme}
+% \newcommand{\scl}[1]{\sclnum{#1}~s.}
+% \renewcommand{\siecle}[1]{\sclnum{#1}~siècle}
 
 
+\input{MemoireZelliges_alias}
 \input{MemoireZelliges_tabs}
 \input{MemoireZelliges_tikz}
 \input{MemoireZelliges_plots}
@@ -281,6 +255,8 @@
 
 \frontmatter
 \tableofcontents*
+
+\include{MemoireZelliges_Chap0_Intro}
 
 \mainmatter
 \part{Contexte de l'étude}
