@@ -1,45 +1,90 @@
 %!TEX root = MemoireZelliges.tex
 
-\begin{center}
 \thispagestyle{empty}
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=north,
+  inner sep=0, outer sep=1cm,
+]
 
-{\LARGE
-Programme PACT ARCHI-MED Glaçures -- II\par
-}
+  \node at (current page.north) {
 
-% \vspace*{-0.75\baselineskip}
 
-\rule{.5\textwidth}{1pt}
+    \begin{tikzpicture}
+      \node (A) at (0.00, 0.00) [
+        draw, double distance=2pt, thick,
+        text width=0.85\paperwidth, % align=right,
+        inner sep=6pt,
+      ] {
+
+        \begin{minipage}{5cm}
+          \includegraphics[width=5cm]{logo_CRPAA}
+        \end{minipage}%
+        \hfill%
+        \begin{minipage}{12cm}
+          \RaggedLeft
+          Université de Bordeaux~3 -- Université de Bordeaux~1
+
+          3\ieme~cycle -- \textbf{D.E.S.S.}\\
+          \textbf{\frquote{MÉTHODES PHYSIQUES EN ARCHÉOLOGIE ET 
+          MUSÉOGRAPHIE}}
+
+          COMPTE RENDU DU STAGE DE RECHERCHE EFFECTUÉ AU\\
+          \textbf{C.R.P.A.A.} \quad UMR CNRS~5060\\
+          \textbf{C}entre de \textbf{R}echerche en \textbf{P}hysique 
+          \textbf{A}ppliquée à L'\textbf{A}rchéologie\\
+          \textbf{Maison de l'archéologie,} Esplanade des Antilles, 
+          Domaine Universitaire,\\
+          33607 - PESSAC cedex, FRANCE\\
+          Tél. : 05.57.12.45.53 \quad Fax : 05.57.12.45.50
+        \end{minipage}
+      } ;
+
+      \node (B) [below=1cm of A.south] 
+            {\LARGE Programme PACT ARCHI-MED Glaçures -- II} ;
+    \end{tikzpicture}
+
+  } ;
+
+\end{tikzpicture}
+
+% \begin{center}
+% {\LARGE
+% Programme PACT ARCHI-MED Glaçures -- II\par
+% }
+
+% % \vspace*{-0.75\baselineskip}
+
+% \rule{.5\textwidth}{1pt}
+
+% % \bigskip
+
+% {\bfseries\huge
+% \MakeUppercase{Contribution à la réhabilitation architecturale du 
+% \PaM, Meknès, Maroc, \siecle{xvii}}
 
 % \bigskip
 
-{\bfseries\huge
-\MakeUppercase{Contribution à la réhabilitation architecturale du 
-\PaM, Meknès, Maroc, \siecle{xvii}}
+% Recherche des caractéristiques physiques de zelliges de pavement
+% }
 
-\bigskip
+% \vfill
 
-Recherche des caractéristiques physiques de zelliges de pavement
-}
+% \includegraphics[width=10cm]{zellige_01}
 
-\vfill
+% \vfill
 
-\includegraphics[width=10cm]{zellige_01}
+% \textbf{\Large LABETOULE Sonia}
 
-\vfill
+% {\itshape
+% Maître ès Sciences \par
+% (Chimie physique) \par
+% }
 
-\textbf{\Large LABETOULE Sonia}
+% \vfill
 
-{\itshape
-Maître ès Sciences \par
-(Chimie physique) \par
-}
-
-\vfill
-
-\framebox[\textwidth]{\small Juin~2000 \hfill MÉMOIRES DE LA SÉRIE 
-\textbf{\frquote{FORMATION À ET PAR LA RECHERCHE}} \hfill \no441. DESS}
-\end{center}
+% \framebox[\textwidth]{\small Juin~2000 \hfill MÉMOIRES DE LA SÉRIE 
+% \textbf{\frquote{FORMATION À ET PAR LA RECHERCHE}} \hfill \no441. DESS}
+% \end{center}
 
 
 
