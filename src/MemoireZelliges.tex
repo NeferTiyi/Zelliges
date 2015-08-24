@@ -206,6 +206,106 @@
 }
 
 
+
+
+
+\makeatletter
+
+\renewcommand{\maketitle}{%
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=north,
+  inner sep=0, outer sep=1cm,
+]
+  \node at (current page.north) {
+    \begin{tikzpicture}
+      \node (A) at (0.00, 0.00) [%
+        draw, double distance=2pt, thick,
+        text width=0.85\paperwidth, % align=right,
+        inner sep=6pt,
+      ] {%
+        \begin{minipage}{5cm}
+          \includegraphics[width=5cm]{logo_CRPAA}
+        \end{minipage}%
+        \hfill%
+        \begin{minipage}{12cm}
+          \RaggedLeft
+          Université de Bordeaux~3 -- Université de Bordeaux~1
+
+          3\ieme~cycle -- \textbf{D.E.S.S.}\\
+          \textbf{\frquote{MÉTHODES PHYSIQUES EN ARCHÉOLOGIE ET 
+          MUSÉOGRAPHIE}}
+
+          COMPTE RENDU DU STAGE DE RECHERCHE EFFECTUÉ AU\\
+          \textbf{C.R.P.A.A.} \quad UMR CNRS~5060\\
+          \textbf{C}entre de \textbf{R}echerche en \textbf{P}hysique 
+          \textbf{A}ppliquée à L'\textbf{A}rchéologie\\
+          \textbf{Maison de l'archéologie,} Esplanade des Antilles, 
+          Domaine Universitaire,\\
+          33607 - PESSAC cedex, FRANCE\\
+          Tél. : 05.57.12.45.53 \quad Fax : 05.57.12.45.50
+        \end{minipage}
+      } ;
+    \end{tikzpicture}
+  } ;
+\end{tikzpicture}
+
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=south,
+  inner sep=0, outer sep=1cm,
+]
+  \node at (current page.south) {
+    \begin{tikzpicture}
+      \node (F) at (0.00, 0.00) [%
+        % below=1cm of E.south, 
+        draw, thick, 
+        text width=0.85\paperwidth, 
+        inner sep=3pt,
+      ] {%
+        \small Juin~2000 \hfill 
+        MÉMOIRES DE LA SÉRIE \textbf{\frquote{FORMATION À ET PAR LA 
+        RECHERCHE}} \hfill 
+        \textbf{\no441.} DESS
+      } ;
+    \end{tikzpicture}
+  } ;
+\end{tikzpicture}
+
+\begin{center}
+\vfill
+
+{\LARGE
+Programme PACT ARCHI-MED Glaçures -- II\par
+}
+
+\rule{.5\textwidth}{1pt}
+
+{\bfseries\huge
+\MakeUppercase{Contribution à la réhabilitation architecturale du 
+\PaM, Meknès, Maroc, \siecle{xvii}}
+
+\bigskip
+
+Recherche des caractéristiques physiques de zelliges de pavement
+}
+
+\vfill
+
+\includegraphics[width=10cm]{zellige_01}
+
+\vfill
+
+\textbf{\Large LABETOULLE Sonia}
+
+\emph{Maître ès Sciences\\(Chimie physique)}\par
+\end{center}
+}
+
+\makeatother
+
+
+
+
+
 % \newcommand{\sclnum}[1]{\bsc{#1}\ieme}
 % \newcommand{\scl}[1]{\sclnum{#1}~s.}
 % \renewcommand{\siecle}[1]{\sclnum{#1}~siècle}
@@ -289,6 +389,62 @@
 
 \nocite{*}
 \printbibliography[heading=memoir,title=Bibliographie]
+
+\begin{tabular}{*{34}{c}}
+    BDX\,\no & Nature & Photo & Dessin & DX & 
+    Photo & Mavica & Num. & 
+    Image & $\micro$fluo\,X & 
+    \SI{77}{\kelvin} & l.onde & Image & 
+    \SI{77}{\kelvin} & l.onde & Photo & Mavica & Num. &
+    Spectro gamma & Chroma & ATD & Absorp optique & PL & 
+    \SI{20}{\degC} & l.onde & Photo & 
+    OSL & IRSL & \ce{He} &
+    \SI{77}{\kelvin} & \SI{20}{\degC} & 
+    \SI{77}{\kelvin} & \SI{20}{\degC} & Raman
+  \tabularnewline
+    6528 & céram. gla. & \texttimes & \texttimes & \texttimes & 
+     & \texttimes & & 
+    \texttimes & \texttimes & 
+     & & & 
+     & & \texttimes & &
+     & & & \texttimes & & 
+     & & & & & & & & & &
+  \tabularnewline
+    6529 & céram. gla. & \texttimes & \texttimes & \texttimes & 
+     & \texttimes & & 
+    \texttimes & \texttimes & 
+     & & & 
+     & & \texttimes & &
+     & & & \texttimes & & 
+     & & & & & & & & & &
+  \tabularnewline
+    6530 & céram. gla. & \texttimes & \texttimes & \texttimes & 
+     & \texttimes & & 
+    \texttimes & \texttimes & 
+     & & & 
+     & & \texttimes & &
+     & & & \texttimes & & 
+     & & & & & & & & & &
+  \tabularnewline
+    6531 & céram. gla. & \texttimes & \texttimes & \texttimes & 
+     & \texttimes & & 
+    \texttimes & \texttimes & 
+     & & & 
+     & & \texttimes & &
+     & & & \texttimes & & 
+     & & & & & & & & & &
+  \tabularnewline
+    6532 & céram. gla. & \texttimes & \texttimes & \texttimes & 
+     & \texttimes & & 
+    \texttimes & \texttimes & 
+     & & & 
+     & & \texttimes & &
+     & & & \texttimes & & 
+     & & & & & & & & & &
+  \tabularnewline
+
+
+\end{tabular}
 
 \cleardoublepage
 \pagestyle{empty}
