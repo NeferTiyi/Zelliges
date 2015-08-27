@@ -2,6 +2,7 @@ ROOTDOC := "MemoireZelliges"
 
 RM := rm -vf
 LTXMK := latexmk -pdf
+# LTXMK := latexmk -pdf -pdflatex=lualatex
 LTXCL := latexmk -f
 
 # You want latexmk to *always* run, because make does not have all 
@@ -15,8 +16,33 @@ LTXCL := latexmk -f
 # the target, and '$<' is a variable holding the (first) dependancy 
 # of a rule.
 
+
+
+# MemoireZelliges_alias.tex
+# MemoireZelliges_Chap0_Intro.tex
+# MemoireZelliges_Chap1_Contexte.tex
+# MemoireZelliges_Chap2_Materiel_Methodo.tex
+# MemoireZelliges_Chap3_Resultats_6528.tex
+# MemoireZelliges_Chap3_Resultats_6529.tex
+# MemoireZelliges_Chap3_Resultats_6530.tex
+# MemoireZelliges_Chap3_Resultats_6531.tex
+# MemoireZelliges_Chap3_Resultats_6532.tex
+# MemoireZelliges_Chap4_Bilan_Persp.tex
+# MemoireZelliges_Chap9_Abstract.tex
+# MemoireZelliges_plots.tex
+# MemoireZelliges_tabs.tex
+# MemoireZelliges.tex
+# MemoireZelliges_tikz.tex
+# neferlicence.tex
+
+
+
 # HTXSRCS := $(shell ls *.htx)
 # HTXOBJS := $(HTXSRCS:.htx=.tex)
+
+TEXOBJS := $(shell ls $(ROOTDOC)*.tex)
+TEXAUX  := $(TEXOBJS:.tex=.aux)
+
 TMPOBJS := $(ROOTDOC).bbl \
 	   $(ROOTDOC).dic \
 	   $(ROOTDOC).run.xml
@@ -41,13 +67,13 @@ $(ROOTDOC).pdf:
 
 # Cleaning
 cleantmp:
-	@$(RM) $(HTXOBJS) $(TMPOBJS)
+	@$(RM) $(TEXAUX) $(TMPOBJS)
 
 cleanltxc:
-	$(LTXCL) -c ($ROOTDOC).tex
+	$(LTXCL) -c $(ROOTDOC).tex
 
 cleanltxC:
-	$(LTXCL) -C ($ROOTDOC).tex
+	$(LTXCL) -C $(ROOTDOC).tex
 
 clean: cleanltxc cleantmp
 
