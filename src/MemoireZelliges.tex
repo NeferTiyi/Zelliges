@@ -12,15 +12,15 @@
 
 \includeonly{%
   MemoireZelliges_Chap0_Intro,
-  % MemoireZelliges_Chap1_Contexte,
-  % MemoireZelliges_Chap2_Materiel_Methodo,
-  % MemoireZelliges_Chap3_Resultats_6528,
-  % MemoireZelliges_Chap3_Resultats_6529,
-  % MemoireZelliges_Chap3_Resultats_6530,
-  % MemoireZelliges_Chap3_Resultats_6531,
-  % MemoireZelliges_Chap3_Resultats_6532,
-  % MemoireZelliges_Chap4_Bilan_Persp,
-  % MemoireZelliges_Chap9_Abstract,
+  MemoireZelliges_Chap1_Contexte,
+  MemoireZelliges_Chap2_Materiel_Methodo,
+  MemoireZelliges_Chap3_Resultats_6528,
+  MemoireZelliges_Chap3_Resultats_6529,
+  MemoireZelliges_Chap3_Resultats_6530,
+  MemoireZelliges_Chap3_Resultats_6531,
+  MemoireZelliges_Chap3_Resultats_6532,
+  MemoireZelliges_Chap4_Bilan_Persp,
+  MemoireZelliges_Chap9_Abstract,
 }
 
 % Lua :
@@ -48,7 +48,7 @@
 % \usepackage{pdfpages}
 % \usepackage{multicol}
 % \usepackage{minitoc}
-% \usepackage{rotating}
+\usepackage{rotating}
 \usepackage[version=3]{mhchem}
 % \usepackage{neferkheops}
 \usepackage{environ}
@@ -298,12 +298,15 @@ Recherche des caractéristiques physiques de zelliges de pavement
 
 \emph{Maître ès Sciences\\(Chimie physique)}\par
 \end{center}
+\newpage
 }
 
 \makeatother
 
 
-
+\DeclareRobustCommand{\arabzell}{%
+  \texorpdfstring{\RL{zly^g}}{}
+}
 
 
 % \newcommand{\sclnum}[1]{\bsc{#1}\ieme}
@@ -442,8 +445,6 @@ Recherche des caractéristiques physiques de zelliges de pavement
      & & & \texttimes & & 
      & & & & & & & & & &
   \tabularnewline
-
-
 \end{tabular}
 
 \cleardoublepage
