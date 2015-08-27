@@ -21,81 +21,137 @@
 }
 
 \newcommand{\squeletteb}{%
-    \draw [domain=-1:1] plot( \x, {-\x} ) ;
-    \draw [domain=-2:2] plot( 0, \x ) ;
-    \draw [domain=0:{2-2*sqrt(2)}] plot(-2, \x ) ;
-    \draw [domain=0:{2*sqrt(2)-2}] plot( 2, \x ) ;
-    \draw [domain=-2:2] plot( \x, {+sqrt(2)} ) ;
-    \draw [domain=-2:2] plot( \x, {-sqrt(2)}   ) ;
-    \draw [domain=0:5]  plot( \x, {+sqrt(2)+2} ) ;
-    \draw [domain=-5:0] plot( \x, {-sqrt(2)-2}   ) ;
+  \draw [domain=-1:1] plot( \x, {-\x} ) ;
+  \draw [domain=-2:2] plot( 0, \x ) ;
+  \draw [domain=0:{2-2*sqrt(2)}] plot(-2, \x ) ;
+  \draw [domain=0:{2*sqrt(2)-2}] plot( 2, \x ) ;
+  \draw [domain=-2:2] plot( \x, {+sqrt(2)} ) ;
+  \draw [domain=-2:2] plot( \x, {-sqrt(2)}   ) ;
+  \draw [domain=0:5]  plot( \x, {+sqrt(2)+2} ) ;
+  \draw [domain=-5:0] plot( \x, {-sqrt(2)-2}   ) ;
 
-    \draw [domain=2:1] plot(\x, {-\x + 2*sqrt(2)}) ;
-    \draw [domain=-2:-1] plot(\x, {-\x - 2*sqrt(2)}) ;
+  \draw [domain=2:1] plot(\x, {-\x + 2*sqrt(2)}) ;
+  \draw [domain=-2:-1] plot(\x, {-\x - 2*sqrt(2)}) ;
 
-    \draw [domain=-1:-3] plot( \x, {\x + 2}) ;
-    \draw [domain=1:3] plot( \x, {\x - 2}) ;
-    \draw [domain=-6:-2] plot( \x, {\x + 2*sqrt(2) + 2}) ;
-    \draw [domain=2:6] plot( \x, {\x - 2*sqrt(2) - 2}) ;
+  \draw [domain=-1:-3] plot( \x, {\x + 2}) ;
+  \draw [domain=1:3] plot( \x, {\x - 2}) ;
+  \draw [domain=-6:-2] plot( \x, {\x + 2*sqrt(2) + 2}) ;
+  \draw [domain=2:6] plot( \x, {\x - 2*sqrt(2) - 2}) ;
 
-    \filldraw [shift={( 1 , {-sqrt(2)-1} )}] 
-          \drawhatim ;
-    \filldraw [shift={( -1 , {sqrt(2)+1} )}] 
-          \drawhatim ;
-    \filldraw [shift={( {-2*sqrt(2)-3} , {-sqrt(2)-1} )}] 
-          \drawhatim ;
-    \filldraw [shift={( {2*sqrt(2)+3} , {sqrt(2)+1} )}] 
-          \drawhatim ;
+  \filldraw [shift={( 1 , {-sqrt(2)-1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( -1 , {sqrt(2)+1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2*sqrt(2)-3} , {-sqrt(2)-1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {2*sqrt(2)+3} , {sqrt(2)+1} )}] 
+    \drawhatim ;
 
-    \filldraw [shift={( {-sqrt(2)-1} , {-sqrt(2)-1} )}] 
-          \drawsaft ;
-    \filldraw [shift={( {sqrt(2)+1} , {sqrt(2)+1} )}] 
-          \drawsaft ;
-    \filldraw [shift={( {-sqrt(2)-2} , 0 )}, rotate=45] 
-          \drawsaft ;
-    \filldraw [shift={( {sqrt(2)+2} , 0 )}, rotate=45] 
-          \drawsaft ;
+  \filldraw [shift={( {-sqrt(2)-1} , {-sqrt(2)-1} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {sqrt(2)+1} , {sqrt(2)+1} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {-sqrt(2)-2} , 0 )}, rotate=45] 
+    \drawsaft ;
+  \filldraw [shift={( {sqrt(2)+2} , 0 )}, rotate=45] 
+    \drawsaft ;
 }
 
 \newcommand{\squelettea}{%
-    \begin{scope}
-      \clip (-4,-4) rectangle (4,4) ;
-      \draw plot( \x, {\x + sqrt(2)}) ;
-      \draw plot( \x, {\x - sqrt(2)}) ;
-      \draw plot(-\x, {\x + sqrt(2)}) ;
-      \draw plot(-\x, {\x - sqrt(2)}) ;
-    \end{scope}
+  \begin{scope}
+    \clip (-4,-4) rectangle (4,4) ;
+    \draw plot( \x, {\x + sqrt(2)}) ;
+    \draw plot( \x, {\x - sqrt(2)}) ;
+    \draw plot(-\x, {\x + sqrt(2)}) ;
+    \draw plot(-\x, {\x - sqrt(2)}) ;
+  \end{scope}
 
-    \draw ( {-1-sqrt(2)} , {-1-sqrt(2)} ) rectangle
-          ( {+1+sqrt(2)} , {+1+sqrt(2)} ) ;
-    \draw ( {-3-sqrt(2)} , {-3-sqrt(2)} ) rectangle
-          ( {+3+sqrt(2)} , {+3+sqrt(2)} ) ;
+  \draw ( {-1-sqrt(2)} , {-1-sqrt(2)} ) rectangle
+        ( {+1+sqrt(2)} , {+1+sqrt(2)} ) ;
+  \draw ( {-3-sqrt(2)} , {-3-sqrt(2)} ) rectangle
+        ( {+3+sqrt(2)} , {+3+sqrt(2)} ) ;
 
-    \filldraw [shift={( {+2+sqrt(2)} , {+2+sqrt(2)} )}] 
-              \drawhatim ;
-    \filldraw [shift={( {+2+sqrt(2)} , {-2-sqrt(2)} )}] 
-              \drawhatim ;
-    \filldraw [shift={( {-2-sqrt(2)} , {+2+sqrt(2)} )}] 
-              \drawhatim ;
-    \filldraw [shift={( {-2-sqrt(2)} , {-2-sqrt(2)} )}] 
-              \drawhatim ;
+  \filldraw [shift={( {+2+sqrt(2)} , {+2+sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {+2+sqrt(2)} , {-2-sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2-sqrt(2)} , {+2+sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2-sqrt(2)} , {-2-sqrt(2)} )}] 
+    \drawhatim ;
 
-    \filldraw [shift={( 0 , {-2-sqrt(2)} )}] 
-              \drawsaft ;
-    \filldraw [shift={( 0 , {+2+sqrt(2)} )}] 
-              \drawsaft ;
-    \filldraw [shift={( {-2-sqrt(2)} , 0 )} , rotate=90] 
-              \drawsaft ;
-    \filldraw [shift={( {+2+sqrt(2)} , 0 )} , rotate=90] 
-              \drawsaft ;
-
-
+  \filldraw [shift={( 0 , {-2-sqrt(2)} )}] 
+    \drawsaft ;
+  \filldraw [shift={( 0 , {+2+sqrt(2)} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {-2-sqrt(2)} , 0 )} , rotate=90] 
+    \drawsaft ;
+  \filldraw [shift={( {+2+sqrt(2)} , 0 )} , rotate=90] 
+    \drawsaft ;
 }
-
-
 
 % Fawrkat
 % \fill[color=ffqqff,fill=ffqqff,fill opacity=0.1] (0.414,-1) -- (-1,-1) -- (-2,0) -- (-1,1) -- (0.414,1) -- (0.414,0.414) -- (0,0) -- (0.414,-0.414) -- cycle;
 
+
+\newcommand{\poiremeb}{%
+  \begin{scope}[
+    scale=0.25,
+    % thick,
+    every node/.style={font=\footnotesize},
+  ]
+  % RX
+  \draw [draw=yellow]
+        ( 1.91,  -3.20) .. controls ( 2.09,  -4.04) and ( 2.34,  -4.64) ..
+        ( 2.60,  -5.10) .. controls ( 3.11,  -6.02) and ( 3.48,  -6.46) ..
+        ( 4.10,  -7.40) .. controls ( 5.73,  -9.88) and ( 6.60, -12.98) ..
+        ( 5.00, -15.40) .. controls ( 3.86, -17.13) and ( 2.40, -18.10) ..
+        ( 0.00, -18.10) .. controls (-2.40, -18.10) and (-3.86, -17.13) ..
+        (-5.00, -15.40) .. controls (-6.60, -12.98) and (-5.73,  -9.88) ..
+        (-4.10,  -7.40) .. controls (-3.48,  -6.46) and (-3.11,  -6.02) ..
+        (-2.60,  -5.10) .. controls (-2.34,  -4.64) and (-2.09,  -4.04) ..
+        (-1.91,  -3.20) ;
+
+  % contour interne
+  \draw [draw=green]
+        ( 1.10,  -0.60) .. controls ( 1.26,  -4.60) and ( 2.25,  -5.34) .. 
+        ( 3.40,  -7.10) .. controls ( 5.03,  -9.60) and ( 5.60, -12.08) .. 
+        ( 4.20, -14.30) .. controls ( 3.20, -15.90) and ( 1.85, -16.50) .. 
+        ( 0.00, -16.50) .. controls (-1.85, -16.50) and (-3.20, -15.90) .. 
+        (-4.20, -14.30) .. controls (-5.60, -12.08) and (-5.03,  -9.60) .. 
+        (-3.40,  -7.10) .. controls (-2.25,  -5.34) and (-1.26,  -4.60) .. 
+        (-1.10,  -0.60) ;
+
+  % fluo X
+  \draw [draw=violet]
+        ( 1.50,  -0.60) .. controls ( 1.54,  -4.63) and ( 3.91,  -6.20) ..
+        ( 5.00,  -7.90) .. controls ( 6.02,  -9.50) and ( 6.63, -11.18) ..
+        ( 6.60, -13.20) .. controls ( 6.54, -17.84) and ( 2.98, -19.80) ..
+        ( 0.00, -19.80) .. controls (-2.98, -19.80) and (-6.54, -17.84) ..
+        (-6.60, -13.20) .. controls (-6.54, -11.18) and (-6.02,  -9.50) ..
+        (-5.00,  -7.90) .. controls (-3.91,  -6.20) and (-1.54,  -4.63) ..
+        (-1.50,  -0.60) ;
+
+  % faisceau
+  \draw [draw=blue]
+        (-3.00, 7.70) -- (-1.50, 0.00) -- ( 0.00,  0.00) -- 
+        ( 1.50, 0.00) -- ( 3.00, 7.70) 
+        node [right, text width=2.5cm] {faisceau incident d'électrons} ;
+
+  % surface échantillon
+  \draw [draw=red]
+        (-14.00,   0.00) -- ( 14.00,   0.00) 
+        node [pos=1, above] {surface de l'échantillon} ;
+  % path5510
+  \draw [draw=red]
+        ( -1.47,  -3.50) -- (  1.47,  -3.50) ;
+  % path5444
+  \draw [draw=red]
+        ( -4.97, -11.10) -- (  4.97, -11.10) ;
+  % augier
+  \draw [draw=orange]
+        (-1.50, 0.00) rectangle ( 1.50, -0.60) ;
+  \end{scope}
+}
 
 
