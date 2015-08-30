@@ -204,7 +204,9 @@ sensiblement de ceux obtenus avec le spectrophotomètre seul (Baras,
 Cette méthode est non-destructive et ne nécessite aucun prélèvement de 
 matière. Les mesures sont effectuées directement sur l'échantillon.
 
-Les spectres d'\AO présentés sont ceux de l'objet composite (glaçure + terre cuite). Ils n'ont pas été corrigés de la contribution du support céramique lorsque la glaçure est transparente.
+Les spectres d'\AO présentés sont ceux de l'objet composite (glaçure + 
+terre cuite). Ils n'ont pas été corrigés de la contribution du support 
+céramique lorsque la glaçure est transparente.
 
 \subsection[Chromamétrie]{Mesure physique de la couleur : \CHRO}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,52 +229,55 @@ graphiques choisis correspondent aux systèmes \Yxy (CIE~1931)
 
 Le système \Lab peut être déduit du système \Yxy par transformation 
 non linéaire :
+\begin{align}
+  \CIEL & =\ 116\ \left(\frac{Y}{\Yn}\right)^{1/3} - 16 \\
+%
+  \CIEa & =\ 500\ \left[%
+      \left(\frac{X}{\Xn}\right)^{1/3} - %
+      \left(\frac{Y}{\Yn}\right)^{1/3}%
+    \right] \\
+%
+  \CIEb & =\ 200\ \left[%
+      \left(\frac{Y}{\Yn}\right)^{1/3} - %
+      \left(\frac{Z}{\Zn}\right)^{1/3}%
+    \right]
+\end{align}
 
-\begin{equation*}
-  L^* = 116 \times \left(\frac{Y}{Y_n}\right)^{1/3} - 16
-\end{equation*}
+\noindent
+avec\quad $ \left\{\begin{lgathered}%[t]
+  \begin{pmatrix}\Xn\\\Yn\\\Zn\end{pmatrix}\ 
+  \text{coordonnées du point de référence}\\
+  %
+  \displaystyle\frac{X}{\Xn}\text{, }
+  \displaystyle\frac{X}{\Xn}\text{, }
+  \displaystyle\frac{X}{\Xn}\ >\ 0,008856
+\end{lgathered}\right.$
 
-\begin{equation*}
-  a^* = 500 \times \left\{%
-      \left(\frac{X}{X_n}\right)^{1/3} - 
-      \left(\frac{Y}{Y_n}\right)^{1/3}%
-    \right\}
-\end{equation*}
+\bigskip
 
-\begin{equation*}
-  b^* = 200 \times \left\{%
-      \left(\frac{Y}{Y_n}\right)^{1/3} - 
-      \left(\frac{Z}{Z_n}\right)^{1/3}%
-    \right\}
-\end{equation*}
+Les paramètres \CIEY et \CIEL représentent la réflectance, c'est 
+à dire la fraction de l'intensité de lumière réfléchie par l'aire 
+examinée. Les paramètres \CIEx et \CIEy indiquent respectivement 
+la proportion de photons rouges et verts dans la lumière réfléchie. 
+\CIEz, représentant la composante bleu, est relié à \CIEx et \CIEy 
+par :
+\begin{equation}
+  \CIEx + \CIEy + \CIEz = 1
+\end{equation}
 
-\noindent 
-Avec $\frac{X}{X_n}$, $\frac{Y}{Y_n}$, $\frac{Z}{Z_n} > 0,008856$ \\
-et $X_n$, $Y_n$, $Z_n$ : coordonnées du point de référence
-
-Les paramètres $Y$ et $L^*$ représentent la réflectance, c'est à dire 
-la fraction de l'intensité de lumière réfléchie par l'aire examinée. 
-Les paramètres $x$ et $y$ indiquent respectivement la proportion de 
-photons rouges et verts dans la lumière réfléchie. $z$, représentant 
-la composante bleu, est relié à $x$ et $y$ par :
-
-\begin{equation*}
-  x + y + z = 1
-\end{equation*}
-
-$a^*$ représente la composante chromatique rouge-vert et $b*$ la 
-composante bleu-jaune. L'espace \Lab, obtenu par transformation 
-non linéaire de l'espace \Yxy, est particulièrement utilisé car 
-c'est un espace uniforme : la distance de deux points de couleur 
-est proportionnelle aux différences perçues par l'{\oe}il entre les 
+\CIEa représente la composante chromatique rouge-vert et \CIEb la 
+composante bleu-jaune. L'espace \Lab, obtenu par transformation non 
+linéaire de l'espace \Yxy, est particulièrement utilisé car c'est 
+un espace uniforme : la distance de deux points de couleur est 
+proportionnelle aux différences perçues par l'{\oe}il entre les 
 réalisations colorées. Il est plus difficile de faire une corrélation 
 entre écart chromatique et écart visuel dans le système \Yxy. 
 En revanche, il permet l'obtention aisée de la longueur d'onde 
-dominante $\lambda_d$ du rayonnement, c'est à dire la longueur d'onde 
-de la radiation spectrale qui, mélangée à une quantité appropriée de 
-lumière blanche donne une égalisation colorimétrique de la couleur 
-donnée, et de la pureté d'excitation représentant la quantité de 
-lumière saturée caractérisée par $\lambda_d$ dans le rayonnement.
+dominante \WLd du rayonnement, c'est à dire la longueur d'onde de la 
+radiation spectrale qui, mélangée à une quantité appropriée de lumière 
+blanche donne une égalisation colorimétrique de la couleur donnée, et 
+de la pureté d'excitation représentant la quantité de lumière saturée 
+caractérisée par \WLd dans le rayonnement.
 
 \begin{figure}[htb]
   \begin{minipage}[b]{0.40\textwidth}%
@@ -283,8 +288,8 @@ lumière saturée caractérisée par $\lambda_d$ dans le rayonnement.
       \begin{scope}[x={(image.south east)}, y={(image.north west)}]
         % \draw [step=0.05, help lines, white] (0, 0) grid (1, 1) ;
 
-        \node [above] at ( 0.00, 1.00) {$\mathbf{y}$} ;
-        \node [above right] at ( 1.00, 0.00) {$\mathbf{x}$} ;
+        \node [above] at ( 0.00, 1.00) {\CIEyb} ;
+        \node [above right] at ( 1.00, 0.00) {\CIExb} ;
       \end{scope}
     \end{tikzpicture}
     \subcaption{Système \Yxy (CIE~1931)\label{fig:Yxy}}
@@ -298,9 +303,9 @@ lumière saturée caractérisée par $\lambda_d$ dans le rayonnement.
       \begin{scope}[x={(image.south east)}, y={(image.north west)}]
         % \draw [step=0.05, help lines, red] (0, 0) grid (1, 1) ;
 
-        \node at ( 0.30, 0.90) {$\mathbf{L*}$} ;
-        \node at ( 0.52, 0.25) {$\mathbf{b*}$} ;
-        \node at ( 0.83, 0.67) {$\mathbf{a*}$} ;
+        \node at ( 0.30, 0.90) {\CIELb} ;
+        \node at ( 0.52, 0.25) {\CIEbb} ;
+        \node at ( 0.83, 0.67) {\CIEab} ;
       \end{scope}
     \end{tikzpicture}
     \subcaption{Système \Lab (CIE~1976)\label{fig:Lab}}
@@ -310,6 +315,278 @@ lumière saturée caractérisée par $\lambda_d$ dans le rayonnement.
            hors série avril 2000)}
   \label{fig:colorimetrie}
 \end{figure}
+
+
+\definecolor{c0000ff}{RGB}{0,0,255}
+
+
+\begin{tikzpicture}[
+  y=0.4pt, x=0.4pt, 
+  yscale=-1, 
+  inner sep=0pt, outer sep=0pt,
+  % line width=0.8pt,
+]
+  \begin{scope}% g3528
+    % path3530
+    \draw [gray, very thin] 
+          (74.6938,485.5000) -- (74.6938,24.7000) 
+          (100.6939,485.5000) -- (100.6939,24.7000)
+          (125.6939,485.5000) -- (125.6939,50.3000)
+          (151.6939,485.5000) -- (151.6939,75.9000)
+          (177.6939,485.5000) -- (177.6939,101.5000)
+          (202.6939,485.5000) -- (202.6939,127.1000)
+          (228.6939,485.5000) -- (228.6939,152.7000)
+          (253.6939,485.5000) -- (253.6939,178.3000)
+          (279.6939,485.5000) -- (279.6939,203.9000)
+          (305.6939,485.5000) -- (305.6939,229.5000)
+          (330.6939,485.5000) -- (330.6939,255.1000)
+          (356.6939,485.5000) -- (356.6939,280.7000)
+          (381.6939,485.5000) -- (381.6939,306.3000)
+          (407.6939,485.5000) -- (407.6939,331.9000)
+          (433.6939,485.5000) -- (433.6939,357.5000)
+          (458.6939,485.5000) -- (458.6939,383.1000)
+          (49.6938,460.5000) -- (459.2939,460.5000)
+          (49.6938,434.5000) -- (459.2939,434.5000)
+          (49.6938,409.5000) -- (459.2939,409.5000)
+          (49.6938,383.5000) -- (459.2939,383.5000)
+          (49.6938,357.5000) -- (433.6939,357.5000)
+          (49.6938,332.5000) -- (408.0939,332.5000)
+          (49.6938,306.5000) -- (382.4939,306.5000)
+          (49.6938,281.5000) -- (356.8939,281.5000)
+          (49.6938,255.5000) -- (331.2939,255.5000)
+          (49.6938,229.5000) -- (305.6939,229.5000)
+          (49.6938,204.5000) -- (280.0939,204.5000)
+          (49.6938,178.5000) -- (254.4939,178.5000)
+          (49.6938,153.5000) -- (228.8939,153.5000)
+          (49.6938,127.5000) -- (203.2939,127.5000)
+          (49.6938,101.5000) -- (177.6939,101.5000)
+          (49.6938,76.5000) -- (152.0939,76.5000)
+          (49.6938,50.5000) -- (126.4939,50.5000)
+          (49.6938,25.5000) -- (100.8939,25.5000)
+          (100.6939,25.5000) -- (458.6939,383.5000) ; 
+  \end{scope}
+
+  % Axes
+  \begin{scope}
+    \draw []
+          (49.1938,25.0000) -- (49.1938,486.0000) --
+          (459.1939,486.0000)
+          (49.1938,486.0000) -- (49.1938,490.0000)
+          (75.1938,486.0000) -- (75.1938,490.0000)
+          (100.1939,486.0000) -- (100.1939,490.0000)
+          (126.1939,486.0000) -- (126.1939,490.0000)
+          (151.1939,486.0000) -- (151.1939,490.0000)
+          (177.1939,486.0000) -- (177.1939,490.0000)
+          (203.1939,486.0000) -- (203.1939,490.0000)
+          (228.1939,486.0000) -- (228.1939,490.0000)
+          (254.1939,486.0000) -- (254.1939,490.0000)
+          (279.1939,486.0000) -- (279.1939,490.0000)
+          (305.1939,486.0000) -- (305.1939,490.0000)
+          (331.1939,486.0000) -- (331.1939,490.0000)
+          (356.1939,486.0000) -- (356.1939,490.0000)
+          (382.1939,486.0000) -- (382.1939,490.0000)
+          (407.1939,486.0000) -- (407.1939,490.0000)
+          (433.1939,486.0000) -- (433.1939,490.0000)
+          (459.1939,486.0000) -- (459.1939,490.0000) ;
+
+    \draw []
+          (49.1938,486.0000) -- (45.1938,486.0000)
+          (49.1938,460.0000) -- (45.1938,460.0000)
+          (49.1938,435.0000) -- (45.1938,435.0000)
+          (49.1938,409.0000) -- (45.1938,409.0000)
+          (49.1938,383.0000) -- (45.1938,383.0000)
+          (49.1938,358.0000) -- (45.1938,358.0000)
+          (49.1938,332.0000) -- (45.1938,332.0000)
+          (49.1938,307.0000) -- (45.1938,307.0000)
+          (49.1938,281.0000) -- (45.1938,281.0000)
+          (49.1938,255.0000) -- (45.1938,255.0000)
+          (49.1938,230.0000) -- (45.1938,230.0000)
+          (49.1938,204.0000) -- (45.1938,204.0000)
+          (49.1938,179.0000) -- (45.1938,179.0000)
+          (49.1938,153.0000) -- (45.1938,153.0000)
+          (49.1938,127.0000) -- (45.1938,127.0000)
+          (49.1938,102.0000) -- (45.1938,102.0000)
+          (49.1938, 76.0000) -- (45.1938, 76.0000)
+          (49.1938, 51.0000) -- (45.1938, 51.0000)
+          (49.1938, 25.0000) -- (45.1938, 25.0000) ;
+
+    \draw [shift={(45.1938, 490.0000)}, yscale=-1, red]
+          ( 4.00, 4.00) -- ( 4.00, 465.00) ;
+    \draw [shift={(45.1938, 490.0000)}, yscale=-1, red]
+          ( 4.00, 4.00) -- ( 414.0001, 4.00) ;
+  \end{scope}
+
+  \begin{scope}
+    \begin{scope}
+      \begin{scope}[every node/.style={above}]
+        \fill (49.193848,505.79999) node {0.0};
+        \fill (100.39384,505.79999) node {0.1};
+        \fill (151.59384,505.79999) node {0.2};
+        \fill (202.79385,505.79999) node {0.3};
+        \fill (253.99384,505.79999) node {0.4};
+        \fill (305.19385,505.79999) node {0.5};
+        \fill (356.39386,505.79999) node {0.6};
+        \fill (407.59384,505.79999) node {0.7};
+        \fill (458.79385,505.79999) node {0.8};
+      \end{scope}
+      \begin{scope}[every node/.style={above left}]
+        \fill (41.193848,491.79999) node {0.0};
+        \fill (41.193848,440.60001) node {0.1};
+        \fill (41.193848,389.39999) node {0.2};
+        \fill (41.193848,338.20001) node {0.3};
+        \fill (41.193848,287) node {0.4};
+        \fill (41.193848,235.8) node {0.5};
+        \fill (41.193848,184.60001) node {0.6};
+        \fill (41.193848,133.39999) node {0.7};
+        \fill (41.193848,82.199997) node {0.8};
+        \fill (41.193848,31) node {0.9};
+      \end{scope}
+    \end{scope}
+    \begin{scope}
+      \node at (253.99384,525.79999) {x};
+      \node at (9.1938477,261.39999) {y};
+    \end{scope}
+  \end{scope}
+
+  % Contour
+  \begin{scope} [
+    shift={(-10.80615,10.0)},
+    very thick,
+  ]
+    \draw 
+    (150.00,473.00) .. controls (147.00,473.00) and (145.00,471.00) ..
+    (142.00,469.00) .. controls (135.00,462.00) and (129.00,455.00) ..
+    (124.00,446.00) .. controls (121.00,441.00) and (118.00,436.00) ..
+    (116.00,431.00) .. controls (113.00,424.00) and (110.00,416.00) ..
+    (107.00,408.00) .. controls (103.00,396.00) and (99.00,385.00) ..
+    (95.00,373.00) .. controls (86.00,339.00) and (77.00,298.00) ..
+    (72.00,264.00) .. controls (66.00,226.00) and (61.00,179.00) ..
+    (62.00,141.00) .. controls (63.00,118.00) and (65.00,81.00) ..
+    (80.00,60.00) .. controls (84.00,54.00) and (91.00,50.00) ..
+    (98.00,49.00) .. controls (105.00,48.00) and (112.00,51.00) ..
+    (118.00,53.00) .. controls (140.00,60.00) and (160.00,76.00) ..
+    (178.00,90.00) .. controls (236.00,135.00) and (287.00,191.00) ..
+    (339.00,243.00) .. controls (360.00,264.00) and (380.00,284.00) ..
+    (401.00,305.00) .. controls (409.00,313.00) and (417.00,321.00) ..
+    (426.00,329.00) .. controls (428.00,332.00) and (430.00,334.00) ..
+    (433.00,337.00) .. controls (434.00,337.00) and (434.00,338.00) ..
+    (435.00,339.00) .. controls (435.00,339.00) and (436.00,340.00) ..
+    (436.00,340.00) ;
+  \end{scope}
+
+  \begin{scope}% g3880
+    % path3886
+    \draw (137.5939,483.30) -- (137.1939,489.30)
+          (137.2939,483.30) -- (135.9939,489.20)
+          (136.9939,483.20) -- (132.4939,492.10)
+          (136.3939,482.80) -- (132.9939,487.70)
+          (135.6939,482.30) -- (131.8939,487.00)
+          (134.6939,481.40) -- (130.6939,485.90)
+          (133.3939,480.20) -- (126.6939,487.60)
+          (131.6939,478.70) -- (127.6939,483.20)
+          (129.3939,476.70) -- (125.3939,481.20)
+          (126.4939,474.20) -- (122.3939,478.60)
+          (122.8939,470.60) -- (115.4939,477.40)
+          (118.5939,465.40) -- (113.7939,468.90)
+          (112.6939,456.20) -- (107.4939,459.20)
+          (105.2939,441.30) -- (99.7939,443.80)
+          (95.8939,417.90) -- (86.4939,421.30)
+          (84.3939,383.00) -- (78.5938,384.70)
+          (72.3938,334.80) -- (66.4938,336.10)
+          (61.1938,274.50) -- (55.2938,275.40)
+          (53.3938,210.10) -- (43.3938,210.90)
+          (51.1938,150.50) -- (45.1938,150.30)
+          (56.2938,101.70) -- (50.4938,100.20)
+          (69.0938,70.00) -- (64.4938,66.10)
+          (87.1939,58.90) -- (85.3939,49.10)
+          (107.6939,62.80) -- (109.5939,57.10)
+          (128.3939,73.20) -- (131.3939,68.00)
+          (147.9939,85.60) -- (151.3939,80.70)
+          (166.7939,99.60) -- (172.9939,91.70)
+          (185.2939,114.90) -- (189.1939,110.40)
+          (203.5939,131.30) -- (207.5939,126.90)
+          (221.8939,148.50) -- (225.9939,144.10)
+          (240.1939,166.10) -- (247.1939,158.90)
+          (258.4939,183.90) -- (262.6939,179.60)
+          (276.5939,201.80) -- (280.7939,197.50)
+          (294.2939,219.50) -- (298.4939,215.20)
+          (311.5939,236.70) -- (318.6939,229.60)
+          (328.0939,253.10) -- (332.2939,248.80)
+          (343.6939,268.60) -- (347.8939,264.30)
+          (357.8939,282.80) -- (362.0939,278.60)
+          (370.1939,295.10) -- (377.2939,288.00)
+          (381.0939,305.90) -- (385.2939,301.60)
+          (390.0939,314.80) -- (394.2939,310.50)
+          (397.3939,322.10) -- (401.5939,317.90)
+          (403.2939,327.90) -- (410.3939,320.80)
+          (407.8939,332.60) -- (412.0939,328.30)
+          (411.6939,336.30) -- (415.8939,332.00)
+          (414.7939,339.40) -- (418.9939,335.20)
+          (417.2939,342.00) -- (424.3939,334.90)
+          (419.3939,344.00) -- (423.5939,339.70)
+          (420.8939,345.50) -- (425.0939,341.30)
+          (422.0939,346.70) -- (426.2939,342.50)
+          (422.8939,347.50) -- (429.9939,340.40)
+          (423.4939,348.10) -- (427.6939,343.90)
+          (423.9939,348.60) -- (428.1939,344.40)
+          (424.3939,349.00) -- (428.5939,344.80)
+          (424.6939,349.30) -- (431.7939,342.20)
+          (424.9939,349.60) -- (429.1939,345.40)
+          (425.1939,349.80) -- (429.3939,345.60)
+          (425.2939,349.90) -- (429.4939,345.70) ;
+  \end{scope}
+
+  \begin{scope}[shift={(-10.80615,10.0)}]
+    \node at (124.9,474.70001) [above right] {460} ;
+    \node at (95.5,418) [above right] {480} ;
+    \node at (52.200001,207.10001) [above right] {500} ;
+    \node at (95.900002,37.099998) [above right] {520} ;
+    \node at (185,80.099998) [above right] {540} ;
+    \node at (259.39999,147.5) [above right] {560} ;
+    \node at (330.89999,218.2) [above right] {580} ;
+    \node at (389.5,276.60001) [above right] {600} ;
+    \node at (422.5,309.39999) [above right] {620} ;
+  \end{scope}
+\end{tikzpicture}
+%
+\qquad%
+%
+\begin{tikzpicture}  % [show background rectangle]
+
+  % \pgfplotstableread{PaV.dat}{\pavdata}
+
+  \begin{axis}[%
+    xmin=0, xmax=0.81,
+    ymin=0, ymax=0.91,
+    width=8cm, height=9cm,
+    xtick={0.0, 0.1, ..., 0.8},
+    ytick={0.0, 0.1, ..., 0.9},
+    axis lines=left,
+    % axis line style={white},
+    tick align=outside,
+    tick style={thin},
+    % tick style={white, thin},
+    % axis line style={gray!25!white, ultra thin},
+    % hide axis=true,
+    grid=both,
+    % xlabel=x, ylabel=y,
+    clip mode=individual,
+  ]
+
+    \begin{scope}[thick, line cap=round, line join=round]
+      \addplot [thick, mark=none]
+         table [x=x, y=y] 
+               {\datadir/chro/CIE_espaces2D.dat} ;
+      % \draw plot file {CIE_espaces2D.dat} -- cycle ;
+    \end{scope}
+
+    % \draw [step=0.1] (0.00, 0.00) grid (0.8, 0.8) ;
+
+  \end{axis}
+\end{tikzpicture}
+
+
+
 
 Les mesures colorimétriques sont réalisées à partir des spectres 
 d'\AO, par l'intermédiaire du module \frquote{Chromamétrie} intégré 
@@ -354,7 +631,10 @@ désexcitation s'effectue par émission de photon dans le domaine
 du visible (\fref{fig:CL_principe}). On appelle ces défauts des 
 \emph{centres luminogènes} ou \emph{centres colorés}.
 
-La couleur de la luminescence dépend donc de défauts souvent caractéristiques d'un minéral et permet ainsi, avec l'appui de la \DX, l'identification des phases cristallines présentes dans un matériau (Bechtel, Platel, 2000).
+La couleur de la luminescence dépend donc de défauts souvent 
+caractéristiques d'un minéral et permet ainsi, avec l'appui de 
+la \DX, l'identification des phases cristallines présentes dans 
+un matériau (Bechtel, Platel, 2000).
 
 L'observation en \CL donne également une idée de l'homogénéité de 
 l'échantillon.
@@ -368,37 +648,35 @@ Ce système est couplé à une loupe binoculaire et à une caméra 3CCD
 (Sony~DXC-930\,P) permettant l'enregistrement photographique.
 
 \begin{figure}[htb]
-  \includegraphics[width=0.5\textwidth]{CL_principe}
-  \caption[Principe de la \CL]{Principe de la \CL. 
-a : ionisation d'un atome sans intervention d'un centre piège ;
-b : capture de l'électron par l'impureté \ce{(I+)} ;
-c : excitation en \ce{(I+)*} ;
-d : désexcitation radiative ;
-e : recapture de l'électron dans la bande de valence (il n'y a pas 
-forcément ionisation, l'électron peut directement être capturé par 
-l'impureté) ;
-BV : bande de valence ;
-BC : bande de conduction ;
-BI : bande interdite.
-\autocite{web_CL}}
+  % \includegraphics[width=0.5\textwidth]{CL_principe}
+  % \qquad
+  \begin{tikzpicture}[remember picture]
+    \CLpcp
+  \end{tikzpicture}
+  \begin{tikzpicture}[remember picture, overlay]
+    \CLpcpL
+  \end{tikzpicture}
+  \caption[Principe de la \CL]
+          {Principe de la \CL (d'après \cite{web_CL})}
   \label{fig:CL_principe}
 \end{figure}
 % (\url{http://loic.portelette.free.fr/aasaann.html}, avril 2000)
 
 \begin{figure}
-  \includegraphics[width=0.5\textwidth]{CL_app}
-  \caption{Appareillage de \CL.
-           a : chambre Nuclide ;
-           b : loupe binoculaire ;
-           c : caméra~3CCD ;
-           d : système d'acquisition et de traitement ;
-           e : moniteur.}
+  % \includegraphics[width=0.5\textwidth]{CL_app}
+  \begin{tikzpicture}[remember picture]
+    \CLapp
+  \end{tikzpicture}
+  \begin{tikzpicture}[remember picture, overlay]
+    \CLappL
+  \end{tikzpicture}
+  \caption{Appareillage de \CL}
   \label{fig:CL_app}
 \end{figure}
 
 L'analyse est généralement effectuée sur une lame, épaisse ou mince, 
-taillée perpendiculairement à la surface glaçurée de l'échantillon et 
-polie pour présenter la surface la plus plane possible.
+taillée perpendiculairement à la surface glaçurée de l'échantillon 
+et polie pour présenter la surface la plus plane possible.
 
 Les lames sont réalisées à partir de prélèvement inclus dans une 
 résine araldite. La découpe se fait à l'aide d'une scie à fil 
@@ -445,16 +723,18 @@ de trois types d'interactions électrons-matière :
 \end{itemize}
 
 \begin{figure}[htb]
-  \includegraphics[width=0.6\textwidth]{meb}
-
-  \begin{tikzpicture}
-    \poiremeb
+  % \includegraphics[width=0.6\textwidth]{meb}
+  \begin{tikzpicture}[remember picture]
+    \MEBpoire
+  \end{tikzpicture}
+  \begin{tikzpicture}[remember picture, overlay]
+    \MEBlegende
   \end{tikzpicture}
   \caption[Poire d'interaction électrons-matière]
-          {Poire d'interaction électrons-matière \autocite{web_MEB}}
+          {Poire d'interaction électrons-matière 
+           (d'après \cite{web_MEB})}
   \label{fig:meb}
 \end{figure}
-% (\url{http://www.culture.fr/culture/conservation/fr/méthodes/méthodes.htm}, juin 2000)
 
 \section{Détermination des compositions élémentaires : \spectro de 
          \RX en dispersion d'énergie}
@@ -555,69 +835,124 @@ différence.
 On utilise un spectromètre de \RX en dispersion d'énergie couplé au 
 \MEB (JEOL~850SM) et muni d'un détecteur semi-conducteur \ce{Si(Li)}.
 
-\section[Diffraction de \RX]{Détermination des compositions \cristallos : \DX sur poudre}
+\section[Diffraction de \RX]
+        {Détermination des compositions \cristallos : \DX sur poudre}
 %----------------------------------------------------------------------
 
-L'état cristallin est caractérisé par une structure ordonnée et tripériodique. L'analyse par \DX sur poudre permet l'identification des phases cristallisées présentes dans un échantillon polycristallin.
+L'état cristallin est caractérisé par une structure ordonnée et 
+tripériodique. L'analyse par \DX sur poudre permet l'identification 
+des phases cristallisées présentes dans un échantillon polycristallin.
 
 Les \RX ont une longueur d'onde de l'ordre de la distance 
 interatomique. Ils peuvent donc être diffractés par les plans 
-interréticulaires du cristal selon la loi de Bragg :
+interréticulaires du cristal selon la loi de Bragg (\fref{fig:DX_pcp} 
+et équation~\ref{eqn:bragg}).
 
 
-\begin{equation*}
-  n \lambda = 2 d \cdot sin\theta
-\end{equation*}
+% \begin{equation*}
+%   n \lambda = 2 d \cdot sin\theta
+% \end{equation*}
+
+% \bigskip
+
+% \begin{minipage}{0.45\textwidth}
+%   \begin{description}
+%     \item [$d$] distance interréticulaire
+%     \item [$\lambda$] longueur d'onde des \RX incidents
+%     \item [$\theta$] angle d'incidence des \RX par rapport à la 
+%           famille de plans réticulaires
+%     \item [$n$] ordre de diffraction
+%   \end{description}
+% \end{minipage}%
+% \hfill%
+% \begin{minipage}{0.45\textwidth}
+%   \begin{tikzpicture}[x=10mm, y=7mm]
+%     \draw (-3.00, 0.00) -- ( 3.00, 0.00) ;
+%     \draw (-3.00, 1.00) -- ( 3.00, 1.00) ;
+%     \draw (-3.00,-1.00) -- ( 3.00,-1.00) ;
+
+%     \begin{scope}[red, thick, >=Straight Barb]
+%       \begin{scope}[postaction={decorate}, decoration={markings, 
+%                     mark=at position 0.75 with 
+%                     {\arrow[scale=1.67]{>};}}]
+%         \draw [postaction={decorate}] ( 0.00, 0.00) -- ++ (  40:3) ;
+%         \draw [postaction={decorate}] ( 0.00, 1.00) -- ++ (  40:3) ;
+%       \end{scope}
+%       \begin{scope}[postaction={decorate}, decoration={markings, 
+%                     mark=at position 0.75 with 
+%                     {\arrowreversed[scale=1.67]{>};}}]
+%         \draw [postaction={decorate}] ( 0.00, 0.00) -- ++ ( 140:3) ;
+%         \draw [postaction={decorate}] ( 0.00, 1.00) -- ++ ( 140:3) ;
+%       \end{scope}
+%     \end{scope}
+
+%     \begin{scope}[shift={(3.25, 0.00)}]
+%       \draw [<->] ( 0.00, 0.00) -- ( 0.00, 1.00) 
+%             node [midway, right] {$d$} ;
+%     \end{scope}
+
+%     \draw ( 1.00, 0.00) arc (0:40:1) ;
+%     \draw (-1.00, 0.00) arc (180:140:1) 
+%           node [midway, left] {$\theta$} ;
+%     \draw ( 1.00, 1.00) arc (0:40:1) ;
+%     \draw (-1.00, 1.00) arc (180:140:1) ;
+%   \end{tikzpicture}
+% \end{minipage}
+
+
+\begin{equation}\label{eqn:bragg}
+  n\lambda = 2d\ sin\theta
+\end{equation}
+
+\bigskip  % \bigskip
+
+\begin{figure}[h!]
+  % \fbox{%
+  \begin{minipage}{0.39\textwidth}
+    \begin{itemize}  % \smaller
+      \item [$d$ :] distance interréticulaire
+      \item [$\lambda$ :] longueur d'onde des \RX incidents
+      \item [$\theta$ :] angle d'incidence des \RX par rapport à la 
+            famille de plans réticulaires
+      \item [$n$ :] ordre de diffraction
+    \end{itemize}
+  \end{minipage}%
+  % }%
+  \hfill%
+  % \fbox{%
+  \begin{minipage}{0.56\textwidth}
+    \centerfloat
+    \begin{tikzpicture}
+      \DXpcp
+    \end{tikzpicture}
+    \caption{Principe de \DX}
+    \label{fig:DX_pcp}
+  \end{minipage}%
+  % }%
+\end{figure}
+
+
+  % \begin{figure}[htb]
+  %   \begin{tikzpicture}
+  %     \DXpcp
+  %   \end{tikzpicture}
+  %   \caption{Principe de \DX}
+  %   \label{fig:DX_pcp}
+  % \end{figure}
+
 
 \bigskip
 
-\begin{minipage}{0.45\textwidth}
-  \begin{description}
-    \item [$d$] distance interréticulaire
-    \item [$\lambda$] longueur d'onde des \RX incidents
-    \item [$\theta$] angle d'incidence des \RX par rapport à la 
-          famille de plans réticulaires
-    \item [$n$] ordre de diffraction
-  \end{description}
-\end{minipage}%
-\hfill%
-\begin{minipage}{0.45\textwidth}
-  \begin{tikzpicture}[x=10mm, y=7mm]
-    \draw (-3.00, 0.00) -- ( 3.00, 0.00) ;
-    \draw (-3.00, 1.00) -- ( 3.00, 1.00) ;
-    \draw (-3.00,-1.00) -- ( 3.00,-1.00) ;
-
-    \begin{scope}[red, thick, >=Straight Barb]
-      \begin{scope}[postaction={decorate}, decoration={markings, 
-                    mark=at position 0.75 with 
-                    {\arrow[scale=1.67]{>};}}]
-        \draw [postaction={decorate}] ( 0.00, 0.00) -- ++ (  40:3) ;
-        \draw [postaction={decorate}] ( 0.00, 1.00) -- ++ (  40:3) ;
-      \end{scope}
-      \begin{scope}[postaction={decorate}, decoration={markings, 
-                    mark=at position 0.75 with 
-                    {\arrowreversed[scale=1.67]{>};}}]
-        \draw [postaction={decorate}] ( 0.00, 0.00) -- ++ ( 140:3) ;
-        \draw [postaction={decorate}] ( 0.00, 1.00) -- ++ ( 140:3) ;
-      \end{scope}
-    \end{scope}
-
-    \begin{scope}[shift={(3.25, 0.00)}]
-      \draw [<->] ( 0.00, 0.00) -- ( 0.00, 1.00) 
-            node [midway, right] {$d$} ;
-    \end{scope}
-
-    \draw ( 1.00, 0.00) arc (0:40:1) ;
-    \draw (-1.00, 0.00) arc (180:140:1) 
-          node [midway, left] {$\theta$} ;
-    \draw ( 1.00, 1.00) arc (0:40:1) ;
-    \draw (-1.00, 1.00) arc (180:140:1) ;
-  \end{tikzpicture}
-\end{minipage}
-
-\bigskip
-
-Dans la méthode de \DX sur poudre, le matériau à analyser est bombardé par un faisceau de \RX monochromatiques et parallèles, de longueur d'onde connue. L'échantillon, de quelques milligrammes, est étalé sous forme de poudre sur une lame de verre animée d'un mouvement de rotation uniforme autour d'un axe situé dans son plan (cercle goniométrique). De cette manière, chaque famille de plans réticulaires se présente sous toutes les orientations possibles par rapport au faisceau~X incident. Un détecteur mesure l'intensité du rayonnement~X diffracté. Il tourne autour du même axe que l'échantillon mais avec une vitesse double.
+Dans la méthode de \DX sur poudre, le matériau à analyser est 
+bombardé par un faisceau de \RX monochromatiques et parallèles, de 
+longueur d'onde connue. L'échantillon, de quelques milligrammes, est 
+étalé sous forme de poudre sur une lame de verre animée d'un mouvement 
+de rotation uniforme autour d'un axe situé dans son plan (cercle 
+goniométrique). De cette manière, chaque famille de plans réticulaires 
+se présente sous toutes les orientations possibles par rapport au 
+faisceau~X incident. Un détecteur mesure l'intensité du rayonnement~X 
+diffracté. Il tourne autour du même axe que l'échantillon mais avec 
+une vitesse double.
 
 Le diffractogramme obtenu présente des raies, caractéristiques des 
 phases cristallines présentes. L'identification s'effectue à l'aide 
@@ -626,7 +961,10 @@ Society for Testing and Materials}). La limite de détection est de
 \SI{2}{\percent}.
 
 \begin{figure}[htb]
-  \includegraphics[width=0.6\textwidth]{DX}
+  % \includegraphics[width=0.6\textwidth]{DX}
+  \begin{tikzpicture}
+    \DXapp
+  \end{tikzpicture}
   \caption{Appareillage de \DX}
   \label{fig:DX}
 \end{figure}
@@ -636,3 +974,8 @@ poudre (\fref{fig:DX}) SIEMENS~D500. La source de \RX est une
 anticathode de cuivre ($\lambda=\SI{1.54}{\angstrom}$, 
 $V=\SI{40}{\kV}$, $I=\SI{30}{\mA}$). Le domaine angulaire choisi 
 pour l'étude s'étend de \ang{5} à \ang{60}.
+
+
+
+
+

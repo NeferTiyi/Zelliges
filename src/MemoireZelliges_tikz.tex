@@ -17,8 +17,16 @@
 }
 
 \newcommand{\drawsaft}{%
-  (-2,0) -- (-1,1) -- (1,1) -- (2,0) -- (1,-1) -- (-1,-1) -- cycle
+  (-2.00, 0.00) -- (-1.00, 1.00) -- ( 1.00, 1.00) -- 
+  ( 2.00, 0.00) -- ( 1.00,-1.00) -- (-1.00,-1.00) -- cycle
 }
+
+% % Fawrkat
+% \fill [color=ffqqff, fill=ffqqff, fill opacity=0.1] 
+%       ( 0.414,-1.000) -- (-1.000,-1.000) -- 
+%       (-2.000, 0.000) -- (-1.000, 1.000) -- 
+%       ( 0.414, 1.000) -- ( 0.414, 0.414) -- 
+%       ( 0.000, 0.000) -- ( 0.414,-0.414) -- cycle ;
 
 \newcommand{\squeletteb}{%
   \draw [domain=-1:1] plot( \x, {-\x} ) ;
@@ -90,68 +98,598 @@
     \drawsaft ;
 }
 
-% Fawrkat
-% \fill[color=ffqqff,fill=ffqqff,fill opacity=0.1] (0.414,-1) -- (-1,-1) -- (-2,0) -- (-1,1) -- (0.414,1) -- (0.414,0.414) -- (0,0) -- (0.414,-0.414) -- cycle;
+\newcommand{\drawfluoX}{%
+  ( 0.19,-0.32) .. controls ( 0.22,-0.40) and ( 0.23,-0.43) ..
+  ( 0.50,-0.79) .. controls ( 0.60,-0.95) and ( 0.66,-1.12) ..
+  ( 0.66,-1.32) .. controls ( 0.65,-1.78) and ( 0.30,-1.98) ..
+  ( 0.00,-1.98) .. controls (-0.30,-1.98) and (-0.65,-1.78) ..
+  (-0.66,-1.32) .. controls (-0.65,-1.12) and (-0.60,-0.95) ..
+  (-0.50,-0.79) .. controls (-0.23,-0.43) and (-0.22,-0.40) ..
+  (-0.19,-0.32)
+}
 
+\newcommand{\drawRX}{%
+  ( 0.15,-0.06) to [out=-87, in=104] 
+  ( 0.19,-0.32) .. controls ( 0.21,-0.40) and ( 0.23,-0.46) ..
+  ( 0.26,-0.51) .. controls ( 0.31,-0.60) and ( 0.35,-0.65) ..
+  ( 0.41,-0.74) .. controls ( 0.57,-0.99) and ( 0.66,-1.30) ..
+  ( 0.50,-1.54) .. controls ( 0.39,-1.71) and ( 0.24,-1.81) ..
+  ( 0.00,-1.81) .. controls (-0.24,-1.81) and (-0.39,-1.71) ..
+  (-0.50,-1.54) .. controls (-0.66,-1.30) and (-0.57,-0.99) ..
+  (-0.41,-0.74) .. controls (-0.35,-0.65) and (-0.31,-0.60) ..
+  (-0.26,-0.51) .. controls (-0.23,-0.46) and (-0.21,-0.40) ..
+  (-0.19,-0.32) to [out=76, in=-93] 
+  (-0.15,-0.06)
+}
 
-\newcommand{\poiremeb}{%
+\newcommand{\drawinterne}{%
+  ( 0.11,-0.06) .. controls ( 0.13,-0.46) and ( 0.23,-0.53) .. 
+  ( 0.34,-0.71) .. controls ( 0.50,-0.96) and ( 0.56,-1.21) .. 
+  ( 0.42,-1.43) .. controls ( 0.32,-1.59) and ( 0.19,-1.65) .. 
+  ( 0.00,-1.65) .. controls (-0.19,-1.65) and (-0.32,-1.59) .. 
+  (-0.42,-1.43) .. controls (-0.56,-1.21) and (-0.50,-0.96) .. 
+  (-0.34,-0.71) .. controls (-0.23,-0.53) and (-0.13,-0.46) .. 
+  (-0.11,-0.06)
+}
+
+\newcommand{\drawaugier}{%
+  (-0.15, 0.00) rectangle ( 0.15, -0.06)
+}
+
+\newcommand{\MEBpoire}{%
   \begin{scope}[
-    scale=0.25,
-    % thick,
-    every node/.style={font=\footnotesize},
+    scale=2.3,
+    every node/.style={font=\scriptsize},
+    line cap=round,
   ]
-  % RX
-  \draw [draw=yellow]
-        ( 1.91,  -3.20) .. controls ( 2.09,  -4.04) and ( 2.34,  -4.64) ..
-        ( 2.60,  -5.10) .. controls ( 3.11,  -6.02) and ( 3.48,  -6.46) ..
-        ( 4.10,  -7.40) .. controls ( 5.73,  -9.88) and ( 6.60, -12.98) ..
-        ( 5.00, -15.40) .. controls ( 3.86, -17.13) and ( 2.40, -18.10) ..
-        ( 0.00, -18.10) .. controls (-2.40, -18.10) and (-3.86, -17.13) ..
-        (-5.00, -15.40) .. controls (-6.60, -12.98) and (-5.73,  -9.88) ..
-        (-4.10,  -7.40) .. controls (-3.48,  -6.46) and (-3.11,  -6.02) ..
-        (-2.60,  -5.10) .. controls (-2.34,  -4.64) and (-2.09,  -4.04) ..
-        (-1.91,  -3.20) ;
 
-  % contour interne
-  \draw [draw=green]
-        ( 1.10,  -0.60) .. controls ( 1.26,  -4.60) and ( 2.25,  -5.34) .. 
-        ( 3.40,  -7.10) .. controls ( 5.03,  -9.60) and ( 5.60, -12.08) .. 
-        ( 4.20, -14.30) .. controls ( 3.20, -15.90) and ( 1.85, -16.50) .. 
-        ( 0.00, -16.50) .. controls (-1.85, -16.50) and (-3.20, -15.90) .. 
-        (-4.20, -14.30) .. controls (-5.60, -12.08) and (-5.03,  -9.60) .. 
-        (-3.40,  -7.10) .. controls (-2.25,  -5.34) and (-1.26,  -4.60) .. 
-        (-1.10,  -0.60) ;
+    \pgfmathsetmacro{\xA}{0.145}
+    \pgfmathsetmacro{\yA}{-0.35}
+    \pgfmathsetmacro{\xB}{0.495}
+    \pgfmathsetmacro{\yB}{-1.11}
+    \coordinate (A1) at (-\xA, \yA) ;
+    \coordinate (A2) at ( \xA, \yA) ;
+    \coordinate (B1) at (-\xB, \yB) ;
+    \coordinate (B2) at ( \xB, \yB) ;
 
-  % fluo X
-  \draw [draw=violet]
-        ( 1.50,  -0.60) .. controls ( 1.54,  -4.63) and ( 3.91,  -6.20) ..
-        ( 5.00,  -7.90) .. controls ( 6.02,  -9.50) and ( 6.63, -11.18) ..
-        ( 6.60, -13.20) .. controls ( 6.54, -17.84) and ( 2.98, -19.80) ..
-        ( 0.00, -19.80) .. controls (-2.98, -19.80) and (-6.54, -17.84) ..
-        (-6.60, -13.20) .. controls (-6.54, -11.18) and (-6.02,  -9.50) ..
-        (-5.00,  -7.90) .. controls (-3.91,  -6.20) and (-1.54,  -4.63) ..
-        (-1.50,  -0.60) ;
+    % .. Remplissage ..
+    % ... Fluo X ...
+    \fill [DarkSlateBlue!20!white] \drawfluoX ;
+    % ... RX ...
+    \fill [DarkSlateBlue!30!white] \drawRX ;
+    % ... RX carac ...
+    \fill [DarkSlateBlue!40!white] \drawinterne ;
 
-  % faisceau
-  \draw [draw=blue]
-        (-3.00, 7.70) -- (-1.50, 0.00) -- ( 0.00,  0.00) -- 
-        ( 1.50, 0.00) -- ( 3.00, 7.70) 
-        node [right, text width=2.5cm] {faisceau incident d'électrons} ;
+    \begin{scope}
+      \clip \drawinterne ;
+      % ... Secondaires ...
+      \fill [DarkSlateBlue!50!white] 
+            (-\xB, \yB) rectangle ( \xB, \yA) ;
+      % ... Rétrodiff ...
+      \fill [DarkSlateBlue!60!white] 
+            (-\xA, \yA) rectangle ( \xA, 0.00) ;
+    \end{scope}
+    % Électrons Augier
+    \fill [fill=DarkSlateBlue!70!white] \drawaugier ;
 
-  % surface échantillon
-  \draw [draw=red]
-        (-14.00,   0.00) -- ( 14.00,   0.00) 
-        node [pos=1, above] {surface de l'échantillon} ;
-  % path5510
-  \draw [draw=red]
-        ( -1.47,  -3.50) -- (  1.47,  -3.50) ;
-  % path5444
-  \draw [draw=red]
-        ( -4.97, -11.10) -- (  4.97, -11.10) ;
-  % augier
-  \draw [draw=orange]
-        (-1.50, 0.00) rectangle ( 1.50, -0.60) ;
+    % .. Contours ..
+    \begin{scope}[DarkSlateBlue]
+      % ... Fluo X ...
+      \draw \drawfluoX ;
+      % ... RX ...
+      \draw \drawRX ;
+      % ... RX carac ...
+      \draw \drawinterne ;
+      % Limite secondaires / rétrodiff
+      \draw (A1) -- (A2) ;
+      % limite rétrodiff / RC carac
+      \draw (B1) -- (B2) ;
+      % Électrons Augier
+      \draw \drawaugier ;
+    \end{scope}
+
+    % .. Faisceau incident ..
+    \filldraw [draw=DarkRed, bottom color=DarkRed, top color=white]
+          (-0.30, 0.77) -- (-0.15, 0.00) -- ( 0.00,  0.00) -- 
+          ( 0.15, 0.00) -- ( 0.30, 0.77) 
+          node (G) {} ;
+
+    % .. Surface échantillon ..
+    \draw [thick]
+          (-1.40, 0.00) -- ( 1.40, 0.00) 
+          node (H) [pos=1] {} ;
+
+    % .. Légende ..
+    \coordinate (A1) at (-0.10,-0.03) ;
+    \coordinate (A2) at (-0.50,-0.15) ;
+    \coordinate (B1) at (-0.05,-0.20) ;
+    \coordinate (B2) at (-0.50,-0.45) ;
+    \coordinate (C1) at ( 0.10,-0.80) ;
+    \coordinate (C2) at ( 0.80,-0.80) ;
+    \coordinate (D1) at ( 0.20,-1.30) ;
+    \coordinate (D2) at ( 0.80,-1.30) ;
+    \coordinate (E1) at (-0.50,-1.40) ;
+    \coordinate (E2) at (-0.80,-1.40) ;
+    \coordinate (F1) at (-0.50,-1.65) ;
+    \coordinate (F2) at (-0.80,-1.75) ;
   \end{scope}
 }
 
+\newcommand{\MEBlegende}{%
+  % .. Légende ..
+  \begin{scope}[every node/.style={font=\smaller}]
+    \draw (A1) -- (A2) 
+          node [left] {électrons Auger} ;
+    \draw (B1) -- (B2) 
+          node [left, align=right] {électrons\\secondaires} ;
+    \draw (C1) -- (C2) 
+          node [right, align=left] {électrons\\rétrodiffusés} ;
+    \draw (D1) -- (D2) 
+          node [right, align=left] {\RX\\caractéristiques} ;
+    \draw (E1) -- (E2) 
+          node [left, align=right] {continuum\\de \RX} ;
+    \draw (F1) -- (F2) 
+          node [left] {fluorescence~X} ;
+    \node [below right, align=left] at (G) 
+          {faisceau incident\\d'électrons} ;
+    \node [right, align=left] at (H) {surface de\\l'échantillon} ;
+  \end{scope}
+}
 
+\newcommand{\CLapp}{%
+  \begin{scope}[
+    scale=0.1, 
+    rounded corners=0.5, 
+    >=stealth', 
+    thick,
+  ]
+    % \draw [help lines, step=1, ultra thin, densely dotted] 
+    %       (-40.00,-10.00) grid ( 40.00, 60.00) ;
+    % \draw [help lines, step=5, ultra thin] 
+    %       (-40.00,-10.00) grid ( 40.00, 60.00) ;
+
+    \begin{scope}
+      % Moniteur
+      \draw ( 0.00,  0.00) rectangle ++ ( 30.00, 24.00) ;
+      \draw ( 2.00,  8.00) rectangle ++ ( 26.00, 14.00) ;
+      \draw ( 2.00,  2.00) rectangle ++ (  2.00,  2.00) ;
+      % Système d'acquisition
+      \draw ( 0.00, 28.00) rectangle ++ ( 30.00,  6.00) ;
+      \draw ( 0.00, 38.00) rectangle ++ ( 30.00,  6.00) ;
+      \draw ( 0.00, 48.00) rectangle ++ ( 30.00,  6.00) ;
+    \end{scope}
+
+    \begin{scope}[shift={(-15.00, 20.00)}]
+      % Loupe bino
+      \draw ( 2.00,  0.00) -- ( 5.80,  4.80) -- ( 5.80, 16.20) --
+            ( 2.90, 16.20) -- ( 2.90, 21.20) -- ( 3.10, 21.30) -- 
+            ( 3.10, 22.90) -- ( 3.70, 23.40) -- ( 3.70, 24.10) -- 
+            (-3.70, 24.10) -- (-3.70, 23.40) -- (-3.10, 22.90) -- 
+            (-3.10, 21.30) -- (-2.90, 21.20) -- (-2.90, 16.20) -- 
+            (-5.80, 16.20) -- (-5.80,  4.80) -- (-2.00,  0.00) -- 
+            cycle
+         ;
+      \draw (-2.00, 0.00) -- (-1.00, 1.00) -- 
+            ( 1.00, 1.00) -- ( 2.00, 0.00) ;
+      \draw (-2.90, 21.20) -- ( 2.90, 21.20) ;
+      \draw (-3.10, 22.90) -- ( 3.10, 22.90) ;
+      \draw (-2.90, 18.70) arc (113.4:66.6:7.3) ;
+      \draw (-2.90, 18.70) arc (-113.4:-66.6:7.3) ;
+
+      % Caméra CCD
+      \draw [shift={( 0.00, 30.00)}, pattern=north west lines]
+            ( 4.00,-5.90) -- ( 4.00,-3.50) -- ( 6.00,-3.50) -- 
+            ( 6.00, 3.50) -- (-1.60, 3.50) -- (-1.60, 4.80) -- 
+            (-3.60, 4.80) -- (-3.60, 3.50) -- (-5.70, 3.50) -- 
+            (-7.00, 0.70) -- (-7.00,-0.70) -- (-5.70,-3.50) -- 
+            (-4.00,-3.50) -- (-4.00,-5.90) -- cycle
+         ;
+    \end{scope}
+
+    % Chambre Nuclide
+    \begin{scope}[shift={(-27.00, 7.00)}]
+      \draw ( 0.00, 0.00) rectangle ++ ( 20.00, 8.00) ;
+      \filldraw ( 0.00, 5.00) arc (90:-90:1) ;
+
+      \begin{scope}[shift={( 9.00, 3.25)}]
+        \draw ( 0.00, 0.00) rectangle ++ ( 3.00, 1.50) ;
+        \draw [->, decorate, decoration={snake, 
+               amplitude=.5mm, segment length=2mm, post length=2mm}]
+              ( 1.50, 1.5) -- ++ ( 1.50, 8.25) ;
+      \end{scope}
+
+      \draw [->] 
+            ( 2.00, 4.00) -- ( 7.00, 4.00) 
+            node [midway, above] {$e^-$} ;
+    \end{scope}
+
+    % Liens
+    \draw ( 15.00, 24.00) -- ++ ( 0.00, 4.00) ;
+    \draw ( 15.00, 34.00) -- ++ ( 0.00, 4.00) ;
+    \draw ( 15.00, 44.00) -- ++ ( 0.00, 4.00) ;
+    \draw ( 15.00, 54.00) -- ++ ( 0.00, 4.00) -- ++ 
+          (-30.00,  0.00) -- ++ ( 0.00,-4.50) ;
+
+    % % Légende
+    \coordinate (A) at (-28.00, 11.00) ;
+    \coordinate (B) at (-22.00, 30.00) ;
+    \coordinate (C) at (-23.00, 50.00) ;
+    \coordinate (D) at ( 31.00, 11.00) ;
+    \coordinate (E) at ( 32.00, 54.00) ;
+    \coordinate (F) at ( 32.00, 28.00) ;
+  \end{scope}
+}
+
+\newcommand{\CLappL}{%
+  % Légende
+  \begin{scope}[every node/.style={font=\smaller}]
+    \node [left, align=right] at (A) {chambre\\Nuclide} ;
+    \node [left, align=right] at (B) {loupe\\binoculaire} ;
+    \node [left, align=right] at (C) {caméra\\3CCD} ;
+    \node [right, align=left] at (D) {moniteur} ;
+
+    \draw [decorate, decoration=brace] (E) -- (F)
+          node [midway, right, align=left] 
+               {système d'acquisition\\et de traitement} ;
+  \end{scope}
+}
+
+\newcommand{\CLpcp}{%
+  \begin{scope}[>=stealth', every node/.style={font=\smaller}]
+
+    % \draw [help lines, densely dotted, red, step=1] 
+    %       (-10.00, -20.00) grid ( 60.00, 50.00) ;
+    % \draw [help lines, ultra thin, red, step=5] 
+    %       (-10.00, -20.00) grid ( 60.00, 50.00) ;
+
+    \begin{scope}[every node/.style={font=\smaller}, darkgray]
+      \draw [->] 
+            (-0.20,-1.00) -- (-0.20, 5.50) 
+            node [below right, align=left] {énergie\\relative} ;
+      \node at (-0.80, 4.20) {BC} ;
+      \node at (-0.80, 1.75) {BI} ;
+      \node at (-0.80,-0.70) {BV} ;
+    \end{scope}
+
+    \begin{scope}[thick, pattern=north east lines]
+      \filldraw ( 0.50,-0.50) circle (0.20) ;
+      \filldraw ( 4.20,-0.50) circle (0.20) ;
+    \end{scope}
+
+    \begin{scope}[thick]
+      \draw (-0.70, 0.00) -- ( 5.00, 0.00) ;
+      \draw (-0.70, 3.50) -- ( 1.20, 3.50) -- 
+            ( 1.20, 1.75) -- ( 2.00, 1.75) -- 
+            ( 2.00, 3.50) -- ( 5.00, 3.50) ; 
+      \draw ( 3.20, 2.50) -- ( 4.20, 2.50) 
+            node [right] {\ce{(I+)^*}} ;
+      \draw ( 2.50, 1.00) -- ( 4.20, 1.00) 
+            node [right] {\ce{(I+)}} ;
+    \end{scope}
+
+    \begin{scope}[->, densely dotted, thick, DarkSlateBlue]
+      \draw ( 0.50,-0.30) -- ( 0.50, 3.80) -- 
+            ( 2.70, 3.80) node [midway, above] {$a$} --
+            ( 2.70, 1.00) node [pos=0.33, left]  {$b$} ;
+      \draw ( 3.40, 1.00) -- ( 3.40, 2.50) 
+            node [pos=0.33, left] {$c$} ;
+      \draw ( 4.00, 2.50) -- ( 4.00, 1.00) 
+            node [pos=0.67, right] {$d$} ;
+      \draw ( 4.00, 1.00) -- ( 4.20,-0.30) 
+            node [pos=0.45, left] {$e$} ;
+    \end{scope}
+
+    \draw [
+      shift={( 4.20, 2.00)},
+      DarkRed, ->, 
+      decorate, decoration={snake, amplitude=.5mm, segment length=2mm,
+                            pre length=0.5mm, post length=0.5mm}
+    ]     ( 0.00, 0.00) -- ( 1.00,  0.00)
+          node [right] {$h\nu$} ;
+
+    \draw [DarkRed, ->, ultra thick]
+          ( 1.00,-1.50) -- ( 0.60,-0.70) 
+          node [pos=0, right, align=left] 
+               {bombardement\\électronique} ;
+
+    \coordinate (L) at ( 6.00, 0.00) ;
+  \end{scope}
+}
+
+\newcommand{\CLpcpL}{%
+  \begin{scope}[every node/.style={font=\smaller}]
+    \node at (L) [above right, align=left, text width=6.3cm] 
+    {
+      \begin{itemize}
+        \item [BC :] bande de conduction ;
+        \item [BI :] bande interdite ;
+        \item [BV :] bande de valence.
+      \end{itemize}
+
+      \bigskip
+
+      \begin{itemize}
+        \item [$a$ :] ionisation d'un atome sans intervention 
+              d'un centre piège ;
+        \item [$b$ :] capture de l'électron par l'impureté 
+              \ce{(I+)} ;
+        \item [$c$ :] excitation en \ce{(I+)^*} ;
+        \item [$d$ :] désexcitation radiative ;
+        \item [$e$ :] recapture de l'électron dans la bande 
+              de valence (il n'y a pas forcément ionisation, 
+              l'électron peut directement être capturé par 
+              l'impureté).
+      \end{itemize}
+    } ;
+  \end{scope}
+}
+
+\newcommand{\DXapp}{%
+  \begin{scope}[
+    % handle active characters in code,
+    >=stealth',
+    every node/.style={font=\small},
+    line cap=round
+  ]
+    \pgfmathsetmacro{\r}{3.00}
+    \pgfmathsetmacro{\a}{20.00}
+
+    \coordinate (O) at ( 0.00, 0.00) ;
+
+    % Cercle gonio
+    \draw (O) circle (\r) ;
+
+    % Légende I
+    \begin{scope}[DarkSlateBlue]
+      \draw [->, shift={(90-\a:0.15*\r)}, rotate=-\a]
+            (-0.1*\r, 0.00) arc (170:10:0.1*\r) 
+            node [midway, right] {$\uline{\omega}$} ;
+      \draw [->] (O) (-2*\a:1.30*\r) arc (-2*\a:-3*\a:1.30*\r) 
+            node [above] {$\uline{2\omega}$} ;
+
+      \draw (-0.27*\r, 0.00) arc (180:180-\a:0.27*\r) 
+            node [midway, left] {$\theta$} ;
+      \draw [rotate=-\a] 
+            ( 0.27*\r, 0.00) arc (0:-\a:0.27*\r) ;
+      \draw ( 0.47*\r, 0.00) arc (0:-2*\a:0.47*\r) 
+            node [pos=0.25, right] {$\theta$} 
+            node [pos=0.80, right] {$\theta$} ;
+      \draw ( 0.76*\r, 0.00) arc (0:-2*\a:0.76*\r) 
+            node [midway, right] {$2\theta$} ;
+    \end{scope}
+
+    % Trajet linéaire
+    \draw [dashed] (-\r, 0.00) -- ( \r, 0.00) ;
+
+    % Échantillon
+    \begin{scope}[rotate=-\a]
+      \draw (-0.50*\r, 0.00) -- ( 0.50*\r, 0.00) ;
+      \draw [yshift=0.4pt, thick, pattern=north east lines, 
+             preaction={fill=white}]
+            ( 0.33*\r, 0.00) rectangle (-0.33*\r, 0.10*\r) 
+            node (E) [pos=0.85] {} ;
+    \end{scope}
+
+    % Trajet rayons
+    \begin{scope}[thick, DarkRed, line cap=round]
+      \draw [postaction={decorate}, decoration={markings, 
+             mark=at position 0.15 with {\arrow[scale=1.4]{>};}}]
+            (-1.3*\r, 0.00) -- (O) 
+            node [midway, below] {RX incident} ;
+      \draw [postaction={decorate}, decoration={markings, 
+             mark=at position 0.90 with {\arrow[scale=1.4]{>};}}]
+            (O) -- (-2*\a:\r) 
+            node [pos=0.67, left, align=left] {RX\\diffracté} ;
+    \end{scope}
+
+    % Détecteur
+    \begin{scope} [
+      thick,
+      rounded corners=1,
+      shift={(-2*\a:\r)},
+      rotate=-90-2*\a,
+      fill=white,
+    ]
+      \filldraw (-0.09*\r, 0.00) rectangle ( 0.09*\r, 0.10*\r) ;
+      \filldraw (-0.12*\r, 0.10*\r) rectangle ( 0.12*\r, 0.40*\r) 
+            node (D) [pos=0.45] {} ;
+    \end{scope}
+
+    % Fente
+    \begin{scope}
+      \shorthandoff{;}
+      \tikzmath{
+        \e = 0.03*\r ;          % épaisseur
+        \l = 0.19*\a ;          % largeur angulaire
+        \h = \r ;               % rayon de courbure
+        \y = \h * sin(\l) ;
+        \x = \h * (1-cos(\l)) ;
+        \b = 4.90 ;
+      }
+      \shorthandon{;}
+      \foreach \s in {-1, 1} {%
+        \filldraw [rotate=-2*\a+\s*\b, shift={( \r, 0.00)}]
+              (-\x, -\y)  arc (-\l: \l:\h) -- ++ 
+              ( \e, 0.00) node (F) [pos=0.5] {} 
+               arc ( \l:-\l:\h) -- cycle ;
+      }
+    \end{scope}
+
+    % Ampli / enregistreur
+    \begin{scope}[shift={( 6.00, 1.00)}, rounded corners=1]
+      \begin{scope}[thick]
+        \draw ( 0.00, 0.00) rectangle ++ ( 6.00,-4.00) 
+              node (G) [midway, shift={( 0.00, 1.50)}] {} ;
+        \draw ( 0.00, 0.00) rectangle ++ ( 6.00, 1.40) 
+              node (A) [midway] {} ;
+      \end{scope}
+      \begin{scope}[->]
+        \draw ( 0.50,-3.50) -- ++ ( 5.00, 0.00) 
+              node [below] {\scriptsize$2\theta$} ;
+        \draw ( 0.50,-3.50) -- ++ ( 0.00, 2.50) 
+              node [above] {\scriptsize$\uline{T}$} ;
+      \end{scope}
+
+      % Diffractogramme
+      \begin{scope}[shift={( 0.50,-3.30)}, x=0.55mm, y=0.4mm]
+        \draw (  0.06,  0.63) .. controls (  4.85,  0.20) and (  3.95,  6.14) .. 
+              (  4.35,  9.27) -- 
+              (  5.13, 36.84) -- 
+              (  6.20,  2.81) .. controls (  7.37, -1.02) and ( 12.72,  0.93) .. 
+              ( 15.76,  0.78) .. controls ( 19.59,  1.22) and ( 19.37,  5.78) .. 
+              ( 19.79,  8.65) -- 
+              ( 20.99, 32.80) -- 
+              ( 22.78,  5.59) .. controls ( 23.20,  0.50) and ( 28.08,  0.44) .. 
+              ( 31.76,  0.41) .. controls ( 39.54,  0.61) and ( 47.31,  0.40) .. 
+              ( 55.09,  0.37) .. controls ( 58.72,  0.50) and ( 61.02,  0.87) .. 
+              ( 62.55,  5.38) -- 
+              ( 63.48, 45.63) -- 
+              ( 63.61, 53.65) -- 
+              ( 64.34, 20.19) .. controls ( 64.60, 13.97) and ( 64.80,  7.61) .. 
+              ( 65.40,  1.52) .. controls ( 68.18, -0.46) and ( 71.96,  0.68) .. 
+              ( 75.15,  0.64) .. controls ( 79.53,  0.10) and ( 78.66,  5.75) .. 
+              ( 79.21,  8.77) -- 
+              ( 79.65, 22.73) -- 
+              ( 80.35, 11.69) .. controls ( 80.50, 10.18) and ( 81.02,  6.56) .. 
+              ( 81.36,  5.14) -- 
+              ( 82.98, 23.23) -- 
+              ( 83.55, 23.99) -- 
+              ( 84.85,  5.20) .. controls ( 85.35,  1.09) and ( 87.93,  1.12) .. 
+              ( 91.11,  0.00) ;
+
+        \node (P1) at (  5.13, 3.00) {} ;
+        \node (P2) at ( 20.99, 3.00) {} ;
+      \end{scope}
+    \end{scope}
+
+    % Liens
+    \draw ( 0.00, 0.00) (-2*\a:1.4*\r) -- ++ 
+          ( 2.30, 0.00) -- ++ ( 0.00, 4.40) -- ( 6.00, 1.70) ;
+
+    % Légende II
+    \begin{scope}[Gray!25!DarkGray]
+      \shorthandoff{;}
+      \tikzmath{
+        \x = \r*cos(45) ;
+        \y = \r*sin(45) ;
+      }
+      \shorthandon{;}
+      \node at (\x, \y) 
+            [right, shift={( 0.20, 0.00)}, align=left] 
+            {cercle\\goniométrique} ;
+
+      \node at (A) {Ampli} ;
+      \node at (G) {Enregistreur} ;
+
+      \draw (E.center) -- ++ (-0.08*\r, 0.23*\r) 
+            node [above] {échantillon} ;
+
+      \draw (D.center) -- ++ ( 0.20*\r, 0.10*\r) 
+            node [right] {détecteur} ;
+
+      \draw (F.center) -- ++ ( 0.20*\r, 0.10*\r) 
+            node [right] {fente} ;
+
+      \draw (P1.center) -- ++ ( 0.05*\r, -0.32*\r) -- (P2.center)
+            node [pos=0, below] {pics de diffraction} ;
+    \end{scope}
+  \end{scope}
+}
+
+\newcommand{\DXpcp}{%
+  \tikzfading[
+    name=fadeout,
+    inner color=transparent!0,
+    outer color=transparent!100,
+  ]
+
+  \tikzset{
+    onde/.style={
+      thick,
+      line cap=round,
+      decorate,
+      decoration={
+        snake,
+        mirror,
+        amplitude=.7mm,
+        segment length=2.5mm,
+        % segment length=5mm,
+        % pre length=0.31mm,
+        post length=1.5mm,
+      }
+    }
+  }
+
+  \begin{scope}[
+    >=stealth', 
+    line cap=round, 
+  ]
+
+    \coordinate (O) at ( 0.00, 0.00) ;
+    \pgfmathsetmacro{\xm}{4.00}    % x min/max
+    \pgfmathsetmacro{\t}{30.00}    % theta
+    \pgfmathsetmacro{\d}{1.00}     % d
+
+    % \draw [help lines, densely dotted, red, step=0.1] 
+    %       (-\xm, 0.00) grid ( \xm, 5.00) ;
+    % \draw [help lines, ultra thin, red, step=0.5] 
+    %       (-\xm, 0.00) grid ( \xm, 5.00) ;
+    % \draw [help lines, very thin, blue] 
+    %       ( 0.00, 0.00) -- ( 0.00, 5.00) ;
+
+    \foreach \y in {0.00, 1.00, 2.00} {
+      \draw (-\xm, \y) -- ( \xm, \y) ;
+      \foreach \x in {-3.00, -1.50, ..., 4.00} {
+        \fill [DarkSlateBlue, path fading=fadeout] 
+              (\x, \y) circle (0.2) ;
+      }
+    }
+
+    \shorthandoff{;}
+    \tikzmath{
+      \x = \xm ;
+      \y = \x * tan(\t) ;
+      \l = 0.25 ;     % longueur d'onde
+      % \l = \x / cos(\t) ;
+      \b = \d * cos(\t) ;
+    }
+    \shorthandon{;}
+
+    \foreach \o in {0.00, 1.00} {
+      \begin{scope}[every path/.style={onde}]
+        \draw [->] 
+              ( 0.00, \o)  -- ( \x, \y+\o) ;
+        \draw [-<, decoration={mirror=false}] 
+              ( 0.00, \o) -- (-\x, \y+\o) ;
+      \end{scope}
+
+      \draw [very thin] 
+            (-\x, \y+\o) -- ( 0.00, \o) -- ( \x, \y+\o) ;
+    }
+
+    \begin{scope}[DarkRed]
+      \draw ( 0.00, \d) -- (O) ;
+      \foreach \s in {-1, 1} {
+        \foreach \o in {0, 4.75} {
+          \draw [xscale=\s]
+                ( 0.00, \d) ++ (\t:0.015+\o*\l)     -- ++ (-90+\t:\b) ;
+        }
+        \draw [xscale=\s, very thin]
+              ( 0.50, \d) arc (0:\t:0.5) ;
+        \node at ([xscale=\s] 0.60, 1.12) {\smaller$\theta$} ;
+        \draw [xscale=\s, very thin]
+              ( 0.00, 0.50) arc (-90:-89+\t:0.5) ;
+        \node at ([xscale=\s] 0.18, 0.40) {\smaller$\theta$} ;
+      }
+
+      \draw [|-|, shift={(180-\t:0.015+12.75*\l)}]
+        ([shift={(90-\t:0.15)}] 0.00, \d) -- ++ (180-\t:1*\l) 
+        node [pos=0, above] {\smaller$\lambda$} ;
+
+      \draw [<->, shorten >=1pt, shorten <=1pt, ] 
+            (\xm-0.2, 0.00) -- ++ ( 0.00, \d) 
+            node [midway, right] {\smaller$d$} ;
+    \end{scope}
+
+  \end{scope}
+}

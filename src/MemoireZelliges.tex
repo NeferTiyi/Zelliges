@@ -1,26 +1,28 @@
 \documentclass[%
-  % draft, %
-  % background, %
-  dvipsnames, %
-  svgnames, %
-  a4paper, %
-  twoside, %
-  openany, %
-  10pt, %
-  oldfontcommands %
+  % draft,
+  % background,
+  dvipsnames,
+  svgnames,
+  a4paper,
+  twoside,
+  openany,
+  10pt,
+  oldfontcommands,
+  % leqno,
 ]{nefermemoir}
 
 \includeonly{%
-  % MemoireZelliges_Chap0_Intro,
-  % MemoireZelliges_Chap1_Contexte,
+  MemoireZelliges_Chap0_Intro,
+  MemoireZelliges_Chap1_Contexte,
   MemoireZelliges_Chap2_Materiel_Methodo,
-  % MemoireZelliges_Chap3_Resultats_6528,
-  % MemoireZelliges_Chap3_Resultats_6529,
-  % MemoireZelliges_Chap3_Resultats_6530,
-  % MemoireZelliges_Chap3_Resultats_6531,
-  % MemoireZelliges_Chap3_Resultats_6532,
-  % MemoireZelliges_Chap4_Bilan_Persp,
-  % MemoireZelliges_Chap9_Abstract,
+  MemoireZelliges_Chap3_Resultats_6528,
+  MemoireZelliges_Chap3_Resultats_6529,
+  MemoireZelliges_Chap3_Resultats_6530,
+  MemoireZelliges_Chap3_Resultats_6531,
+  MemoireZelliges_Chap3_Resultats_6532,
+  MemoireZelliges_Chap4_Bilan_Persp,
+  MemoireZelliges_Chap9_Abstract,
+  MemoireZelliges_studied_samples,
 }
 
 % Lua :
@@ -31,11 +33,14 @@
 %   \usepackage{fontspec}
 
 \usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=1.12}
 
 \usepackage{pgf,tikz}
 \usetikzlibrary{%
   backgrounds,
   calc,
+  math,
+  fadings,
   patterns,
   shapes.multipart,
   arrows,
@@ -56,6 +61,10 @@
 \usepackage{mfirstuc}  % => \makefirstuc
 \usepackage{arabtex}
 
+\newtagform{brackets}{[}{]}
+\usetagform{brackets}
+
+
 % \makeindex
 % \makeglossary
 
@@ -75,8 +84,6 @@
     % \setcounter{table}{0}
   }
 \makeatother
-
-
 
 
 % \makeatletter
@@ -111,9 +118,6 @@
 % \let\tc@@and\@gobbletwo
 
 % \makeatother
-
-
-
 
 
 \addtolength{\columnsep}{15pt}
@@ -393,59 +397,7 @@ Recherche des caractéristiques physiques de zelliges de pavement
 \nocite{*}
 \printbibliography[heading=memoir,title=Bibliographie]
 
-\begin{tabular}{*{34}{c}}
-    BDX\,\no & Nature & Photo & Dessin & DX & 
-    Photo & Mavica & Num. & 
-    Image & $\mu$fluo\,X & 
-    \SI{77}{\kelvin} & l.onde & Image & 
-    \SI{77}{\kelvin} & l.onde & Photo & Mavica & Num. &
-    Spectro gamma & Chroma & ATD & Absorp optique & PL & 
-    \SI{20}{\degC} & l.onde & Photo & 
-    OSL & IRSL & \ce{He} &
-    \SI{77}{\kelvin} & \SI{20}{\degC} & 
-    \SI{77}{\kelvin} & \SI{20}{\degC} & Raman
-  \tabularnewline
-    6528 & céram. gla. & \texttimes & \texttimes & \texttimes & 
-     & \texttimes & & 
-    \texttimes & \texttimes & 
-     & & & 
-     & & \texttimes & &
-     & & & \texttimes & & 
-     & & & & & & & & & &
-  \tabularnewline
-    6529 & céram. gla. & \texttimes & \texttimes & \texttimes & 
-     & \texttimes & & 
-    \texttimes & \texttimes & 
-     & & & 
-     & & \texttimes & &
-     & & & \texttimes & & 
-     & & & & & & & & & &
-  \tabularnewline
-    6530 & céram. gla. & \texttimes & \texttimes & \texttimes & 
-     & \texttimes & & 
-    \texttimes & \texttimes & 
-     & & & 
-     & & \texttimes & &
-     & & & \texttimes & & 
-     & & & & & & & & & &
-  \tabularnewline
-    6531 & céram. gla. & \texttimes & \texttimes & \texttimes & 
-     & \texttimes & & 
-    \texttimes & \texttimes & 
-     & & & 
-     & & \texttimes & &
-     & & & \texttimes & & 
-     & & & & & & & & & &
-  \tabularnewline
-    6532 & céram. gla. & \texttimes & \texttimes & \texttimes & 
-     & \texttimes & & 
-    \texttimes & \texttimes & 
-     & & & 
-     & & \texttimes & &
-     & & & \texttimes & & 
-     & & & & & & & & & &
-  \tabularnewline
-\end{tabular}
+\include{MemoireZelliges_studied_samples}
 
 \cleardoublepage
 \pagestyle{empty}
