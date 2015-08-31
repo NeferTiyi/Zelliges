@@ -551,27 +551,56 @@ caractérisée par \WLd dans le rayonnement.
 %
 \qquad%
 %
-\begin{tikzpicture}  % [show background rectangle]
+\begin{tikzpicture}[
+  line cap=round,
+  % show background rectangle,
+]
 
   % \pgfplotstableread{PaV.dat}{\pavdata}
 
   \begin{axis}[%
-    xmin=0, xmax=0.81,
-    ymin=0, ymax=0.91,
+    xmin=0, xmax=0.8,
+    ymin=0, ymax=0.9,
     width=8cm, height=9cm,
-    xtick={0.0, 0.1, ..., 0.8},
-    ytick={0.0, 0.1, ..., 0.9},
-    axis lines=left,
-    % axis line style={white},
+    axis lines*=left,
     tick align=outside,
-    tick style={thin},
-    % tick style={white, thin},
-    % axis line style={gray!25!white, ultra thin},
-    % hide axis=true,
-    grid=both,
-    % xlabel=x, ylabel=y,
+    tick style={black, thin},
+    ticklabel style={font=\small},
+    minor tick num=3,
+    xtick={0.0, 0.1, ..., 1.0},
+    ytick={0.0, 0.1, ..., 1.0},
+    minor tick={0.0, 0.05, ..., 1.0},
+    % grid=both,
+    xlabel=\CIExb, ylabel=\CIEyb,
+    xlabel near ticks, ylabel near ticks,
+    every axis x label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=south,
+    },
     clip mode=individual,
   ]
+
+    \begin{scope}
+      \clip ( 0.0, 0.0) -- ( 0.0, 0.9) -- ( 0.1, 0.9) --
+            ( 0.8, 0.2) -- ( 0.8, 0.0) -- cycle ;
+      \draw [help lines, step=0.05] 
+            ( 0.0, 0.0) grid ( 0.8, 0.9) ;
+    \end{scope}
+    \draw [help lines] 
+          ( 0.0, 0.9) -- ( 0.1, 0.9) -- ( 0.8, 0.2) -- ( 0.8, 0.0) ;
+    \draw ( 0.0, 0.9) -- ( 0.0, 0.0) -- ( 0.8, 0.0) ;
+
+    \begin{scope}
+      \addplot graphics [
+        xmin=0.0036363842, xmax=0.7346900119, 
+        ymin=0.0047740307, ymax=0.8340903145
+      ]
+        {pav} ;
+    \end{scope}
 
     \begin{scope}[thick, line cap=round, line join=round]
       \addplot [thick, mark=none]
@@ -580,10 +609,63 @@ caractérisée par \WLd dans le rayonnement.
       % \draw plot file {CIE_espaces2D.dat} -- cycle ;
     \end{scope}
 
-    % \draw [step=0.1] (0.00, 0.00) grid (0.8, 0.8) ;
-
+%       \addplot [red, only marks, mark=|]
+%          table [x=x, y=y] 
+%                {
+% x             y                   l
+% 0.1439603960  0.0297029703        460
+% 0.0912935070  0.1327020425        480
+% 0.0081680280  0.5384230705        500
+% 0.0743024248  0.8338030913        520
+% 0.2296196726  0.7543290899        540
+% 0.3731015439  0.6244508598        560
+% 0.5124863668  0.4865907881        580
+% 0.6270365998  0.3724911452        600
+% 0.6915039730  0.3083422606        620
+%                } ;
+    % \begin{scope}
+    %   \foreach \u/\v/\l in {
+    %     0.1439603960/0.0297029703/460,
+    %     0.0912935070/0.1327020425/480,
+    %     0.0081680280/0.5384230705/500,
+    %     0.0743024248/0.8338030913/520,
+    %     0.2296196726/0.7543290899/540,
+    %     0.3731015439/0.6244508598/560,
+    %     0.5124863668/0.4865907881/580,
+    %     0.6270365998/0.3724911452/600,
+    %     0.6915039730/0.3083422606/620
+    %   } {
+    %     \node at (\u, \v) {\l} ;
+    %   }
+    % \end{scope}
   \end{axis}
+
+  % \begin{scope}
+  %   \foreach \x/\y/\l in {
+  %     0.1439603960/0.0297029703/460,
+  %     0.0912935070/0.1327020425/480,
+  %     0.0081680280/0.5384230705/500,
+  %     0.0743024248/0.8338030913/520,
+  %     0.2296196726/0.7543290899/540,
+  %     0.3731015439/0.6244508598/560,
+  %     0.5124863668/0.4865907881/580,
+  %     0.6270365998/0.3724911452/600,
+  %     0.6915039730/0.3083422606/620
+  %   }
+  %     \node at (\x, \y) {\l} ;
+  % \end{scope}
+
+
+
 \end{tikzpicture}
+
+
+
+
+
+
+
+
 
 
 
