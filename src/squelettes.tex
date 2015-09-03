@@ -1,0 +1,205 @@
+\documentclass{standalone}
+
+\usepackage{pgf,tikz}
+\usetikzlibrary{%
+  % backgrounds,
+  calc,
+  math,
+  % fadings,
+  % patterns,
+  % shapes.multipart,
+  % arrows,
+  % arrows.meta,
+  positioning,
+  % shadows,
+  % decorations.text,
+  % decorations.markings
+}
+
+\newcommand{\drawhatim}{%
+  (    0.000 , {sqrt(2)}) -- ({1-sqrt(2)},     1.000 ) --
+  (   -1.000 ,    1.000 ) -- (    -1.000 ,{sqrt(2)-1}) --
+  ({-sqrt(2)},    0.000 ) -- (    -1.000 ,{1-sqrt(2)}) --
+  (   -1.000 ,   -1.000 ) -- ({1-sqrt(2)},    -1.000 ) --
+  (    0.000 ,-{sqrt(2)}) -- ({sqrt(2)-1},    -1.000 ) --
+  (    1.000 ,   -1.000 ) -- (     1.000 ,{1-sqrt(2)}) --
+  ( {sqrt(2)},    0.000 ) -- (     1.000 ,{sqrt(2)-1}) --
+  (    1.000 ,    1.000 ) -- ({sqrt(2)-1},     1.000 ) -- cycle
+}
+
+\newcommand{\hatim}{%
+     ++ (  0:\r) -- ++ (135:\s) 
+  -- ++ ( 90:\s) -- ++ (180:\s) 
+  -- ++ (135:\s) -- ++ (225:\s) 
+  -- ++ (180:\s) -- ++ (270:\s) 
+  -- ++ (225:\s) -- ++ (315:\s) 
+  -- ++ (270:\s) -- ++ (  0:\s) 
+  -- ++ (315:\s) -- ++ ( 45:\s) 
+  -- ++ (  0:\s) -- ++ ( 90:\s) 
+  --    cycle
+}
+
+\newcommand{\drawluza}{%
+  (     0.000 ,   0.000 ) -- ({2-sqrt(2)},     0.000 ) -- 
+  ({2-sqrt(2)},{sqrt(2)}) -- ({1-sqrt(2)},{sqrt(2)-1}) -- cycle
+}
+
+\newcommand{\drawsaft}{%
+  (-2.00, 0.00) -- (-1.00, 1.00) -- ( 1.00, 1.00) -- 
+  ( 2.00, 0.00) -- ( 1.00,-1.00) -- (-1.00,-1.00) -- cycle
+}
+
+% % Fawrkat
+% \fill [color=ffqqff, fill=ffqqff, fill opacity=0.1] 
+%       ( 0.414,-1.000) -- (-1.000,-1.000) -- 
+%       (-2.000, 0.000) -- (-1.000, 1.000) -- 
+%       ( 0.414, 1.000) -- ( 0.414, 0.414) -- 
+%       ( 0.000, 0.000) -- ( 0.414,-0.414) -- cycle ;
+
+\newcommand{\squeletteb}{%
+  \draw [domain=-1:1] plot( \x, {-\x} ) ;
+  \draw [domain=-2:2] plot( 0, \x ) ;
+  \draw [domain=0:{2-2*sqrt(2)}] plot(-2, \x ) ;
+  \draw [domain=0:{2*sqrt(2)-2}] plot( 2, \x ) ;
+  \draw [domain=-2:2] plot( \x, {+sqrt(2)} ) ;
+  \draw [domain=-2:2] plot( \x, {-sqrt(2)}   ) ;
+  \draw [domain=0:5]  plot( \x, {+sqrt(2)+2} ) ;
+  \draw [domain=-5:0] plot( \x, {-sqrt(2)-2}   ) ;
+
+  \draw [domain=2:1] plot(\x, {-\x + 2*sqrt(2)}) ;
+  \draw [domain=-2:-1] plot(\x, {-\x - 2*sqrt(2)}) ;
+
+  \draw [domain=-1:-3] plot( \x, {\x + 2}) ;
+  \draw [domain=1:3] plot( \x, {\x - 2}) ;
+  \draw [domain=-6:-2] plot( \x, {\x + 2*sqrt(2) + 2}) ;
+  \draw [domain=2:6] plot( \x, {\x - 2*sqrt(2) - 2}) ;
+
+  \filldraw [shift={( 1 , {-sqrt(2)-1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( -1 , {sqrt(2)+1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2*sqrt(2)-3} , {-sqrt(2)-1} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {2*sqrt(2)+3} , {sqrt(2)+1} )}] 
+    \drawhatim ;
+
+  \filldraw [shift={( {-sqrt(2)-1} , {-sqrt(2)-1} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {sqrt(2)+1} , {sqrt(2)+1} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {-sqrt(2)-2} , 0 )}, rotate=45] 
+    \drawsaft ;
+  \filldraw [shift={( {sqrt(2)+2} , 0 )}, rotate=45] 
+    \drawsaft ;
+}
+
+\newcommand{\squelettea}{%
+  \begin{scope}
+    \clip (-4,-4) rectangle (4,4) ;
+    \draw plot( \x, {\x + sqrt(2)}) ;
+    \draw plot( \x, {\x - sqrt(2)}) ;
+    \draw plot(-\x, {\x + sqrt(2)}) ;
+    \draw plot(-\x, {\x - sqrt(2)}) ;
+  \end{scope}
+
+  \draw ( {-1-sqrt(2)} , {-1-sqrt(2)} ) rectangle
+        ( {+1+sqrt(2)} , {+1+sqrt(2)} ) ;
+  \draw ( {-3-sqrt(2)} , {-3-sqrt(2)} ) rectangle
+        ( {+3+sqrt(2)} , {+3+sqrt(2)} ) ;
+
+  \filldraw [shift={( {+2+sqrt(2)} , {+2+sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {+2+sqrt(2)} , {-2-sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2-sqrt(2)} , {+2+sqrt(2)} )}] 
+    \drawhatim ;
+  \filldraw [shift={( {-2-sqrt(2)} , {-2-sqrt(2)} )}] 
+    \drawhatim ;
+
+  \filldraw [shift={( 0 , {-2-sqrt(2)} )}] 
+    \drawsaft ;
+  \filldraw [shift={( 0 , {+2+sqrt(2)} )}] 
+    \drawsaft ;
+  \filldraw [shift={( {-2-sqrt(2)} , 0 )} , rotate=90] 
+    \drawsaft ;
+  \filldraw [shift={( {+2+sqrt(2)} , 0 )} , rotate=90] 
+    \drawsaft ;
+}
+
+\begin{document}
+
+% \begin{tikzpicture}[thick, fill=white, scale=1]
+%   \squelettea
+%   \fill (-2,-2) rectangle (2,2) ;
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[thick, fill=white, scale=2]
+%   \squelettea
+%   \filldraw \drawhatim ;
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[thick, fill=white, scale=1]
+%   \squelettea
+%   \fill (-1,-1) rectangle (1,1) ;
+%   \foreach \x in {0, 90, 180, 270} {%
+%     \draw [rotate=\x]
+%           ( {1-sqrt(2)} ,  1 )          -- 
+%           ( {1-sqrt(2)} , {sqrt(2)-1} ) -- 
+%           ( -1 , {sqrt(2)-1} ) ;
+%   }
+% \end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=3, radius=\r, densely dotted]
+
+
+  \pgfmathsetmacro{\a}{45}
+  \pgfmathsetmacro{\r}{1}
+  \pgfmathsetmacro{\n}{3}
+
+  \tikzmath{
+    \c  = \r*cos(45) ;
+    \s  = \r*(sqrt(2)-1) ;
+    \l  = \r + 2*\c ;
+    \xm = \n * \l ;
+    \ym = \xm ;
+  }
+  % \pgfmathsetmacro{\xm}{10}
+  % \pgfmathsetmacro{\ym}{\xm}
+  % \clip (-\xm,-\ym) rectangle ( \xm, \ym) ;
+
+  \begin{scope}[
+    step=0.25*\l, 
+    help lines, 
+    % very thin, 
+    % densely dotted, 
+    red!75!black
+  ] 
+    \foreach \angle in {0, 90, 180, 270} 
+      \draw [rotate=\angle] 
+            ( 0.0, 0.0) grid ( \xm+0.5*\l, \ym+0.5*\l) ;
+  \end{scope}
+  \node (O) at ( 0., 0.) {$+$} ;
+
+  % \foreach \x in {0., 2*\l, ..., \xm}
+  %   \draw ( \x, 0.0) circle ;
+
+  \foreach \sy in {-\n, ..., \n} {
+    \foreach \sx in {-\n, ..., \n} {
+      \draw (\sx*\l, \sy*\l) circle ;
+      % \draw (\l+\sx*\l, \l+\sy*\l) circle ;
+      % \draw (\sx*\l, \sy*\l) circle [radius=\c] ;
+      \draw (\sx*\l-\c, \sy*\l-\c) rectangle ++ (2*\c, 2*\c) ;
+      % \draw (\sx*\l+\l-\c, \sy*\l+\l-\c) rectangle ++ (2*\c, 2*\c) ;
+      % \draw (\l*(1+\sx), \l*(1+\sy) circle [radius=\c] ;
+    }
+  }
+
+  % \filldraw [gray, opacity=0.5]
+  %           (0.0, 0.0) \hatim ;
+
+\end{tikzpicture}
+
+\end{document}
+
+
