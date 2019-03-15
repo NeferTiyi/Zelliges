@@ -1,0 +1,117 @@
+\thispagestyle{empty}
+
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=center,
+  inner sep=0, outer sep=1cm,
+]
+  \node (tab) at (current page.center) {%
+
+\begin{turn}{-90}
+\newcommand{\lignevide}{%
+    \rule{0pt}{2\baselineskip} &                                % 01
+    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &     % 02-15
+    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ &     % 16-29
+    ~ & ~ & ~ & ~ & ~                                           % 30-34
+  \tabularnewline
+}
+\newcommand{\ligneBDX}[1]{%
+    #1 & céram.\\gla. & \texttimes & \texttimes & \texttimes &  % 01-05
+    ~ & \texttimes & ~ & \texttimes & \texttimes & ~ & ~ & ~ &  % 06-13
+    ~ & ~ & ~ & \texttimes & ~ & ~ & ~ & ~ & \texttimes & ~ &   % 14-23
+    ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~                   % 24-34
+  \tabularnewline
+}
+\centering\tiny
+\setlength{\tabcolsep}{1pt}
+\newlength{\larg}\setlength{\larg}{7mm}
+%
+\begin{tabular}{|*{34}{M{\larg}|}}
+  \hline
+    \multirow{3}{\larg}{BDX\\\no} & \multirow{3}{*}{Nature} &   % 01-02
+    \multirow{3}{*}{Photo} & \multirow{3}{*}{Dessin} &          % 03-04
+    \multirow{3}{*}{DX} &                                       % 05
+    \multicolumn{3}{c|}{Polarisant : LN} &                      % 06-08
+    \multicolumn{2}{c|}{MEB} &                                  % 09-10
+    \multicolumn{3}{c|}{$\mu$CL} &                              % 11-13
+    \multicolumn{5}{c|}{CL} &                                   % 14-18
+    \multirow{3}{\larg}{Spectro\\gamma} &                       % 19
+    \multirow{3}{*}{Chroma} &                                   % 20
+    \multirow{3}{*}{ATD} &                                      % 21
+    \multirow{3}{\larg}{Absorp\\optique} &                      % 22
+    \multirow{3}{*}{PL} &                                       % 23
+    \multicolumn{3}{c|}{TL} &                                   % 24-26
+    \multirow{3}{*}{OSL} & \multirow{3}{*}{IRSL} &              % 27-28
+    \multicolumn{5}{c|}{RPE} &                                  % 29-33
+    \multirow{3}{*}{Raman}                                      % 34
+  \tabularnewline
+
+  %        1 2 3 4 5 67890123456789 0 1 2 3 4567 8 901234
+  \hhline{|~|~|~|~|~|-------------~|~|~|~|~|---~|~|-----~|}
+
+    ~ & ~ & ~ & ~ & ~ &                                         % 01-05
+    \multirow{2}{*}{Photo} & \multirow{2}{*}{Mavica} &          % 06-07
+    \multirow{2}{*}{Num.} &                                     % 08
+    \multirow{2}{*}{Image} &                                    % 09
+    \multirow{2}{\larg}{$\mu$fluo\\X} &                         % 10
+    \SI{77}{\kelvin} & \multicolumn{2}{c|}{\SI{20}{\degC}} &    % 11-13
+    \SI{77}{\kelvin} & \multicolumn{4}{c|}{\SI{20}{\degC}} &    % 14-18
+    ~ & ~ & ~ & ~ & ~ &                                         % 19-23
+    \multirow{2}{*}{\SI{20}{\degC}} & \multirow{2}{*}{l.onde} & % 24-25
+    \multirow{2}{*}{Photo} &                                    % 26
+    ~ & ~ &                                                     % 27-28
+    \multicolumn{3}{c|}{Bande X} &                              % 29-31
+    \multicolumn{2}{c|}{Bande Q} &                              % 32-33
+    ~                                                           % 34
+  \tabularnewline
+
+  %        1 2 3 4 5 6 7 8 9 0 1 234 56789 0 1 2 3 4 5 6 7 8 901234
+  \hhline{|~|~|~|~|~|~|~|~|~|~|~|--~|----~|~|~|~|~|~|~|~|~|~|-----~|}
+
+    ~ & ~ & ~ & ~ & ~ &                                         % 01-05
+    ~ & ~ & ~ & ~                                               % 06-08
+    ~ & ~ &                                                     % 09-10
+    l.onde & l.onde & image &                                   % 11-13
+    l.onde & l.onde & Photo & Mavica & Num. &                   % 14-18
+    ~ & ~ & ~ & ~ & ~ &                                         % 19-23
+    ~ & ~ & ~ &                                                 % 24-26
+    ~ & ~ &                                                     % 27-28
+    \ce{He} & \SI{77}{\kelvin} & \SI{20}{\degC} &               % 29-31
+    \SI{77}{\kelvin} & \SI{20}{\degC} &                         % 32-33
+    ~                                                           % 34
+  \tabularnewline
+  \hline\hline
+
+  \ligneBDX{6528}\hline
+  \ligneBDX{6529}\hline
+  \ligneBDX{6530}\hline
+  \ligneBDX{6531}\hline
+  \ligneBDX{6532}\hline
+
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+  \lignevide\hline
+\end{tabular}
+\end{turn}
+  } ;
+
+  % \node at (current page.west) [below, rotate=90] 
+  \node at (tab.east) [rotate=-90] 
+        {\bfseries ÉCHANTILLONS ÉTUDIÉS} ;
+\end{tikzpicture}
