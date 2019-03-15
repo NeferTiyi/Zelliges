@@ -21,12 +21,12 @@
   \sieclenum{#1}-\sieclenum{#2}~siècles%
 }
 
-% % Incise
-% % ======
-% \DeclareRobustCommand{\oinc}{\textemdash~}
-% \DeclareRobustCommand{\finc}{~\textemdash}
-% \DeclareRobustCommand{\incise}[1]{\oinc#1\finc}
-% \DeclareRobustCommand{\oincise}[1]{\oinc#1}
+% Incise
+% ======
+\DeclareRobustCommand{\oinc}{\textemdash~}
+\DeclareRobustCommand{\finc}{~\textemdash}
+\DeclareRobustCommand{\incise}[1]{\oinc#1\finc}
+\DeclareRobustCommand{\oincise}[1]{\oinc#1}
 
 % Coloration en cas de brouillon
 % ==============================
@@ -40,9 +40,22 @@
   }%
 }
 
+\newcommand{\gens}[2][]{%
+  \colordraft{orange}{\notblank{#1}{#1~}{}\bsc{#2}}%
+}
+\newcommand{\SL}{\gens[Sonia]{Labetoulle}\xspace}
+\newcommand{\FB}{\gens[Françoise]{Bechtel}\xspace}
+\newcommand{\MS}{\gens[Max]{Schv\oe{}rer}\xspace}
+\newcommand{\ABA}{\gens[Ayed]{Ben Amara}\xspace}
+\newcommand{\CRPAA}{%
+  \emph{%
+    Centre de Recherche en Physique Appliquée à l'Archéologie%
+  }\xspace%
+}
+
 
 \DeclareRobustCommand{\arabzell}{%
-  \texorpdfstring{\RL{zly^g}}{}
+  \texorpdfstring{\RL{zly^g}}{}%
 }
 
 \newcommand{\blackstar}{\ding{88}}
