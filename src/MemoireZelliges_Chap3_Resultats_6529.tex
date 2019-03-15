@@ -94,7 +94,7 @@ inclusions rouges et blanches.
 
 \subsection{Identification des ions chromogènes}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert (\fref{spectre:6529}) laisse apparaître trois bandes d'absorption à \SIlist{525;600;660}{\nm}, caractéristiques du \ce{Co^2+} \autocite{Lajarte_1979}.
+Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert (\fref{spectre:6529}) laisse apparaître trois bandes d'absorption à \SIlist{525;600;660}{\nm}, caractéristiques du \ch{Co^2+} \autocite{Lajarte_1979}.
 
 \begin{figure}[htb]
   \begin{plotspectre}
@@ -106,7 +106,7 @@ Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert (\fref{spec
        table [x=lambda, y=6529tc] {\tcdata} ;
   \end{plotspectre}
   \caption{\legendeB 
-           Spectres d'\AO en mode réflexion diffuse de la glaçure et de la terre cuite. La coloration de la glaçure est due au \ce{Co^2+} mis en évidence par les trois bandes d'absorption à \SIlist{525;600;660}{\nm}.}
+           Spectres d'\AO en mode réflexion diffuse de la glaçure et de la terre cuite. La coloration de la glaçure est due au \ch{Co^2+} mis en évidence par les trois bandes d'absorption à \SIlist{525;600;660}{\nm}.}
   \label{spectre:6529}
 \end{figure}
 
@@ -114,7 +114,7 @@ Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert (\fref{spec
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 À partir du spectre d'\AO, ont été calculées les coordonnées chromatiques correspondant aux espaces \Yxy et \Lab (\tref{saotab:6529}). La longueur d'onde dominante associée au rayonnement correspond au domaine du vert jaunâtre \autocite{Kelly_1976}. Ce résultat, en contradiction avec l'observation visuelle, peut s'expliquer par la forte usure de la glaçure. En effet, elle laisse par endroit apparaître le support céramique rougeâtre sous-jacent, ce qui altère la perception de la couleur de la glaçure.
 
-Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40) permettent de focaliser le faisceau pour analyser une zone saine de la glaçure. Le spectre obtenu présente, lui aussi, les trois bandes d'absorption caractéristiques du \ce{Co^2+}. Les résultats de \CHRO sont consignés dans le \tref{saotab:6529} et la \fref{colorfig:6529} en donne les représentations graphiques. La longueur d'onde dominante est cette fois de \SI{482.54}{\nm}, elle correspond au domaine du bleu verdâtre \autocite{Kelly_1976}. La pureté d'excitation \SI{3.71}{\percent} est celle d'une couleur très peu saturée, la réflectance $Y$ (\num{27.839}) indique une couleur assez foncée.
+Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40) permettent de focaliser le faisceau pour analyser une zone saine de la glaçure. Le spectre obtenu présente, lui aussi, les trois bandes d'absorption caractéristiques du \ch{Co^2+}. Les résultats de \CHRO sont consignés dans le \tref{saotab:6529} et la \fref{colorfig:6529} en donne les représentations graphiques. La longueur d'onde dominante est cette fois de \SI{482.54}{\nm}, elle correspond au domaine du bleu verdâtre \autocite{Kelly_1976}. La pureté d'excitation \SI{3.71}{\percent} est celle d'une couleur très peu saturée, la réflectance $Y$ (\num{27.839}) indique une couleur assez foncée.
 
 \begin{table}
   \begin{chrotab}[Appareillage]
@@ -226,7 +226,9 @@ dans la terre cuite (\fref{MEB:6529_img}).
   \label{MEB:6529_img}
 \end{figure}
 
-Une \carto de \RX (\fref{MEB:6529_carto_tcgla}) a permis de montrer que ces cristaux sont des quartz (\ce{SiO2}). Ils sont responsables des luminescences mauves détectées en \CL.
+Une \carto de \RX (\fref{MEB:6529_carto_tcgla}) a permis de montrer 
+que ces cristaux sont des quartz (\quartz). Ils sont responsables 
+des luminescences mauves détectées en \CL.
 
 Des cristaux de forme aciculaire se développent à l'interface 
 glaçure/terre cuite (\fref{MEB:6529_img_int}). Cette zone semble être 
@@ -248,7 +250,12 @@ avant cuisson de ce dernier.
   \label{MEB:6529_img_int}
 \end{figure}
 
-Une \carto de la terre cuite (\fref{MEB:6529_carto_tc}) a permis de mettre en évidence la présence de cristaux de quartz et de feldspaths potassiques. Ces derniers sont à l'origine des luminescences ponctuelles bleues observées en \CL. Les luminescences rouges détectées en \CL peuvent être corrélées avec la présence dans la terre cuite de calcium, probablement sous forme de calcite (\ce{CaCO3}).
+Une \carto de la terre cuite (\fref{MEB:6529_carto_tc}) a permis de 
+mettre en évidence la présence de cristaux de quartz et de feldspaths 
+potassiques. Ces derniers sont à l'origine des luminescences 
+ponctuelles bleues observées en \CL. Les luminescences rouges 
+détectées en \CL peuvent être corrélées avec la présence dans la terre 
+cuite de calcium, probablement sous forme de calcite (\calcite).
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc/gla (fig 35)}
@@ -357,12 +364,18 @@ moyen \autocite{Rhodes_1999}.
 \end{table}
 
 La terre cuite est de type calcique (\SI{18.70}{\percent} de CaO). 
-Sa coloration ocre rose est due au \ce{Fe^3+} en atmosphère de cuisson 
+Sa coloration ocre rose est due au \ch{Fe^3+} en atmosphère de cuisson 
 oxydante \autocite{Echallier_1984}.
 
 \subsection{Composition \cristallo}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Le principal composé cristallisé mis en évidence par \DX sur poudre (\fref{DRX:6529}) est le quartz (\ce{SiO2}). On relève également la présence, à des teneurs plus faibles, de calcite (\ce{CaCO3}) pouvant correspondre aux émissions rouges détectées en \CL, d'albite (\ce{NaAlSi3O8}), de diopside alumineux (\ce{Ca(Mg{,}Al)(Si{,}Al)2O6}) et de gehlénite (\ce{Ca2Al2SiO7}). Ces deux derniers cristaux peuvent être responsables des émissions bleues détectées en \CL.
+Le principal composé cristallisé mis en évidence par \DX sur poudre 
+(\fref{DRX:6529}) est le quartz (\quartz). On relève également la 
+présence, à des teneurs plus faibles, de calcite (\calcite) pouvant 
+correspondre aux émissions rouges détectées en \CL, d'albite (\albite), 
+de diopside alumineux (\diopsideal) et de gehlénite (\gehlenite). 
+Ces deux derniers cristaux peuvent être responsables des émissions 
+bleues détectées en \CL.
 
 La présence de diopside alumineux et de gehlénite, deux phases se 
 développant à haute température, associées à l'albite, disparaissant 
@@ -452,11 +465,18 @@ ni visuellement, ni en \MEB[ie] (MEB).
 \section{Bilan}
 %----------------------------------------------------------------------
 
-Cet échantillon est donc une pièce de céramique portant une glaçure plombifère dont la coloration bleue est due au \ce{Co^2+} en atmosphère de cuisson oxydante et légèrement opacifiée à l'étain pour rendre la couleur plus veloutée et masquer la terre cuite rougeâtre.
+Cet échantillon est donc une pièce de céramique portant une glaçure 
+plombifère dont la coloration bleue est due au \ch{Co^2+} en 
+atmosphère de cuisson oxydante et légèrement opacifiée à l'étain pour 
+rendre la couleur plus veloutée et masquer la terre cuite rougeâtre.
 
-Son support de terre cuite est de type calcique. Sa coloration rougeâtre est due à la présence de \ce{Fe^3+} en atmosphère de cuisson oxydante.
+Son support de terre cuite est de type calcique. Sa coloration 
+rougeâtre est due à la présence de \ch{Fe^3+} en atmosphère de 
+cuisson oxydante.
 
-Sa composition \cristallo (quartz, calcite, albite, diopside, gehlénite) laisse penser qu'elle a été cuite à une température de l'ordre de \SIrange[range-phrase=\ à\ ]{850}{900}{\degC}.
+Sa composition \cristallo (quartz, calcite, albite, diopside, 
+gehlénite) laisse penser qu'elle a été cuite à une température 
+de l'ordre de \SIrange[range-phrase=\ à\ ]{850}{900}{\degC}.
 
 À l'interface glaçure-terre cuite, on distingue un large liseré 
 continu présentant une luminescence jaune, associé à la présence de 

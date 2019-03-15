@@ -18,7 +18,9 @@ On peut donc supposer que, contrairement au quatre autres, le zellige bleu n'a p
 
 L'étude de la texture de l'ensemble terre cuite-glaçure en lumière naturelle et \CL confirme cette ségrégation entre le zellige bleu et les quatre autres. En effet, le support de céramique du zellige bleu contient de grosses inclusions blanches et rouges observables à l'{\oe}il nu ainsi que quelques porosités de grande taille, réparties aléatoirement dans toute sa masse. À la loupe binoculaire, la terre cuite paraît très fine. En revanche, les terres cuites des quatre autres zelliges ne contiennent pas d'inclusions visibles à l'{\oe}il nu et sont assez peu poreuses. C'est l'observation à la loupe binoculaire qui y révèle la présence de nombreuses inclusions de couleurs variées (rouges, blanches, noires) et de granulométrie très fine (\SI{\sim0.15}{\mm}) réparties de manière homogène. De plus, la limite entre la glaçure et la terre cuite est très nette pour les quatre \frquote{petits} zelliges alors qu'elle est floue pour le bleu. On peut même parler de \frquote{fusion} des deux matériaux.
 
-En \CL, on voit qu'aucune des glaçures ne luminesce mais que certaines (blanche, bleue) contiennent des cristaux de quartz (\ce{SiO2}) luminesçant en mauve.
+En \CL, on voit qu'aucune des glaçures ne luminesce mais que certaines 
+(blanche, bleue) contiennent des cristaux de quartz (\quartz) 
+luminesçant en mauve.
 
 La terre cuite du zellige bleu présente une luminescence à dominante mauve. Les autres présentent également une luminescence à dominante mauve mais avec de nombreuses luminescences ponctuelles rouges et bleues. De plus, dans le cas du zellige bleu, il faut noter, à l'interface terre cuite-glaçure, un liseré large qui luminesce en jaune et qui correspond à une bande de terre cuite plus clair en lumière naturelle. Pour les autres, on ne détecte pas ou peu de luminescences dans la zone d'interface.
 
@@ -51,17 +53,17 @@ Dans les quatre autres zelliges, on trouve également des cristaux de dévitrifi
       },
       xtick={0, ..., 10},
       xticklabels={
-        \ce{SiO2},
-        \ce{CaO},
-        \ce{MgO},
-        \ce{Na2O},
-        \ce{K2O},
-        \ce{Al2O3},
-        \ce{PbO},
-        \ce{SnO2},
-        \ce{Fe2O3},
-        \ce{CuO},
-        \ce{MnO}
+        \ch{SiO2},
+        \ch{CaO},
+        \ch{MgO},
+        \ch{Na2O},
+        \ch{K2O},
+        \ch{Al2O3},
+        \ch{PbO},
+        \ch{SnO2},
+        \ch{Fe2O3},
+        \ch{CuO},
+        \ch{MnO}
       },
     ]
       \addplot [fill=PaleGreen] 
@@ -87,12 +89,30 @@ Dans les quatre autres zelliges, on trouve également des cristaux de dévitrifi
     \end{axis}
 
   \end{tikzpicture}
-  \caption{\legendeAll 
-           Compositions élémentaires des glaçures par \EDS. Toutes les glaçures sont plombifères. La glaçure verte est colorée par le \ce{Cu^2+}, la glaçure noire par le \ce{Mn^3+} et \ce{Fe^3+}, la glaçure miel par le \ce{Fe^3+}, la glaçure bleue est colorée par le \ce{Co^2+} et légèrement opacifiée à l'étain, la glaçure blanche est opacifiée à l'étain.}
+  \caption{\legendeAll.
+           Compositions élémentaires des glaçures par \EDS. 
+           Toutes les glaçures sont plombifères. La glaçure verte 
+           est colorée par le \ch{Cu^2+}, la glaçure noire par le 
+           \ch{Mn^3+} et \ch{Fe^3+}, la glaçure miel par le 
+           \ch{Fe^3+}, la glaçure bleue est colorée par le \ch{Co^2+} 
+           et légèrement opacifiée à l'étain, la glaçure blanche est 
+           opacifiée à l'étain.}
   \label{plot:compo_gla}
 \end{figure}
 
-La \fref{plot:compo_gla} montre les compositions élémentaires de l'ensemble des glaçures. On peut constater qu'elles sont toutes plombifères. Elles ont donc été cuites en atmosphère oxydante car une cuisson réductrice aurait eu pour effet de noircir la glaçure. Les éléments chromogènes utilisés sont très classiques : le cobalt, sous la forme \ce{Co^2+} (comme le montre la \SAO), colore la glaçure bleue, associé à un peu d'étain pour adoucir la couleur et masquer la terre cuite rouge ; la coloration verte est due au cuivre dans l'état d'oxydation~II (montré par \SAO) ; le \ce{Mn^3+} associé au \ce{Fe^3+} donne sa coloration \frquote{orange foncé} à la glaçure noire ; la glaçure blanche est opacifiée par l'étain présent sous forme de cassitérite (\ce{SnO2}) et probablement par les fins cristaux de quartz non fondus présents à sa surface.
+La \fref{plot:compo_gla} montre les compositions élémentaires de 
+l'ensemble des glaçures. On peut constater qu'elles sont toutes 
+plombifères. Elles ont donc été cuites en atmosphère oxydante car 
+une cuisson réductrice aurait eu pour effet de noircir la glaçure. 
+Les éléments chromogènes utilisés sont très classiques : le cobalt, 
+sous la forme \ch{Co^2+} (comme le montre la \SAO), colore la glaçure 
+bleue, associé à un peu d'étain pour adoucir la couleur et masquer la 
+terre cuite rouge ; la coloration verte est due au cuivre dans l'état 
+d'oxydation~II (montré par \SAO) ; le \ch{Mn^3+} associé au \ch{Fe^3+} 
+donne sa coloration \frquote{orange foncé} à la glaçure noire ; 
+la glaçure blanche est opacifiée par l'étain présent sous forme de 
+cassitérite (\cassiterite) et probablement par les fins cristaux de 
+quartz non fondus présents à sa surface.
 
 Il est intéressant de noter la plus faible teneur en plomb de la glaçure noire. Cela suppose qu'elle a été cuite à une température plus élevée que les autres.
 
@@ -121,14 +141,14 @@ La glaçure bleue ne contient quasiment pas d'oxyde d'aluminium, connu pour augm
       },
       xtick={0, ..., 8},
       xticklabels={
-        \ce{SiO2},
-        \ce{CaO},
-        \ce{MgO},
-        \ce{Na2O},
-        \ce{K2O},
-        \ce{Al2O3},
-        \ce{Fe2O3},
-        \ce{TiO2},
+        \ch{SiO2},
+        \ch{CaO},
+        \ch{MgO},
+        \ch{Na2O},
+        \ch{K2O},
+        \ch{Al2O3},
+        \ch{Fe2O3},
+        \ch{TiO2},
       },
     ]
       \addplot [fill=PaleGreen] 
@@ -165,7 +185,7 @@ La glaçure bleue ne contient quasiment pas d'oxyde d'aluminium, connu pour augm
 
 On peut constater sur la \fref{plot:compo_tc} que toutes les terres 
 cuites sont de type calcique et que leur coloration rouge à ocre rose 
-est due au fer présent sous la forme \ce{Fe^3+} en atmosphère de 
+est due au fer présent sous la forme \ch{Fe^3+} en atmosphère de 
 cuisson oxydante. C'est en fait le fer en excès, non piégé par les 
 phases haute température dont le développement est favorisé par la 
 présence de calcium.
@@ -206,11 +226,11 @@ Cette dernière disparaît vers \SI{850}{\degC}. Son association avec des phases
           \textbf{Zellige blanc}
     \tabularnewline
     \otoprule
-      \textbf{Quartz} (\ce{SiO2}) & 
+      \textbf{Quartz} (\quartz) & 
       \blackstar & \blackstar & \blackstar & \blackstar & \blackstar
     \tabularnewline
     % \midrule
-      \textbf{Calcite} (\ce{CaCO3}) & 
+      \textbf{Calcite} (\calcite) & 
       \blackstar & \blackstar & \blackstar & \blackstar & \blackstar
     \tabularnewline
     % \midrule
