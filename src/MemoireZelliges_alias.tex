@@ -1,5 +1,45 @@
 %!TEX root = MemoireZelliges.tex
 
+% Numéros de siècles
+% ==================
+\newcommand{\sieclenum}[1]{%
+  \ifrmnum{#1}{%
+    \bsc{\MakeLowercase{#1}}%
+    \ifstrequal{#1}{i}{\ier}{\ieme}%
+  }{%
+    \bsc{\MakeLowercase{\romannumeral#1}}%
+    \ifnumequal{#1}{1}{\ier}{\ieme}%
+  }%
+}
+\newcommand{\siecle}[2][siècle]{%
+  \sieclenum{#2}~#1%
+}
+\newcommand{\sieclelist}[2]{%
+  \sieclenum{#1} et \sieclenum{#2}~siècles%
+}
+\newcommand{\sieclerange}[2]{%
+  \sieclenum{#1}-\sieclenum{#2}~siècles%
+}
+
+% % Incise
+% % ======
+% \DeclareRobustCommand{\oinc}{\textemdash~}
+% \DeclareRobustCommand{\finc}{~\textemdash}
+% \DeclareRobustCommand{\incise}[1]{\oinc#1\finc}
+% \DeclareRobustCommand{\oincise}[1]{\oinc#1}
+
+% Coloration en cas de brouillon
+% ==============================
+\providecommand{\colordraft}[2]{%
+  \texorpdfstring{%
+    \ifbool{draft}
+           {\hspace*{0pt}{\color{#1}#2}}
+           {#2}%
+  }{%
+    #2%
+  }%
+}
+
 \newcommand{\blackstar}{\ding{88}}
 \newcommand{\bluestar}{{\color{blue}\ding{88}}}
 
@@ -7,7 +47,7 @@
 % \newcommand{\PaM}{palais Al-Mansour\xspace}
 \newcommand{\PaM}{{\color{red}palais Al-Mansour}\xspace}
 \newcommand{\Zell}[2][]{%
-  Zellige#1 monochrome#1 #2 provenant du \PaM, \scl{xvii}\xspace
+  Zellige#1 monochrome#1 #2 provenant du \PaM, \siecle{17}\xspace
 }
 \newcommand{\zlaygi}{\emph{zl\={a}y\u{g}\={\i}}\xspace}
 \newcommand{\hatim}{\emph{h\={a}tim}\xspace}
@@ -47,30 +87,27 @@
 
 \definecolor{RED}{named}{red}
 
-\newcommand{\spectro}{{\color{red}spectrométrie}\xspace}
-\newcommand{\carto}{{\color{red}cartographie}\xspace}
-\newcommand{\trichro}{{\color{red}trichromatique}\xspace}
-\newcommand{\trichros}{{\color{red}trichromatiques}\xspace}
-\newcommand{\cristallo}{{\color{red}cristallographique}\xspace}
-\newcommand{\cristallos}{{\color{red}cristallographiques}\xspace}
+\newcommand{\spectro}{\colordraft{red}{spectrométrie}\xspace}
+\newcommand{\carto}{\colordraft{red}{cartographie}\xspace}
+\newcommand{\trichro}{\colordraft{red}{trichromatique}\xspace}
+\newcommand{\trichros}{\colordraft{red}{trichromatiques}\xspace}
+\newcommand{\cristallo}{\colordraft{red}{cristallographique}\xspace}
+\newcommand{\cristallos}{\colordraft{red}{cristallographiques}\xspace}
 
-\newcommand{\RX}{{\color{red}rayons~X}\xspace}
-\newcommand{\DX}{{\color{red}diffraction de \RX}\xspace}
-\newcommand{\MEB}[1][e]{{\color{red}microscop#1 électronique à balayage}\xspace}
-\newcommand{\CL}{{\color{red}cathodoluminescence}\xspace}
-\newcommand{\AO}{{\color{red}absorption optique}\xspace}
-\newcommand{\SAO}{{\color{red}\spectro d'\AO}\xspace}
-\newcommand{\ERD}{{\color{red}électrons rétrodiffusés}\xspace}
-\newcommand{\EDS}{{\color{red}\spectro de \RX en dispersion d'énergie}\xspace}
-\newcommand{\CHRO}{{\color{red}chromamétrie}\xspace}
+\newcommand{\RX}{\colordraft{red}{rayons~X}\xspace}
+\newcommand{\DX}[1][d]{\colordraft{red}{#1iffraction de \RX{}}\xspace}
+\newcommand{\MEB}[1][e]{\colordraft{red}{microscop#1 électronique à balayage}\xspace}
+\newcommand{\CL}{\colordraft{red}{cathodoluminescence}\xspace}
+\newcommand{\AO}{\colordraft{red}{absorption optique}\xspace}
+\newcommand{\SAO}{\colordraft{red}{\spectro d'\AO{}}\xspace}
+\newcommand{\ERD}{\colordraft{red}{électrons rétrodiffusés}\xspace}
+\newcommand{\EDS}{\colordraft{red}{\spectro de \RX en dispersion d'énergie}\xspace}
+\newcommand{\CHRO}{\colordraft{red}{chromamétrie}\xspace}
 
 \newcommand{\DimText}{%
   \emph{Dimensions} (L\,\texttimes\,l\,\texttimes\,e)\xspace%
 }
 
-\newcommand{\PMO}{{\color{red}\si{\percent} massique d'oxyde}\xspace}
-\newcommand{\zone}[2]{{\color{red}zone analysée : \SI{#1}{#2}}\xspace}
+\newcommand{\PMO}{\colordraft{red}{\si{\percent} massique d'oxyde}\xspace}
+\newcommand{\zone}[2]{\colordraft{red}{zone analysée : \SI{#1}{#2}}\xspace}
 
-\newcommand{\sclnum}[1]{\bsc{#1}\ieme}
-\newcommand{\scl}[1]{\sclnum{#1}~s.}
-\renewcommand{\siecle}[1]{\sclnum{#1}~siècle}
