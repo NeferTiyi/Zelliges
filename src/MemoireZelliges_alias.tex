@@ -43,14 +43,16 @@
 \newcommand{\blackstar}{\ding{88}}
 \newcommand{\bluestar}{{\color{blue}\ding{88}}}
 
-\newcommand{\bdx}[1]{BDX\,#1\xspace}
+\newcommand{\bdx}[1]{%
+  \texorpdfstring{BDX\,#1\xspace}{BDX#1}%
+}
+
+\newcommand{\PaM}{\colordraft{red}{Palais al-Mansour}\xspace}
 % \newcommand{\PaM}{palais Al-Mansour\xspace}
-\newcommand{\PaM}{{\color{red}palais Al-Mansour}\xspace}
+
 \newcommand{\Zell}[2][]{%
   Zellige#1 monochrome#1 #2 provenant du \PaM, \siecle{17}\xspace
 }
-\newcommand{\zlaygi}{\emph{zl\={a}y\u{g}\={\i}}\xspace}
-\newcommand{\hatim}{\emph{h\={a}tim}\xspace}
 
 \newcommand{\legendeA}{Meknès (Maroc), \bdx{6528}. \Zell{vert}}
 \newcommand{\legendeB}{Meknès (Maroc), \bdx{6529}. \Zell{bleu vert}}
@@ -63,6 +65,25 @@
   \bdx{6532}. \Zell[s]{vert, bleu, noir, miel et blanc}%
 }
 
+\newcommand{\zlaygi}{\emph{\colordraft{red}{zl\={a}y\v{g}\={\i}}}\xspace}
+\newcommand{\hatim}{\emph{\colordraft{red}{h\={a}tim}}\xspace}
+\newcommand{\saft}{\emph{\colordraft{red}{\d{s}aft}}\xspace}
+\newcommand{\manqas}{\emph{\colordraft{red}{manq\={a}\v{s}}}\xspace}
+\newcommand{\naqs}{\emph{\colordraft{red}{naq\v{s}}}\xspace}
+\newcommand{\fars}{\emph{\colordraft{red}{far\v{s}}}\xspace}
+\newcommand{\tafrisa}{\emph{\colordraft{red}{tafr\={\i}\v{s}a}}\xspace}
+\newcommand{\zillig}{\emph{\colordraft{red}{zill\={\i}\v{g}}}\xspace}
+\newcommand{\furma}{\emph{\colordraft{red}{f\={u}rma}}\xspace}
+\newcommand{\furmas}{\emph{\colordraft{red}{f\={u}rmas}}\xspace}
+\newcommand{\farina}{\emph{\colordraft{red}{far\={\i}na}}\xspace}
+\newcommand{\mzihrinayy}{\emph{\colordraft{red}{mzihr\={\i} nayy}}\xspace}
+\newcommand{\alqala}{\emph{\colordraft{red}{al-q\={a}la}}\xspace}
+\newcommand{\tansif}{\emph{\colordraft{red}{tans\={\i}f}}\xspace}
+\newcommand{\tagfif}{\emph{\colordraft{red}{ta\v{g}f\={\i}f}}\xspace}
+\newcommand{\zwabi}{\emph{\colordraft{red}{zw\={a}b\={\i}}}\xspace}
+\newcommand{\maallem}{\emph{\colordraft{red}{maallem}}\xspace}
+
+\newcommand{\Pe}{\ensuremath{P_\text{e}}}
 \newcommand{\Xn}{\ensuremath{X_\text{n}}}
 \newcommand{\Yn}{\ensuremath{Y_\text{n}}}
 \newcommand{\Zn}{\ensuremath{Z_\text{n}}}
