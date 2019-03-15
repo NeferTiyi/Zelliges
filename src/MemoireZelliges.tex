@@ -368,7 +368,30 @@
   \bigskip%
 }
 
+% Header style
+% ============
+% Principal
+% ---------
+\copypagestyle{zellige}{Ruled}
+\makeevenhead{zellige}{\itshape\leftmark}{}{}
+\makeoddhead{zellige}{}{}{\itshape\rightmark}
+% Entrée de chapitre
+% ------------------
+\copypagestyle{zellchap}{zellige}
+\makeevenhead{zellchap}{}{}{}
+\makeoddhead{zellchap}{}{}{}
+\makeheadrule{zellchap}{\textwidth}{0pt}
+% Page vide
+% ------------------
+\aliaspagestyle{part}{empty}
+\aliaspagestyle{chapter}{zellchap}
+\pagestyle{zellige}
 
+% Chapter style
+% =============
+\makechapterstyle{chapter_anx}{%
+  \renewcommand{\chapterheadstart}{}
+}
 
 
 \input{MemoireZelliges_maketitle}
