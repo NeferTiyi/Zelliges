@@ -1,6 +1,7 @@
 \documentclass[%
   % draft,
-  % background,
+  english,
+  french,
   dvipsnames,
   svgnames,
   a4paper,
@@ -9,7 +10,7 @@
   10pt,
   oldfontcommands,
   % leqno,
-]{nefermemoir}
+]{memoir}
 
 \includeonly{%
   MemoireZelliges_Chap0_Intro,
@@ -35,14 +36,55 @@
 % par :
 %   \usepackage{fontspec}
 
-\usepackage{pgfplots, pgfplotstable}
-\pgfplotsset{compat=1.12}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%
+% Code
+\usepackage{etoolbox}
+\usepackage{xstring}
+\usepackage{xspace}
+\usepackage{microtype}
+\usepackage[defaultlines=2,all]{nowidow}
+\newbool{draft}
+% \booltrue{draft}
+%
+% Fonts and symbols
+\usepackage[largesmallcaps]{kpfonts}
+\usepackage{pifont}
+\usepackage{amsmath, amssymb, mathtools, bm}
+%
+\usepackage{relsize}
+\usepackage{nccparskip}
+\usepackage{csquotes}
+\usepackage{ragged2e}
+\usepackage{rotating}
+\usepackage{environ}
+%
+% \usepackage[bottom]{footmisc}
+% \usepackage{marginnote}
+\usepackage{arabtex}
+\usepackage[normalem]{ulem}
+\usepackage{capt-of}
+\usepackage{chemmacros}
+%
+% Arrays
+\usepackage{array}
+\usepackage{ltxtable}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{booktabs}
+% 
 \usepackage{pgf,tikz}
 \usetikzlibrary{%
+  babel,
   backgrounds,
   calc,
   math,
+  intersections,
+  through,
   fadings,
   patterns,
   shapes.multipart,
@@ -53,19 +95,183 @@
   decorations.text,
   decorations.markings
 }
-% \usepackage{pdfpages}
-% \usepackage{multicol}
-% \usepackage{minitoc}
-\usepackage{rotating}
-\usepackage[version=3]{mhchem}
-% \usepackage{neferkheops}
-\usepackage{environ}
-\usepackage{xstring}
-\usepackage{mfirstuc}  % => \makefirstuc
-\usepackage{arabtex}
+\usepackage{pgfplots, pgfplotstable}
+\pgfplotsset{compat=1.16}
+\usepgfplotslibrary{groupplots}
+% 
+\usepackage{babel}
+\usepackage[hidelinks,unicode,pdfhighlight=/P]{hyperref}
+\usepackage{bookmark}
+\usepackage{siunitx}
+%
+% Bibliography
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  backref=true,
+  maxbibnames=5
+]{biblatex}
 
+
+% Biblatex options
+% ================
+\DeclareLanguageMapping{french}{french-apa}
+\setlength\bibitemsep{0.5\baselineskip}
+\defbibheading{memoir}[\bibname]{%
+  \chapter*{#1}%
+  \addcontentsline{toc}{chapter}{#1}%
+  \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}%
+}
+
+% Babel options
+% =============
+\addto\captionsfrench{\def\contentsname{Sommaire}}
+\xspaceaddexceptions{\frquote}
+
+% siunitx options
+% ===============
+\sisetup{
+  locale            = FR, 
+  exponent-product  = \cdot, 
+  range-phrase      = \ à\ , 
+  detect-all,
+  list-units        = single,
+  range-units       = single,
+  multi-part-units  = single,
+  input-comparators = {<=>\approx\ge\geq\gg\le\leq\ll\sim\pm\no},
+  retain-unity-mantissa = false
+}
+\DeclareSIUnit{\degC}{\si{\degreeCelsius}}
+% Send siunitx settings to pgf/tikz
+% ---------------------------------
+\SendSettingsToPgf
+
+% chemmacros options
+% ==================
+\chemsetup{
+  formula = chemformula,
+  modules = {redox}
+}
+
+% mathtools options
+% =================
 \newtagform{brackets}{[}{]}
 \usetagform{brackets}
+
+% Image stuff
+% ===========
+% \newlength{\marge}
+\newlength{\imgwidth}
+\newlength{\mylength}
+% \newcommand{\insertimg}{}
+% \newlength{\graphicwidth}
+% Distance between text and float
+% -------------------------------
+% \addtolength{\intextsep}{-0.5\baselineskip}
+% % \addtolength{\intextsep}{-\baselineskip}
+% Floats
+% ------
+\setfloatadjustment{figure}{\centerfloat}
+\setfloatadjustment{table}{\centerfloat}
+\newsubfloat{figure}
+
+% Dimensions stuff
+% ================
+% .. Distance from text to line (ulem) ..
+\setlength{\ULdepth}{2pt}
+
+\sideparmargin{outer}
+\setlength\fboxsep{0.5mm}
+\addtolength{\columnsep}{15pt}
+% \setfootins{\bigskipamount}{\bigskipamount}
+\setfootins{2\bigskipamount}{\bigskipamount}
+
+% Tabular stuff
+% =============
+\renewcommand{\tabularxcolumn}[1]{L{#1}}
+\newcolumntype{M}[1]{>{\centering}m{#1}}
+\newcolumntype{L}[1]{>{\RaggedRight}m{#1}}
+\newcolumntype{R}[1]{>{\RaggedLeft}m{#1}}
+
+\setlength{\heavyrulewidth}{0.1em}
+\renewcommand{\arraystretch}{1.3}
+\renewcommand{\multirowsetup}{\centering}
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{%
+  \gdef\currentrowstyle{#1}#1\ignorespaces%
+}
+
+% Captions
+% ========
+\setsidecaps{5mm}{\sidecapwidth}
+\captionnamefont{\small\bfseries\sffamily}
+\captiontitlefont{\small\sffamily}
+\subcaptionlabelfont{\bfseries\sffamily}
+\subcaptionfont{\sffamily}
+\captiondelim{~-- }
+
+\newcommand{\CaptionNormal}{%
+  \captionwidth{0.75\linewidth}%
+  \changecaptionwidth%
+  \hangcaption%
+}
+\newcommand{\CaptionPetit}{%
+  \normalcaptionwidth%
+  \normalcaption%
+}
+
+% Page size
+% =========
+% \settypeblocksize{22cm}{15cm}{*}
+% \setlrmargins{*}{*}{1.3}
+\setlrmarginsandblock{2.6cm}{3.4cm}{*}
+\setulmargins{*}{*}{1}
+% \setmarginnotes{17pt}{51pt}{\onelineskip}
+\setheadfoot{2\onelineskip}{5\onelineskip}
+\setheaderspaces{*}{2\onelineskip}{*}
+\checkandfixthelayout
+
+
+% Apparence des numéros de divisions
+% ------------------------------------
+% \counterwithin{chapter}{part}
+\renewcommand{\thepart}{\Roman{part}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsection}{\alph{subsection})}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+
+% Gestion de la TOC
+% =================
+% Numérotation des division et prise en compte
+% --------------------------------------------
+\maxsecnumdepth{subsection}
+\maxtocdepth{section}
+\setcounter{lofdepth}{2}
+\setcounter{lotdepth}{2}
+% Indentation et largeur des numéros
+% ----------------------------------
+\cftsetindents{book}{-3em}{3.0em}
+\cftsetindents{part}{\cftpartindent}{2.6em}
+\cftsetindents{chapter}{\cftchapterindent}{1.8em}
+\cftsetindents{subsection}{\cftsubsectionindent}{1.4em}
+\cftsetindents{table}{\cfttableindent}{4.5em}
+\cftsetindents{figure}{\cftfigureindent}{4.5em}
+% Pointillés
+% ----------
+\renewcommand{\cftsectiondotsep}{9}
+\renewcommand{\cftsubsectiondotsep}{1}
+\setpnumwidth{2.55em}
+\setrmarg{3.55em}
+
+\newcommand{\fakeimg}[1]{%
+  \sffamily
+  \setlength{\fboxsep}{1em}
+  \framebox[\textwidth]{#1}
+}
+
 
 
 % \makeindex
@@ -83,44 +289,27 @@
   \renewcommand\@memback@floats{%
     \counterwithin{figure}{chapter}
     \counterwithin{table}{chapter}
-    % \setcounter{figure}{0}
-    % \setcounter{table}{0}
   }
 \makeatother
 
+\AtBeginDocument{%
+  \renewcommand{\appendixname}{Document complémentaire}
+  \renewcommand{\appendixpagename}{Documents complémentaires}
+  \renewcommand{\appendixtocname}{\appendixpagename}
 
-% \makeatletter
+  \renewcommand{\figurerefname}{figure}
+  \renewcommand{\tablerefname}{tableau}
+  \renewcommand{\appendixrefname}{annexe}
+  \renewcommand{\chapterrefname}{chapitre}
+  \renewcommand{\partrefname}{partie}
 
-% \def\somemagiccommand#1{%
-% \let\tc@w\@empty
-% \protected@edef\tmp{\noexpand\tc@a#1\relax}\expandafter\tc@uc@\tmp}
+  \renewcommand{\listfigurename}{Liste des figures}
+  \renewcommand{\listtablename}{Liste des tableaux}
+}
 
-% \def\tc@a{\futurelet\tmp\tc@aa}
 
-% \def\tc@aa{%
-% \ifcat a\noexpand\tmp\expandafter\tc@ab
-% \else\expandafter\tc@ac\fi}
 
-% \def\tc@ab#1{\edef\tc@w{\tc@w#1}\tc@a}
 
-% \def\tc@ac{%
-% \csname tc@@\tc@w\endcsname\expandafter\tc@uc\tc@w
-% \let\tc@w\@empty
-% \ifx\tmp\@sptoken\let\next\tc@sp
-% \else\ifx\tmp\relax\let\next\relax
-% \else\let\next\tc@nxt
-% \fi\fi\next}
-
-% \def\tc@sp#1{ \tc@a#1}
-% \def\tc@nxt#1{#1\tc@a}
-
-% \def\tc@uc#1{\uppercase{#1}}
-% \def\tc@uc@#1#2{\uppercase{#1#2}}
-
-% \let\tc@@the\@gobbletwo
-% \let\tc@@and\@gobbletwo
-
-% \makeatother
 
 
 \addtolength{\columnsep}{15pt}
@@ -143,59 +332,6 @@
   {\datadir/meb/carto/}%
   {\datadir/meb/eds/}%
 }
-
-% \addtolength{\intextsep}{-0.5\baselineskip}
-% % \addtolength{\intextsep}{-\baselineskip}
-
-\sideparmargin{outer}
-
-\setlength\fboxsep{0.5mm}
-%\setlength\tabcolsep{0mm}
-%\setlength\parskip{1.0\baselineskip}
-
-
-\setlength{\heavyrulewidth}{0.1em}
-
-\renewcommand{\tabularxcolumn}[1]{L{#1}}
-
-\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
-\newcolumntype{^}{>{\currentrowstyle}}
-\newcommand{\rowstyle}[1]{%
-  \gdef\currentrowstyle{#1}#1\ignorespaces%
-}
-
-\DeclareSIUnit{\degC}{\si{\degreeCelsius}}
-
-
-\newcommand{\fakeimg}[1]{%
-  \sffamily
-  \setlength{\fboxsep}{1em}
-  \framebox[\textwidth]{#1}
-}
-
-% \newcommand{\spectro}{{\color{red}spectrométrie}\xspace}
-% \newcommand{\carto}{{\color{red}cartographie}\xspace}
-% \newcommand{\trichro}{{\color{red}trichromatique}\xspace}
-% \newcommand{\trichros}{{\color{red}trichromatiques}\xspace}
-% \newcommand{\cristallo}{{\color{red}cristallographique}\xspace}
-% \newcommand{\cristallos}{{\color{red}cristallographiques}\xspace}
-
-% \newcommand{\RX}{{\color{red}rayons~X}\xspace}
-% \newcommand{\DX}{{\color{red}diffraction de \RX}\xspace}
-% \newcommand{\MEB}[1][e]{{\color{red}microscop#1 électronique à balayage}\xspace}
-% \newcommand{\CL}{{\color{red}cathodoluminescence}\xspace}
-% \newcommand{\AO}{{\color{red}absorption optique}\xspace}
-% \newcommand{\SAO}{{\color{red}\spectro d'\AO}\xspace}
-% \newcommand{\ERD}{{\color{red}électrons rétrodiffusés}\xspace}
-% \newcommand{\EDS}{{\color{red}\spectro de \RX en dispersion d'énergie}\xspace}
-% \newcommand{\CHRO}{{\color{red}chromamétrie}\xspace}
-
-% \newcommand{\DimText}{%
-%   \emph{Dimensions} (L\,\texttimes\,l\,\texttimes\,e)\xspace%
-% }
-
-% \newcommand{\PMO}{{\color{red}\si{\percent} massique d'oxyde}\xspace}
-% \newcommand{\zone}[2]{{\color{red}zone analysée : \SI{#1}{#2}}\xspace}
 
 
 \newenvironment{motsclef}{%
