@@ -122,22 +122,79 @@ de plus près les destinations et l'aménagement de cet étage
 \section{Les échantillons}
 %----------------------------------------------------------------------
 
-Les cinq échantillons de zelliges (planche~1) ont été prélevés sur 
-le sol d'une salle située à l'étage du \PaM, au sud de la grande cour 
-centrale (\fref{fig:etage}). Ce sont des pièces de céramique glaçurée 
-de forme parallélépipédique. Chacune comporte une glaçure monochrome. 
-L'échantillon référencé \bdx{6528} présente une glaçure verte, le 
-\bdx{6529}, une glaçure bleu-vert, le \bdx{6530}, une glaçure noire, 
-le \bdx{6531}, une glaçure miel et le \bdx{6532}, une glaçure blanche. 
-Il s'agit là des cinq couleurs de base de l'art des zelliges.
+Les cinq échantillons de zelliges (planche~~\ref{pl:bdx_pam}) ont été 
+prélevés sur le sol d'une salle située à l'étage du \PaM, au sud de 
+la grande cour centrale (\fref{fig:etage}). Ce sont des pièces de 
+céramique glaçurée de forme parallélépipédique. Chacune comporte une 
+glaçure monochrome. L'échantillon référencé \bdx{6528} présente une 
+glaçure verte, le \bdx{6529}, une glaçure bleu-vert, le \bdx{6530}, 
+une glaçure noire, le \bdx{6531}, une glaçure miel et le \bdx{6532}, 
+une glaçure blanche. Il s'agit là des cinq couleurs de base de l'art 
+des zelliges.
 
 Le \bdx{6529} est sensiblement plus gros et plus épais que les autres 
 et, contrairement à eux, n'est pas chanfreiné. Il s'agit probablement 
 d'un carreau entourant les motifs de zelliges.
 
 
-[Planche des échantillons]
+% [Planche des échantillons]
 
+
+\cleardoublepage
+\thispagestyle{empty}
+
+% \begin{figure}
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=center,
+  inner sep=0, outer sep=0cm,
+]
+  \node at (current page.center) [shift={(0cm, 1cm)}]
+        {\includegraphics[scale=2.97]{BDX_planche}} ;
+
+  \node at (current page.north east) 
+        [shift={(-5cm, -3.25cm)}, text width=7cm, align=center]
+        {\Huge\bfseries\PaM\\Meknès -- Maroc\\\siecle{17}\par} ;
+  \node at (current page.north west) 
+        [shift={(5cm, -10.3cm)}, text width=5cm, align=center]
+        {\Huge\bfseries Zelliges de pavement\par} ;
+
+  \node at (current page.center) 
+        [shift={(0.8cm, -2.6cm)}, text width=5cm, align=center]
+        {\LARGE\bfseries \bdx{6530}} ;
+  \node at (current page.center) 
+        [shift={(-6.7cm, -2.6cm)}, text width=5cm, align=center]
+        {\LARGE\bfseries \bdx{6528}} ;
+  \node at (current page.center) 
+        [shift={(7.2cm, -2.6cm)}, text width=5cm, align=center]
+        {\LARGE\bfseries \bdx{6531}} ;
+  \node at (current page.center) 
+        [shift={(-5.4cm, -4.8cm)}, text width=5cm, align=center]
+        {\LARGE\bfseries \bdx{6529}} ;
+  \node at (current page.center) 
+        [shift={(6cm, -4.9cm)}, text width=5cm, align=center]
+        {\LARGE\bfseries \bdx{6532}} ;
+
+  \node at (current page.south) 
+        [shift={(0cm, 2cm)}, text width=\textwidth, align=center] {%
+          \captionof{planche}
+          % [Planche~1]
+          {%
+            Meknès (Maroc), \PaM, \siecle{17}. 
+            Vues de la façade principale du Palais et du pavement 
+            avant prélèvements (Clichés Haddad-Benmlih).
+            Zelliges monochromes vert (\bdx{6528}), 
+            bleu (\bdx{6529}), noir (\bdx{6530}), miel (\bdx{6531}) 
+            et blanc (\bdx{6532}). (Montage C.~Ney) %
+          }
+          \label{pl:bdx_pam}
+        } ;
+
+  % \draw [red]
+  %       (current page.center) -- ++ (-1.67cm, -4.cm) -- ++ (5cm, 0) ;
+\end{tikzpicture}
+% \end{figure}
+
+\cleardoublepage
 
 \chapter{Méthodologie et expérimentation}
 %======================================================================

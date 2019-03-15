@@ -307,6 +307,26 @@
   \renewcommand{\listtablename}{Liste des tableaux}
 }
 
+\newcommand{\planchename}{Planche}
+\newfloat{planche}{lop}{\planchename}
+\newcommand{\listplanchename}{Liste des planches}
+\newlistof{listofplanches}{lop}{\listplanchename}
+\newlistentry{planche}{lop}{0}
+
+\newcommand{\illuname}{Illustration}
+\newfloat{illu}{ill}{\illuname}
+\newcommand{\listilluname}{Table des illustrations}
+\newlistof{listofillus}{ill}{\listilluname}
+\newlistentry{illu}{ill}{0}
+
+
+% \setcounter{topnumber}{3}
+% \setcounter{bottomnumber}{2}
+% \setcounter{totalnumber}{4}
+% \renewcommand{\topfraction}{0.85}
+% \renewcommand{\bottomfraction}{0.5}
+% \renewcommand{\textfraction}{0.15}
+% \renewcommand{\floatpagefraction}{0.7}
 
 
 
@@ -440,6 +460,9 @@
 
 \backmatter
 \newpage
+\include{MemoireZelliges_TableIllus}
+\listofplanches
+% \listofillus
 \listoffigures
 \listoftables
 
