@@ -333,11 +333,6 @@
 % \renewcommand{\floatpagefraction}{0.7}
 
 
-
-
-
-\addtolength{\columnsep}{15pt}
-
 \newcommand{\rootdir}{..}
 \newcommand{\datadir}{\rootdir/data}
 \newcommand{\imgdir}{\rootdir/img}
@@ -405,6 +400,11 @@
 \input{MemoireZelliges_tabs}
 \input{MemoireZelliges_tikz}
 \input{MemoireZelliges_plots}
+
+
+\pdfstringdefDisableCommands{%
+  \def\quad{}%
+}
 
 
 %======================================================================
@@ -501,8 +501,62 @@
 \listoftables
 
 \nocite{*}
-\printbibliography[heading=memoir,title=Bibliographie]
+% \printbibliography[heading=memoir, title=Bibliographie]
+\printbibliography[
+  heading=memoir,
+  title=Bibliographie,
+  notkeyword=web
+]
+\printbibliography[
+  heading=subbibliography,
+  title=Webographie,
+  keyword=web
+]
 
+% archi
+% art
+% couleur
+% matos
+% methodo
+% web
+
+
+% \printbibheading[title=Bibliographie]
+% \printbibliography[%
+%   heading=subbibliography,
+%   title={Grammaires et cours},
+%   sorting=none,
+%   keyword=gramm%
+% ]
+% \printbibliography[%
+%   heading=subbibliography,
+%   title={Dictionnaires et lexiques},
+%   sorting=none,
+%   keyword=dico%
+% ]
+% \printbibliography[%
+%   heading=subbibliography,
+%   title={Sur le dessin des signes},
+%   sorting=none,
+%   keyword=dessin%
+% ]
+% \printbibliography[%
+%   heading=subbibliography,
+%   title={Sur la langue égyptienne ancienne},
+%   sorting=none,
+%   keyword=langue%
+% ]
+% \printbibliography[%
+%   heading=subbibliography,
+%   title={Divers},
+%   notkeyword=gramm,
+%   notkeyword=dico,
+%   notkeyword=dessin,
+%   notkeyword=langue%
+% ]
+
+
+\cleardoublepage
 \include{MemoireZelliges_Chap8_Studied_samples}
 
 \cleardoublepage
