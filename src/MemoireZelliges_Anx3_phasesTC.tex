@@ -1,0 +1,144 @@
+%!TEX root = MemoireZelliges.tex
+
+\chapter{Modification de la composition minéralogique d'une céramique 
+en fonction de la température de cuisson}
+
+{%
+\tikzset{
+  myarrow/.tip={
+    Stealth[
+      length=12pt, 
+      width=5pt, 
+    ]
+  }
+}
+
+\centerfloat
+\noindent%
+\begin{tikzpicture}
+  \pgfplotstableread{\datadir/ref/Peters_Iberg2.dat}{\PIdata}
+  \begin{axis}[
+    width=15cm, height=11.5cm,
+    enlargelimits=false,
+    clip=false,
+    xlabel={Température en \si{\degC}},
+    ylabel={Perte de masse en \si{\percent}},
+    x label style={at={(axis description cs:0.33, -0.07)}, anchor=north},
+    xmin=5.49, xmax=13,
+    xtick={5.50, 6.00, 7.00, ..., 10.00, 11.00, 11.50, ..., 12.50},
+    xticklabels={550, 600, 700, 800, 900, 1000, 2, 4, 6, 8},
+    minor xtick={6.50, 7.50, ..., 10.50, 11.25, 11.75, 12.25},
+    extra x ticks={10.50},
+    extra x tick labels={1050},
+    extra x tick style={
+      tick label style={font=\footnotesize, anchor=east}
+    },
+    ymin=0.0, ymax=28.0,
+    ytick={0, 5, ..., 25},
+    minor y tick num=4,
+    axis lines*=left,
+    axis x line*=middle,
+    tick align=outside,
+    tick style={black, thin},
+    ticklabel style={font=\small},
+  ]
+    \begin{scope}[
+      smooth,
+      tension=0.1,
+      no markers,
+      thick,
+      decoration={markings},
+      font=\em,
+    ]
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.3 with {\arrow{myarrow}}}
+      ] table [x=QzT, y=QzP] {\PIdata} 
+        node [pos=0.17, above] {quartz} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.5 with {\arrow{myarrow}}}
+      ] table [x=CaT, y=CaP] {\PIdata} 
+        node [pos=0.35, right] {calcite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.4 with {\arrow{myarrow}}}
+      ] table [x=IlT, y=IlP] {\PIdata} 
+        node [pos=0.12, right, text width=3cm] 
+             {illite +\\~~montmorillonite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.4 with {\arrow{myarrow}}}
+      ] table [x=ChT, y=ChP] {\PIdata} 
+        node [pos=0.01, above right] {chlorite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.22 with {\arrow{myarrow}},
+                  mark=at position 0.83 with {\arrow{myarrow}}}
+      ] table [x=AlT, y=AlP] {\PIdata} 
+        node [pos=0.02, above] {albite}
+        node [pos=0.95, sloped, above] {anorthite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.24 with {\arrow{myarrow}},
+                  mark=at position 0.75 with {\arrow{myarrow}}}
+      ] table [x=COT, y=COP] {\PIdata} 
+        node [pos=0.5, sloped, above] {CaO} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.42 with {\arrow{myarrow}},
+                  mark=at position 0.85 with {\arrow{myarrow}}}
+      ] table [x=GeT, y=GeP] {\PIdata} 
+        node [pos=0.69, left] {gehlénite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.9 with {\arrow{myarrow}}}
+      ] table [x=DoT, y=DoP] {\PIdata} 
+        node [pos=0.02, above right] {dolomite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.75 with {\arrow{myarrow}}}
+      ] table [x=DiT, y=DiP] {\PIdata} 
+        node [pos=0.7, sloped, above] {diopside} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.45 with {\arrow{myarrow}}}
+      ] table [x=WoT, y=WoP] {\PIdata} 
+        node [pos=0.85, sloped, above] {wollostonite} ;
+
+      \addplot [postaction={decorate},
+                decoration={
+                  mark=at position 0.5 with {\arrow{myarrow}}}
+      ] table [x=SaT, y=SaP] {\PIdata} 
+        node [pos=0.94, sloped, above] {sanidine} ;
+    \end{scope}
+
+    \draw [dashed, thick]
+          (10.50,-3) -- (10.50, 27) ;
+
+    \node [anchor=north]
+          at (axis description cs:0.85, -0.07) 
+          {Palier à \SI{1050}{\degC} en heures} ;
+
+    \node [below left, text width=3cm, align=right]
+          at (axis description cs:1, 1) 
+          {\cite[d'après][]{Peters_1978}} ;
+
+  \end{axis}
+\end{tikzpicture}
+}
+
+Le diagramme a été obtenu à partir des données d'analyses réalisées 
+en \DX sur des échantillons de composition connues 
+cuits dans des conditions contrôlées (atmosphère, vitesse de montée 
+en T\degres, palier de cuisson, etc).
+

@@ -22,6 +22,10 @@
   MemoireZelliges_Chap3_Resultats_6531,
   MemoireZelliges_Chap3_Resultats_6532,
   MemoireZelliges_Chap4_Bilan_Persp,
+  MemoireZelliges_Anx1_dynasties,
+  MemoireZelliges_Anx2_refSAO,
+  MemoireZelliges_Anx3_phasesTC,
+  MemoireZelliges_TableIllus,
   MemoireZelliges_Chap8_Studied_samples,
   MemoireZelliges_Chap9_Abstract,
 }
@@ -351,6 +355,7 @@
   {\datadir/meb/img/}%
   {\datadir/meb/carto/}%
   {\datadir/meb/eds/}%
+  {\datadir/ref/}%
 }
 
 
@@ -479,7 +484,13 @@
 \cleardoublepage
 \partimage[width=10cm]{zellige_05}{\autocite{Castera_1996}}
 \part*{\appendixpagename}
-
+\cleardoublepage
+{
+\chapterstyle{chapter_anx}
+\include{MemoireZelliges_Anx1_dynasties}
+\include{MemoireZelliges_Anx2_refSAO}
+\include{MemoireZelliges_Anx3_phasesTC}
+}
 
 \backmatter
 \newpage

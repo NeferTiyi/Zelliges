@@ -1,0 +1,98 @@
+%!TEX root = MemoireZelliges.tex
+
+% \the\pdfpagewidth
+% \cleardoublepage
+
+{
+% \pdfpagewidth=2\pdfpagewidth
+\pdfpagewidth=420mm
+\setstocksize{297mm}{420mm}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+% \settypeblocksize{598pt}{1024pt}{*}
+% \setlrmarginsandblock{2.6cm}{3.4cm}{*}
+\setlrmarginsandblock{2.6cm}{6cm}{*}
+\checkandfixthelayout
+
+\chapter{Tableau synoptique des principales dynasties musulmanes}
+\thispagestyle{empty}
+
+% \the\pdfpagewidth 
+% \the\textwidth
+
+% \noindent\rule{\textwidth}{2pt}
+
+%   \lipsum
+
+
+\begin{tikzpicture}[
+  remember picture,
+  overlay,
+  anchor=center,
+  inner sep=0,
+  outer sep=0cm,
+]
+  \node at (current page.center) [shift={(0cm, -3.5cm)}]
+        {\includegraphics[width=38cm]{dynasties_musulmanes}} ;
+  \node at (current page.east) [shift={(-6cm, 7cm)}]
+        {\cite{Soustiel_1985}} ;
+\end{tikzpicture}
+
+% \drawstock
+% \stockvalues
+
+
+\cleardoublepage
+% \clearpage
+
+}
+
+% \drawstock
+% \stockvalues
+
+
+% % \clearpage
+% \cleardoublepage
+% {{
+% % \eject
+% % \pdfpagewidth=420mm \pdfpageheight=297mm
+
+% % % Page size
+% \setstocksize{297mm}{420mm}
+% \setlrmarginsandblock{2.6cm}{3.4cm}{*}
+% % \settypeblocksize{22cm}{30cm}{*}
+% % \setulmargins{*}{*}{1}
+% % \setlrmargins{*}{*}{1.3}
+% % \setmarginnotes{17pt}{51pt}{\onelineskip}
+% \setheadfoot{2\onelineskip}{5\onelineskip}
+% \setheaderspaces{*}{2\onelineskip}{*}
+% \checkandfixthelayout
+% % \fixpdflayout
+% \pdfpagewidth=2\pdfpagewidth
+
+% \chapter{Tableau synoptique des principales dynasties musulmanes}
+% \thispagestyle{empty}
+% \pagestyle{empty}
+
+% \begin{tikzpicture}[
+%   remember picture, overlay, anchor=center,
+%   inner sep=0, outer sep=0cm,
+% ]
+%   \node at (current page.east) [shift={(0cm, -4.5cm)}]
+%         {\includegraphics[width=34cm]{dynasties_musulmanes}} ;
+%   \node at (current page.center) [shift={(0cm, 5cm)}]
+%         {\cite{Soustiel_1985}} ;
+% \end{tikzpicture}
+% % \pagebreak
+% % test
+% \clearpage
+% % \cleardoublepage%
+% % \thispagestyle{zellige}
+% % \pagestyle{plain}
+% }}
+% % \newpage
+% \thispagestyle{empty}
+% % test
+% % \cleartoevenpage
+% % \clearpage
+% % \thispagestyle{empty}
+% % \cleardoublepage}

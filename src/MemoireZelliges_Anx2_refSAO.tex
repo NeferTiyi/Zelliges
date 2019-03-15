@@ -1,0 +1,299 @@
+%!TEX root = MemoireZelliges.tex
+
+\chapter{Spectrométrie d'absorption optique : spectres de référence 
+des colorants ioniques}
+
+D'après \cite{Lajarte_1979}, épaisseur des échantillons : \SI{6}{\mm}.
+
+  \pgfplotsset{
+    % every axis plot/.style={black, thick},
+    minor grid style={ultra thin, densely dotted},
+    legend style={
+      draw=none, font=\scriptsize
+    }
+  }
+
+\noindent\hspace*{-1cm}%
+\begin{tikzpicture}
+  \pgfplotsset{
+    every axis plot/.style={smooth, tension=0.6},
+    legend style={
+      legend plot pos=none,
+      nodes={text width=1.9cm, text depth=, inner sep=0, align=right}
+    }
+  }
+
+  \begin{groupplot}[
+    group style={
+      group size=2 by 3,
+      horizontal sep=4mm,
+      vertical sep=5mm,
+      x descriptions at=edge bottom,
+      y descriptions at=edge left,
+    },
+    width=9.5cm, height=6cm,
+    enlargelimits=false,
+    clip=false,
+    xlabel={Longueur d'onde (\si{\nm})},
+    ylabel={Transmission (\si{\percent})},
+    xmin=300, xmax=1200,
+    minor x tick num=1,
+    ymin=0, ymax=100,
+    minor y tick num=1,
+    grid=both,
+    ticklabel style={font=\small},
+    no markers,
+  ]
+
+  \nextgroupplot[legend pos=south east]
+    \pgfplotstableread{../data/ref/raw/lajarte_Cr_transf.dat}{\dataCr}
+    \addplot table [x=lambda, y=trans] {\dataCr} ;
+    \addlegendentry{Verre au chrome (\SI{0.05}{\percent} \ch{Cr2O3})}
+
+  \nextgroupplot[legend pos=south east]
+    \pgfplotstableread{../data/ref/raw/lajarte_Mn_transf.dat}{\dataMn}
+    \addplot table [x=lambda, y=trans] {\dataMn} ;
+    \addlegendentry[text width=1.4cm]
+                   {Verre au manganèse (\SI{1}{\percent} \ch{MnO})}
+
+  \nextgroupplot
+    \pgfplotstableread{../data/ref/raw/lajarte_Fe_transf.dat}{\dataFe}
+    \addplot table [x=lambda, y=trans] {\dataFe} ;
+    \addlegendentry{Verre au fer (\SI{0.80}{\percent} \ch{Fe2O3})}
+
+  \nextgroupplot
+    \pgfplotstableread{../data/ref/raw/lajarte_Ni_transf.dat}{\dataNi}
+    \addplot table [x=lambda, y=trans] {\dataNi} ;
+    \addlegendentry{Verre au nickel (\SI{0.20}{\percent} \ch{Ni2O3})}
+
+  \nextgroupplot
+    \pgfplotstableread{../data/ref/raw/lajarte_Cu_transf.dat}{\dataCu}
+    \addplot table [x=lambda, y=trans] {\dataCu} ;
+    \addlegendentry{Verre au cuivre (\SI{0.05}{\percent} \ch{CuO})}
+
+  \nextgroupplot[legend pos=south east]
+    \pgfplotstableread{../data/ref/raw/lajarte_Co_transf.dat}{\dataCo}
+    \addplot table [x=lambda, y=trans] {\dataCo} ;
+    \addlegendentry{Verre au cobalt (\SI{0.05}{\percent} \ch{CoO})}
+  \end{groupplot}
+\end{tikzpicture}
+
+\newpage
+
+D'après \cite{Stroud_1971}.
+Absorption causée par le nickel (\ch{Ni}), le manganèse (\ch{Mn}), 
+le cuivre (\ch{Cu}), le fer (\ch{Fe}) et le chrome (\ch{Cr}) 
+dans des verres plombifères et calco-sodiques.
+
+\bigskip
+
+\pgfplotstableread{../data/ref/raw/stroud_Mn.dat}{\dataMn}
+\pgfplotstableread{../data/ref/raw/stroud_Cu.dat}{\dataCu}
+\pgfplotstableread{../data/ref/raw/stroud_Ni.dat}{\dataNi}
+
+\noindent\hspace*{-1.5cm}%
+\begin{tikzpicture}
+  % \pgfplotsset{
+  %   legend style={
+  %     nodes={align=left},
+  %   }
+  % }
+  \begin{groupplot}[
+    group style={
+      group size=3 by 1,
+      horizontal sep=8mm,
+      % vertical sep=5mm,
+      x descriptions at=edge bottom,
+      y descriptions at=edge left,
+    },
+    width=6cm, height=9cm,
+    enlargelimits=false,
+    % clip=false,
+    unbounded coords=jump,
+    xlabel={Longueur d'onde (\si{\nm})},
+    ylabel={Absorption (\si{\per\cm})},
+    ymin=0, ymax=1.5,
+    minor y tick num=1,
+    grid=both,
+    ticklabel style={font=\small},
+    no markers,
+    legend cell align=left,
+  ]
+
+  \nextgroupplot[%
+    % legend pos=south east
+    xmin=390, xmax=700,
+    minor x tick num=1,
+  ]
+    \addplot table [x=lambda_p, y=abs_p] {\dataNi} ;
+    \addlegendentry{Verre plombifère}
+    \addplot table [x=lambda_c, y=abs_c] {\dataNi} ;
+    \addlegendentry{Verre calco-sodique}
+    \node [fill=white] 
+          at (axis description cs:0.78,0.75) {\bfseries \ch{Ni}} ;
+
+  \nextgroupplot[%
+    % legend pos=south east
+    xmin=400, xmax=900,
+    minor x tick num=1,
+  ]
+    \addplot table [x=lambda_p, y=abs_p] {\dataMn} ;
+    \addlegendentry{Verre plombifère}
+    \addplot table [x=lambda_c, y=abs_c] {\dataMn} ;
+    \addlegendentry{Verre calco-sodique}
+    \node [fill=white] 
+          at (axis description cs:0.78,0.75) {\bfseries \ch{Mn}} ;
+
+  \nextgroupplot[%
+    % legend pos=south east
+    xmin=400, xmax=1400,
+    minor x tick num=1,
+  ]
+    \addplot table [x=lambda_p, y=abs_p] {\dataCu} ;
+    \addlegendentry{Verre plombifère}
+    \addplot table [x=lambda_c, y=abs_c] {\dataCu} ;
+    \addlegendentry{Verre calco-sodique}
+    \node [fill=white] 
+          at (axis description cs:0.78,0.75) {\bfseries \ch{Cu}} ;
+  \end{groupplot}
+\end{tikzpicture}
+
+\bigskip
+\bigskip
+
+\pgfplotstableread{../data/ref/raw/stroud_Fe.dat}{\dataFe}
+\pgfplotstableread{../data/ref/raw/stroud_Cr.dat}{\dataCr}
+
+\noindent\hspace*{-1.5cm}%
+\begin{tikzpicture}
+
+  \begin{groupplot}[
+    group style={
+      group size=2 by 1,
+      horizontal sep=15mm,
+      % vertical sep=5mm,
+      x descriptions at=edge bottom,
+      % y descriptions at=edge left,
+      ylabels at=edge left,
+    },
+    width=6cm, height=9cm,
+    enlargelimits=false,
+    % clip=false,
+    unbounded coords=jump,
+    xlabel={Longueur d'onde (\si{\nm})},
+    ylabel={$\alpha / \text{N}$ (\si{\cm\squared})},
+    ymode=log,
+    % ymin=0, ymax=1.5,
+    % minor y tick num=1,
+    grid=both,
+    ticklabel style={font=\small},
+    no markers,
+    legend cell align=left,
+  ]
+
+  \nextgroupplot[%
+    % legend pos=south east
+    xmin=350, xmax=1300,
+    minor x tick num=1,
+    ymin=1e-19, ymax=2e-17,
+  ]
+    \addplot table [x=lambda_p, y=abs_p] {\dataFe} ;
+    \addlegendentry{Verre plombifère}
+    \addplot table [x=lambda_c, y=abs_c] {\dataFe} ;
+    \addlegendentry{Verre calco-sodique}
+    \node [fill=white] 
+          at (axis description cs:0.78,0.15) {\bfseries \ch{Fe}} ;
+
+  \nextgroupplot[%
+    legend pos=outer north east,
+    xmin=350, xmax=800,
+    minor x tick num=1,
+    ymin=1e-20, ymax=2e-17,
+  ]
+    \pgfplotsset{%
+      legend style={nodes={text width=2.3cm, text depth=}}
+    }
+    \addplot [blue] 
+             table [x=lambda_po, y=abs_po] {\dataCr} ;
+    \addlegendentry{Verre plombifère oxydé}
+    \addplot [blue, dashed] 
+             table [x=lambda_pr, y=abs_pr] {\dataCr} ;
+    \addlegendentry{Verre plombifère réduit}
+    \addplot [red] 
+             table [x=lambda_ca, y=abs_ca] {\dataCr} ;
+    \addlegendentry{Verre calco-sodique}
+    \addplot [red, dashed] 
+             table [x=lambda_cb, y=abs_cb] {\dataCr} ;
+    \addlegendentry{Verre calco-sodique avec \SI{1}{\percent} de \ch{Sb2O3}}
+    \node [fill=white] 
+          at (axis description cs:0.22,0.15) {\bfseries \ch{Cr}} ;
+  \end{groupplot}
+\end{tikzpicture}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\noindent%
+\begin{minipage}{0.47\textwidth}
+  % \tikz{\draw (0, 0) rectangle (6, 7)}%
+  \includegraphics[height=8cm]{Stroud_Fe.png}%
+
+  Absorption causée par le fer dans un verre plombifère 
+  (ligne continue) et dans un verre calco-sodique (pointillés) 
+  \autocite{Stroud_1971}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.47\textwidth}
+  % \tikz{\draw (0, 0) rectangle (6, 6.5)}%
+  \includegraphics[height=8cm]{Stroud_Cu.png}%
+
+  Absorption causée par le cuivre dans un verre plombifère 
+  (ligne continue) et dans un verre calco-sodique (pointillés) 
+  \autocite{Stroud_1971}
+\end{minipage}%
+
+\noindent%
+\begin{minipage}{0.47\textwidth}
+  % \tikz{\draw (0, 0) rectangle (5.5, 8)}%
+  \includegraphics[height=8cm]{Stroud_Cr.png}%
+
+  Absorption causée par le chrome dans un verre plombifère oxydé 
+  (ligne continue), dans un verre plombifère réduit (tirets), 
+  dans un verre calco-sodique (points et tirets) et dans un verre 
+  calco-sodique avec \SI{1}{\percent} de \ch{Sb2O3} (pointillés)
+  \autocite{Stroud_1971}
+\end{minipage}%
+\hfill%
+\begin{minipage}{0.47\textwidth}
+  % \tikz{\draw (0, 0) rectangle (6.5, 8.5)}%
+  \includegraphics[height=8cm]{Stroud_Mn.png}%
+
+  Absorption causée par le manganèse dans un verre plombifère 
+  (ligne continue) et dans un verre calco-sodique (pointillés) 
+  \autocite{Stroud_1971}
+\end{minipage}%
+
+\noindent%
+\begin{minipage}{0.47\textwidth}
+  % \tikz{\draw (0, 0) rectangle (7.5, 5.5)}%
+  \includegraphics[height=8cm]{Stroud_Ni.png}%
+
+  Absorption causée par le nickel dans un verre plombifère 
+  (ligne continue) et dans un verre calco-sodique (pointillés) 
+  \autocite{Stroud_1971}
+\end{minipage}%
