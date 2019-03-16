@@ -250,14 +250,66 @@ des bulles et de nombreux cristaux non fondus, dont la dimension peut
 aller jusqu'à \SI{100}{\um}. Elle semble avoir pénétré par endroits 
 dans la terre cuite (\fref{MEB:6529_img}).
 
+% \begin{figure}[htb]
+%   \setlength{\imgwidth}{7cm}
+%   \begin{minipage}{.4\textwidth}
+%     \centerfloat
+%     \includegraphics[width=\imgwidth]{PaM_BDX6529_ERD}%
+%     \caption[%
+%       \bdx{6529}\ -- Observation de la texture au \MEB, 
+%       en mode \ERD. Ensemble glaçure-terre cuite%
+%     ]{%
+%       \legendeB.
+%        Observation de la texture au \MEB, en mode \ERD de l'ensemble 
+%        glaçure-terre cuite. La barre d'échelle mesure \SI{1}{\mm} 
+%        (\zone{2.4x1.9}{\mm}).%
+%     }
+%     \label{MEB:6529_img}
+%   \end{minipage}%
+%   \hfill%
+%   \begin{minipage}{.4\textwidth}
+%     \centerfloat
+%     \includegraphics[width=\imgwidth]{PaM_BDX6529_ERD_int}%
+%     \caption[%
+%       \bdx{6529}\ -- Observation de la texture au \MEB, 
+%       en mode \ERD. Interface glaçure-terre cuite%
+%     ]{%
+%       \legendeB.
+%        Observation de la texture au \MEB, en mode \ERD de l'interface 
+%        glaçure-terre cuite. La barre d'échelle mesure \SI{100}{\um}
+%       ~(\zone{370x300}{\um}).%
+%     }
+%     \label{MEB:6529_img_int}
+%   \end{minipage}%
+% \end{figure}
+
 \begin{figure}[htb]
-  \fakeimg{Texture au MEB, retrodiff (fig 33)}
-  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, 
-           en mode \ERD. Ensemble glaçure/terre cuite]
+  \setlength{\imgwidth}{7cm}
+  % \begin{minipage}[t]{0.48\textwidth}
+  \begin{minipage}[t]{\imgwidth}
+    \centerfloat
+    % \includegraphics[width=\textwidth]{PaM_BDX6529_ERD}%
+    \includegraphics[width=\imgwidth]{PaM_BDX6529_ERD}%
+    \subcaption{Interface glaçure-terre cuite. 
+                La barre d'échelle mesure \SI{100}{\um}
+                (\zone{370x300}{\um}) \label{MEB:6529_img}%
+               }
+  \end{minipage}%
+  \hfill%
+  % \begin{minipage}[t]{0.48\textwidth}
+  \begin{minipage}[t]{\imgwidth}
+    \centerfloat
+    % \includegraphics[width=\textwidth]{PaM_BDX6529_ERD_int}%
+    \includegraphics[width=\imgwidth]{PaM_BDX6529_ERD_int}%
+    \subcaption{Ensemble glaçure-terre cuite. 
+                La barre d'échelle mesure \SI{1}{\mm} 
+                (\zone{2.4x1.9}{\mm}) \label{MEB:6529_img_int}}
+  \end{minipage}
+  \caption[bdx{6529}\ -- Observation de la texture au \MEB, en mode \ERD]
           {\legendeB.
-           Image en mode \ERD de l'ensemble glaçure/terre cuite. 
-           La barre d'échelle mesure \SI{1}{\mm} (\zone{2.4x1.9}{\mm}).}
-  \label{MEB:6529_img}
+           Observation de la texture au \MEB, en mode \ERD%
+          }
+  \label{MEB:6529}
 \end{figure}
 
 Une \carto de \RX (\fref{MEB:6529_carto_tcgla}) a permis de montrer 
@@ -273,16 +325,6 @@ Le développement important de cette zone d'interface laisse supposer
 des interactions fortes entre glaçure et terre cuite, et donc, 
 probablement, une application de la glaçure sur le support céramique 
 avant cuisson de ce dernier.
-
-\begin{figure}[htb]
-  \fakeimg{Texture au MEB, retrodiff (fig 34)}
-  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, 
-           en mode \ERD. Interface glaçure/terre cuite]
-          {\legendeB
-           Image en \ERD de l'interface glaçure/terre cuite. 
-           La barre d'échelle mesure \SI{100}{\um} (\zone{370x300}{\um}).}
-  \label{MEB:6529_img_int}
-\end{figure}
 
 Une \carto de la terre cuite (\fref{MEB:6529_carto_tc}) a permis de 
 mettre en évidence la présence de cristaux de quartz et de feldspaths 
@@ -446,16 +488,24 @@ ont montré qu'il s'agit d'alumino-silicates mixtes de potassium, de
 calcium et de plomb que l'on peut appeler des \frquote{feldspaths de 
 plomb}.
 
-
 \begin{figure}[htb]
-  \fakeimg{MEB img cx (fig 38)}
-  \caption[\bdx{6529}\ -- Image en mode \ERD, 
-           cristaux de dévitrification de forme aciculaire]
-          {\legendeB.
-           Observation au \MEB, image en mode \ERD. 
-           Cristaux de dévitrification de forme aciculaire. La barre 
-           d'échelle mesure \SI{20}{\um} (\zone{70x55}{\um}).}
-  \label{MEB:6529_img_cx}
+  \setlength{\imgwidth}{7cm}
+  \setlength{\mylength}{1cm+\imgwidth}
+  \setlength{\sidecapwidth}{\linewidth-\sidecapsep-\mylength-1cm}
+  \renewcommand*{\sidecapfloatwidth}{\mylength}%
+  \sidecapmargin{left}%
+  \RaggedLeft
+  \begin{sidecaption}[%
+    \bdx{6529}\ -- Image en mode \ERD, 
+    cristaux de dévitrification de forme aciculaire%
+  ]{%
+    \legendeB.
+    Observation au \MEB, image en mode \ERD. 
+    Cristaux de dévitrification de forme aciculaire. La barre 
+    d'échelle mesure \SI{20}{\um} (\zone{70x55}{\um}).%
+  }[MEB:6529_img_cx]
+    \includegraphics[width=\imgwidth]{PaM_BDX6528_ERD_cx}%
+  \end{sidecaption}
 \end{figure}
 
 

@@ -237,14 +237,23 @@ forme aciculaire dans sa masse et d'autres cristaux à l'interface
 glaçure-terre cuite.
 
 \begin{figure}[htb]
-  \fakeimg{Texture au MEB, retrodiff (fig 44)}
-  \caption[\bdx{6530}\ -- Observation de la texture au \MEB, 
-           en mode \ERD. Ensemble glaçure/terre cuite]
-          {\legendeC
-           Observation de la texture au \MEB, en mode \ERD. 
-           Ensemble glaçure/terre cuite. La barre d'échelle mesure 
-           \SI{200}{\um} (\zone{550x440}{\um}).}
-  \label{MEB:6530_img}
+  \setlength{\imgwidth}{7cm}
+  \setlength{\mylength}{1cm+\imgwidth}
+  \setlength{\sidecapwidth}{\linewidth-\sidecapsep-\mylength-1cm}
+  \renewcommand*{\sidecapfloatwidth}{\mylength}%
+  \sidecapmargin{left}%
+  \RaggedLeft
+  \begin{sidecaption}[%
+    \bdx{6530}\ -- Observation de la texture au \MEB, 
+    en mode \ERD. Ensemble glaçure-terre cuite%
+  ]{%
+    \legendeC.
+    Observation de la texture au \MEB, en mode \ERD. 
+    Ensemble glaçure-terre cuite. La barre d'échelle mesure 
+    \SI{200}{\um} (\zone{550x440}{\um}).%
+  }[MEB:6530_img]
+    \includegraphics[width=\imgwidth]{PaM_BDX6530_ERD}%
+  \end{sidecaption}
 \end{figure}
 
 Une \carto de \RX de l'ensemble terre cuite-glaçure 
@@ -456,7 +465,7 @@ par des analyses ponctuelles (\tref{compelem:6530_cxgla}).
 \end{table}
 
 \begin{figure}[htb]
-  \fakeimg{Carto RX cristaux glaçure (fig 48)}
+  \includegraphics[width=\textwidth]{PaM_BDX6530_carto_cx}%
   \caption[\bdx{6530}\ -- \carto de \RX des cristaux se développant 
            dans la glaçure]
           {\legendeC.
@@ -470,14 +479,23 @@ Ce sont des silicates calciques de manganèse et de plomb. Leurs formes
 indiquent qu'il s'agit de cristaux de néoformation.
 
 \begin{figure}[htb]
-  \fakeimg{6530ER92 (fig 49)}
-  \caption[\bdx{6530}\ -- Image en mode \ERD, cristaux aciculaires 
-           se développant dans la masse de la glaçure]
-          {\legendeC.
-           Image en mode \ERD. Cristaux aciculaires se développant 
-           dans la masse de la glaçure. La barre d'échelle mesure 
-           \SI{10}{\um} (\zone{135x30}{\um}).}
-  \label{MEB:6530_img_cxgla}
+  \setlength{\imgwidth}{7cm}
+  \setlength{\mylength}{1cm+\imgwidth}
+  \setlength{\sidecapwidth}{\linewidth-\sidecapsep-\mylength-1cm}
+  \renewcommand*{\sidecapfloatwidth}{\mylength}%
+  \sidecapmargin{left}%
+  \RaggedLeft
+  \begin{sidecaption}[%
+    \bdx{6530}\ -- Image en mode \ERD, cristaux aciculaires 
+    se développant dans la masse de la glaçure%
+  ]{%
+    \legendeC.
+    Image en mode \ERD. Cristaux aciculaires se développant 
+    dans la masse de la glaçure. La barre d'échelle mesure 
+    \SI{10}{\um} (\zone{135x30}{\um}).%
+  }[MEB:6530_img_cxgla]
+    \includegraphics[width=\imgwidth]{PaM_BDX6530_ERD_cx}%
+  \end{sidecaption}
 \end{figure}
 
 \subsection{Cristaux se développant à l'interface}

@@ -240,12 +240,23 @@ identifiés comme des quartz par \carto de \RX
 de \RX.
 
 \begin{figure}[htb]
-  \fakeimg{Texture au MEB, img ERD (fig 64)}
-  \caption{\legendeE.
-           Observation de la texture au \MEB, en mode \ERD. 
-           Ensemble glaçure/terre cuite. La barre d'échelle mesure 
-           \SI{200}{\um} (\zone{500x400}{\um}).}
-  \label{MEB:6532_img}
+  \setlength{\imgwidth}{7cm}
+  \setlength{\mylength}{1cm+\imgwidth}
+  \setlength{\sidecapwidth}{\linewidth-\sidecapsep-\mylength-1cm}
+  \renewcommand*{\sidecapfloatwidth}{\mylength}%
+  \sidecapmargin{left}%
+  \RaggedLeft
+  \begin{sidecaption}[%
+    \bdx{6532}\ -- Observation de la texture au \MEB, 
+    en mode \ERD. Ensemble glaçure-terre cuite%
+  ]{%
+    \legendeE.
+    Observation de la texture au \MEB, en mode \ERD. 
+    Ensemble glaçure-terre cuite. La barre d'échelle mesure 
+    \SI{200}{\um} (\zone{500x400}{\um}).%
+  }[MEB:6532_img]
+    \includegraphics[width=\imgwidth]{PaM_BDX6532_ERD}%
+  \end{sidecaption}
 \end{figure}
 
 On remarque également des cristaux de quartz non fondus formant un 
@@ -273,12 +284,23 @@ effet de diffusion de la lumière.
 \end{figure}
 
 \begin{figure}[htb]
-  \fakeimg{Texture au MEB, img ERD (fig 66)}
-  \caption{\legendeE 
-           Observation de la texture au \MEB, en mode \ERD. 
-           Zone d'interface. La barre d'échelle mesure \SI{50}{\um} 
-           (\zone{185x175}{\um}).}
-  \label{MEB:6532_img_int}
+  \setlength{\imgwidth}{7cm}
+  \setlength{\mylength}{1cm+\imgwidth}
+  \setlength{\sidecapwidth}{\linewidth-\sidecapsep-\mylength-1cm}
+  \renewcommand*{\sidecapfloatwidth}{\mylength}%
+  \sidecapmargin{left}%
+  \RaggedLeft
+  \begin{sidecaption}[%
+    \bdx{6532}\ -- Observation de la texture au \MEB,
+    en mode \ERD. Interface glaçure-terre cuite%
+  ]{%
+    \legendeE.
+    Observation de la texture au \MEB, en mode \ERD. 
+    Zone d'interface. La barre d'échelle mesure \SI{50}{\um} 
+    (\zone{185x175}{\um}).%
+  }[MEB:6532_img_int]
+    \includegraphics[width=\imgwidth]{PaM_BDX6532_ERD_int}%
+  \end{sidecaption}
 \end{figure}
 
 À l'interface glaçure-terre cuite (\fref{MEB:6532_img_int}), on 
