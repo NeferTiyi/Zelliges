@@ -1,14 +1,24 @@
 %!TEX root = MemoireZelliges.tex
 
+% Entête
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=north,
+  inner sep=0, outer sep=0cm,
+]
+  \node at (current page.north west) 
+        [right, text width=\textwidth, 
+         shift={(\hoffset+1in+\evensidemargin, -2cm)}] {%
+    \large
+    \SL
+
+    % \medskip
+    DESS Méthodes Physiques Appliquées à l'Archéologie et à la 
+    Muséographie -- Juin 2000\par%
+  } ;
+\end{tikzpicture}
+
 {
 \large
-\noindent\SL
-
-\noindent DESS Méthodes Physiques Appliquées à l'Archéologie et à la 
-Muséographie -- Juin 2000
-
-\vfill
-
 \begin{center}
 \bfseries\Large
 Programme PACT ARCHI-MED Glaçures -- II
@@ -39,13 +49,13 @@ L'étude de la texture en section, en lumière naturelle et en \CL,
 a permis de mettre en évidence deux groupes d'échantillons se 
 distinguant par la couleur de leur support céramique, la granulométrie 
 des inclusions et la présence ou l'absence de liseré luminescent à 
-l'interface glaçure/terre cuite : d'une part les zelliges vert, miel, 
+l'interface glaçure-terre cuite : d'une part les zelliges vert, miel, 
 noir et blanc, d'autre part, le zellige bleu, de plus grandes 
 dimensions que les autres, avec un support céramique plus rouge, 
 contenant des inclusions plus grossières. L'imagerie en \MEB[ie] donne 
 accès à la microtexture des échantillons et permet de corréler un 
 liseré qui luminesce en jaune en \CL à la présence de cristaux de 
-dévitrification dans la zone d'interface terre cuite/glaçure.
+dévitrification dans la zone d'interface terre cuite-glaçure.
 
 L'analyse quantitative en \EDS montre la grande homogénéité des 
 matériaux, tant des glaçures plombifères, que des terres cuites de 
@@ -70,10 +80,24 @@ technique plus élaborée pour les zelliges moins épais formant le
 décor à proprement parler.
 
 \vfill
-
-\begin{motsclef}
-   zellige, céramique glaçurée, architecture, Maroc, Meknès, 
-   \PaM, \siecle{17}, patrimoine culturel, méthodes physiques 
-   de caractérisation
-\end{motsclef}
 }
+
+% Pied de page : mots clés
+\begin{tikzpicture}[
+  remember picture, overlay, anchor=south,
+  inner sep=0, outer sep=0cm,
+]
+  \node at (current page.south west) 
+        [right, text width=\textwidth, 
+         shift={(\hoffset+1in+\evensidemargin, 3cm)}] 
+  {%
+    \large
+    \begin{motsclef}
+       zellige, céramique glaçurée, architecture, \PaM, Meknès, 
+       Maroc, \siecle{17}, patrimoine culturel, méthodes physiques 
+       de caractérisation
+    \end{motsclef}
+  } ;
+\end{tikzpicture}
+
+
