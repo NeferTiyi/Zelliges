@@ -77,15 +77,34 @@ couleurs variées.
   \begin{plotspectre}
     \addplot [thick, Indigo] 
        table [x=lambda, y=6530gla] {\gladata} ;
+    \addlegendentry{glaçure noire}
     \addplot [thick, FireBrick] 
        table [x=lambda, y=6530tc] {\tcdata} ;
+    \addlegendentry{terre cuite}
+
+    \begin{scope}[<-, >=stealth, shorten <=5pt, thin]
+      \node (Fe) at (410.00, 0.75) {\ch{Fe^3+}} ;
+      \node (qm) at (540.00, 0.50) {?} ;
+      \draw (380.00, 0.62) |- (Fe.south) ;
+      \draw (440.00, 0.50) |- (Fe.south) ;
+      \draw (540.00, 0.35) |- (qm.south) ;
+    \end{scope}
   \end{plotspectre}
-  \caption{\legendeC 
-           Spectres d'\AO en mode réflexion diffuse de la glaçure et de la terre cuite. Le spectre présente une forte absorption dans tout le domaine visible (\SIrange{400}{700}{\nm}). Il se compose en fait d'une superposition de bandes d'absorption.}
+  \caption[\bdx{6530}\ -- Spectres d'\AO en mode réflexion diffuse 
+           de la glaçure et de la terre cuite]
+          {\legendeC.
+           Spectres d'\AO en mode réflexion diffuse de la glaçure et 
+           de la terre cuite. Le spectre présente une forte absorption 
+           dans tout le domaine visible (\SIrange{400}{700}{\nm}). 
+           Il se compose en fait d'une superposition de bandes 
+           d'absorption.}
   \label{spectre:6530}
 \end{figure}
 
-Le spectre d'\AO en mode réflexion diffuse de la glaçure (\fref{spectre:6530}) présente une forte absorption dans l'ensemble du domaine du visible avec toutefois une transmission un peu plus élevée à partir de \SI{550}{\nm}.
+Le spectre d'\AO en mode réflexion diffuse de la glaçure 
+(\fref{spectre:6530}) présente une forte absorption dans l'ensemble du 
+domaine du visible avec toutefois une transmission un peu plus élevée 
+à partir de \SI{550}{\nm}.
 
 On ne distingue pas de bande d'absorption particulière. Le spectre est 
 en fait constitué d'une superposition de bandes d'absorption plus ou 
@@ -99,28 +118,30 @@ attribuée.
 
 \subsection{Mesure physique de la couleur}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6530}\ -- Coordonnées chromatiques et longueur d'onde 
+           dominante]
+          {\legendeC.
+           Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
+           et longueur d'onde dominante (illuminant D65, \ang{2},
+           \SIrange{400}{700}{\nm}). (\up{\dag}\,\cite{Kelly_1976})}
+  \label{saotab:6530}
   \begin{chrotab}
       \chrolgna{Glaçure}{594.39}{8.88}
                {6.505}{0.338}{0.335}
                {30.652}{4.036}{2.934} &
-      \chrolgnb{orange très foncé}{Orange}{585}{600}
-               {\footcite{Kelly_1976}}
+      \chrolgnb{orange très foncé}{Orange}{585}{600}{}
+               % {\footcite{Kelly_1976}}
     \tabularnewline
       \chrolgna{Terre cuite}{579.70}{23.30}
                {47.348}{0.359}{0.366}
                {74.412}{3.957}{18.143} &
-      \chrolgnb{jaune orange clair}{Jaune-Orange}{580}{585}
-               {\footcite{Kelly_1976}}
+      \chrolgnb{jaune orange clair}{Jaune-Orange}{580}{585}{}
+               % {\footcite{Kelly_1976}}
     \tabularnewline
   \end{chrotab}
-  \caption{\legendeC 
-           Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
-           et longueur d'onde dominante (illuminant D65, \ang{2},
-           \SIrange{400}{700}{\nm}).}
-  \label{saotab:6530}
-  \footnotetext{\autocite{Kelly_1976}}
 \end{table}
+  % \footnotetext{\autocite{Kelly_1976}}
 
 \begin{figure}[htb]
   \newcommand{\samplename}{6530gla}
@@ -133,7 +154,8 @@ attribuée.
       \plotYxyLigne{\samplename} ;
       \plotYxyAnnot{\samplename}{south west} ;
     \end{plotYxy}
-    \subcaption{espace \trichro \Yxy. La longueur d'onde 
+    \subcaption[Espace \trichro \Yxy]
+               {Espace \trichro \Yxy. La longueur d'onde 
                 dominante de la glaçure est de \SI{594.380}{\nm} 
                 et correspond au domaine du orange.}
   \end{minipage}%
@@ -142,14 +164,25 @@ attribuée.
     \begin{plotLab}
       \plotLabSample{\samplename}{\samplecolor} ;
     \end{plotLab}
-    \subcaption{espace \trichro \Lab.}
+    \subcaption{Espace \trichro \Lab}
   \end{minipage}%
-  \caption[\bdx{6530}\ -- Espaces \trichros]
-          {\legendeC Analyse chromamétrique de la glaçure.}
+  \caption[\bdx{6530}\ -- Analyse chromamétrique de la glaçure]
+          {\legendeC. Analyse chromamétrique de la glaçure.}
   \label{colorfig:6530}
 \end{figure}
 
-Les spectres d'\AO de la glaçure et de la terre cuite ont permis de calculer les coordonnées chromatiques correspondant aux espaces \Yxy et \Lab. La longueur d'onde dominante de la glaçure est de \SI{594.39}{\nm} (\tref{saotab:6530}), elle appartient au domaine des orange. La pureté d'excitation indique une couleur très peu saturée et la réflectance $Y$ est celle d'une couleur très foncée. Ce que l'on prend au premier abord pour un noir est en fait un orange très foncé, un noir. La longueur d'onde dominante de la terre cuite (\SI{579.70}{\nm}) se place dans le domaine du jaune-orange. Sa réflectance est assez élevée, la couleur est donc assez claire. La \fref{colorfig:6530} montre la localisation des cordonnées chromatiques de la glaçure noire dans les espaces \Yxy et \Lab.
+Les spectres d'\AO de la glaçure et de la terre cuite ont permis 
+de calculer les coordonnées chromatiques correspondant aux espaces 
+\Yxy et \Lab. La longueur d'onde dominante de la glaçure est de 
+\SI{594.39}{\nm} (\tref{saotab:6530}), elle appartient au domaine 
+des oranges. La pureté d'excitation indique une couleur très peu 
+saturée et la réflectance \CIEY est celle d'une couleur très foncée. 
+Ce que l'on prend au premier abord pour un noir est en fait un orange 
+très foncé. La longueur d'onde dominante de la terre cuite 
+(\SI{579.70}{\nm}) se place dans le domaine du jaune-orange. 
+Sa réflectance est assez élevée, la couleur est donc assez claire. 
+La \fref{colorfig:6530} montre la localisation des cordonnées 
+chromatiques de la glaçure noire dans les espaces \Yxy et \Lab.
 
 
 \section{Étude de la texture de la glaçure et de la terre cuite}
@@ -167,14 +200,14 @@ Les spectres d'\AO de la glaçure et de la terre cuite ont permis de calculer le
     \subcaption{\CL \label{texture:6530_CL}}
   \end{minipage}
   \caption[\bdx{6530}\ -- Observation de la texture en section]
-          {\legendeC 
+          {\legendeC. 
            Observation de la texture en section sur une surface de 
            \SI{2.6x1.9}{\mm}.}
   \label{texture:6530}
 \end{figure}
 
 L'examen en section en lumière naturelle de l'ensemble terre 
-cuite/glaçure (\fref{texture:6530_LN}), montre que la glaçure est 
+cuite-glaçure (\fref{texture:6530_LN}), montre que la glaçure est 
 colorée dans la masse et qu'elle adhère bien au support de terre cuite.
 
 Cette dernière contient diverses inclusions de faibles dimensions,
@@ -187,7 +220,7 @@ La glaçure n'est pas luminescente (\fref{texture:6530_CL}).
 La terre cuite présente une luminescence mauve sur laquelle se 
 détachent des luminescences ponctuelles rouges et bleues.
 
-On n'observe aucune luminescence à l'interface glaçure/terre cuite.
+On n'observe aucune luminescence à l'interface glaçure-terre cuite.
 
 Les quelques points jaunes que l'on peut remarquer dans la terre cuite 
 et à la surface de la glaçure sont des résidus de la suspension 
@@ -198,7 +231,7 @@ diamantée utilisée pour le polissage de la lame.
 La glaçure a une épaisseur moyenne de \SI{170}{\um} et contient 
 des bulles (\fref{MEB:6530_img}). On distingue des cristaux de 
 forme aciculaire dans sa masse et d'autres cristaux à l'interface 
-glaçure/terre cuite.
+glaçure-terre cuite.
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, retrodiff (fig 44)}
@@ -211,7 +244,13 @@ glaçure/terre cuite.
   \label{MEB:6530_img}
 \end{figure}
 
-Une \carto de \RX de l'ensemble terre cuite/glaçure (\fref{MEB:6530_carto_tcgla}) met en évidence la présence de manganèse et de plomb dans la glaçure. Elle est en revanche plus pauvre en calcium, aluminium et potassium que la terre cuite. Les cristaux de forme aciculaires se développant dans la masse de la glaçure semblent riches en calcium et manganèse mais dépourvus de plomb.
+Une \carto de \RX de l'ensemble terre cuite-glaçure 
+(\fref{MEB:6530_carto_tcgla}) met en évidence la présence de 
+manganèse et de plomb dans la glaçure. Elle est en revanche plus 
+pauvre en calcium, aluminium et potassium que la terre cuite. Les 
+cristaux de forme aciculaires se développant dans la masse de la 
+glaçure semblent riches en calcium et manganèse mais dépourvus de 
+plomb.
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc/gla (fig 45)}
@@ -221,18 +260,24 @@ Une \carto de \RX de l'ensemble terre cuite/glaçure (\fref{MEB:6530_carto_tcgla
   \label{MEB:6530_carto_tcgla}
 \end{figure}
 
-L'interface terre cuite/glaçure présente une forte concentration en 
+L'interface terre cuite-glaçure présente une forte concentration en 
 potassium. Son faible développement semble indiquer des interactions 
 faibles entre ces deux matériaux et l'on peut donc envisager 
 l'hypothèse de l'application du mélange glaçurant sur une terre crue.
 
-La terre cuite contient des inclusions identifiées par \carto de \RX (\fref{MEB:6530_carto_tc}) comme des quartz et des aluminosilicates potassiques.
+La terre cuite contient des inclusions identifiées par \carto de \RX 
+(\fref{MEB:6530_carto_tc}) comme des quartz et des aluminosilicates 
+potassiques.
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc (fig 46)}
-  \caption[\bdx{6530}\ -- Observation de la texture au \MEB, \carto de \RX de la terre cuite]
-          {\legendeC
-           Observation de la texture au \MEB, \carto de \RX de la terre cuite (Gr=150, \zone{730x600}{\um}). La terre cuite contient des inclusions de quartz et d'aluminosilicates potassiques.}
+  \caption[\bdx{6530}\ -- Observation de la texture au \MEB, 
+           \carto de \RX de la terre cuite]
+          {\legendeC.
+           Observation de la texture au \MEB, 
+           \carto de \RX de la terre cuite 
+           (Gr=150, \zone{730x600}{\um}). La terre cuite contient des 
+           inclusions de quartz et d'aluminosilicates potassiques.}
   \label{MEB:6530_carto_tc}
 \end{figure}
 
@@ -240,7 +285,13 @@ La terre cuite contient des inclusions identifiées par \carto de \RX (\fref{MEB
 \section{Composition élémentaire de la glaçure}
 %----------------------------------------------------------------------
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la glaçure]
+          {\legendeC. Analyse quantitative par \EDS. 
+           Composition élémentaire de la glaçure 
+           noire sur une surface de \SI{108x88}{\um} (\PMO).}
+  \label{compelem:6530_gla}
   \begin{cartotab}
       \cartolgn{SiO2}{46.37}{0.83} &
       \cartolgn{CaO}{5.92}{0.36}   &
@@ -268,11 +319,6 @@ La terre cuite contient des inclusions identifiées par \carto de \RX (\fref{MEB
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, composition élémentaire de la 
-           glaçure]
-          {\legendeC Analyse quantitative par \EDS. Composition élémentaire de la glaçure 
-           noire sur une surface de \SI{108x88}{\um} (\PMO).}
-  \label{compelem:6530_gla}
 \end{table}
 
 La glaçure est plombifère (\SI{32.27}{\percent} de \ch{PbO}) et non 
@@ -291,7 +337,13 @@ très foncé \autocite{Lajarte_1979}.
 
 \subsection{Composition élémentaire}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la glaçure]
+          {\legendeC. Analyse quantitative par \EDS. 
+           Composition élémentaire de la terre cuite 
+           sur une surface de \SI{108x88}{\um} (\PMO).}
+  \label{compelem:6530_tc}
   \begin{cartotab}
       \cartolgn{SiO2}{53.57}{1.17}  &
       \cartolgn{CaO}{17.88}{0.58}   &
@@ -319,11 +371,6 @@ très foncé \autocite{Lajarte_1979}.
       \cartolgnnd{As2O3}
    \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, composition élémentaire de la 
-           glaçure]
-          {\legendeC Analyse quantitative par \EDS. Composition élémentaire de la terre 
-           cuite sur une surface de \SI{108x88}{\um} (\PMO).}
-  \label{compelem:6530_tc}
 \end{table}
 
 La terre cuite est riche en calcium (\tref{compelem:6530_tc}). Sa 
@@ -334,11 +381,12 @@ oxydante \autocite{Echallier_1984}.
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{PaM_BDX6530_DX}
-  \caption[\bdx{6530}\ -- \DX sur poudre de la terre cuite]
-          {\legendeC 
-           \DX sur poudre de la terre cuite. 
-           Mise en évidence de la présence de quartz (Q), calcite (C), 
-           albite (Al), diopside (D).}
+  \caption[\bdx{6530}\ -- Diffraction de \RX sur poudre 
+           de la terre cuite]
+          {\legendeC.
+           \DX[D] sur poudre de la terre cuite. 
+           Mise en évidence de la présence de quartz (Q), 
+           calcite (C), albite (Al), diopside (D).}
   \label{DRX:6530}
 \end{figure}
 
@@ -363,7 +411,15 @@ Ces cristaux aciculaires (\fref{MEB:6530_img_cxgla}) ont été
 identifiés par cartogarphie de \RX (\fref{MEB:6530_carto_cxgla}) et 
 par des analyses ponctuelles (\tref{compelem:6530_cxgla}).
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire des cristaux se développant 
+           dans la glaçure]
+          {\legendeC. Analyse quantitative par \EDS. 
+           Composition élémentaire des cristaux se développant 
+           dans la glaçure par analyses ponctuelles 
+           (\SI{1}{\um\squared}) (\PMO).}
+  \label{compelem:6530_cxgla}
   \begin{cartotab}
       \cartolgn{SiO2}{51.64}{0.75} &
       \cartolgn{CaO}{21.25}{2.08}  &
@@ -391,19 +447,16 @@ par des analyses ponctuelles (\tref{compelem:6530_cxgla}).
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, composition élémentaire des 
-           cristaux se développant dans la glaçure]
-          {\legendeA Analyse quantitative par \EDS. Composition élémentaire des cristaux 
-           se développant dans la glaçure par analyses ponctuelles 
-           (\SI{1}{\um\squared}) (\PMO).}
-  \label{compelem:6530_cxgla}
 \end{table}
 
 \begin{figure}[htb]
   \fakeimg{Carto RX cristaux glaçure (fig 48)}
-  \caption[\bdx{6530}\ -- \carto de \RX des cristaux se développant dans la glaçure]
-          {\legendeC 
-           \carto de \RX des cristaux se développant dans la glaçure (Gr=2000, \zone{55x45}{\um}). Ces cristaux sont riches en calcium et manganèse.}
+  \caption[\bdx{6530}\ -- \carto de \RX des cristaux se développant 
+           dans la glaçure]
+          {\legendeC.
+           \carto de \RX des cristaux se développant dans la glaçure 
+           (Gr=2000, \zone{55x45}{\um}). Ces cristaux sont riches en 
+           calcium et manganèse.}
   \label{MEB:6530_carto_cxgla}
 \end{figure}
 
@@ -414,7 +467,7 @@ indiquent qu'il s'agit de cristaux de néoformation.
   \fakeimg{6530ER92 (fig 49)}
   \caption[\bdx{6530}\ -- Image en mode \ERD, cristaux aciculaires 
            se développant dans la masse de la glaçure]
-          {\legendeC 
+          {\legendeC.
            Image en mode \ERD. Cristaux aciculaires se développant 
            dans la masse de la glaçure. La barre d'échelle mesure 
            \SI{10}{\um} (\zone{135x30}{\um}).}
@@ -430,7 +483,13 @@ germes formés à haute température.
 Nous avons réalisé des analyses ponctuelles pour en déterminer la 
 composition élémentaire (\tref{compelem:6530_cx}).
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire des cristaux de dévitrification]
+          {\legendeC. Analyse quantitative par \EDS. 
+           Composition élémentaire des cristaux de dévitrification 
+           par analyses ponctuelles (\SI{1}{\um\squared}) (\PMO).}
+  \label{compelem:6530_cx}
   \begin{cartotab}
       \cartolgn{SiO2}{55.47}{3.96}  &
       \cartolgn{CaO}{8.44}{2.15}    &
@@ -458,12 +517,6 @@ composition élémentaire (\tref{compelem:6530_cx}).
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6530}\ -- Analyse quantitative par \EDS, composition élémentaire des 
-           cristaux de dévitrification]
-          {\legendeC Analyse quantitative par \EDS. Composition élémentaire des 
-           cristaux de dévitrification par analyses ponctuelles
-          (\SI{1}{\um\squared}) (\PMO).}
-  \label{compelem:6530_cx}
 \end{table}
 
 Ces cristaux sont des aluminosilicates calco-potassiques. Ils 

@@ -15,7 +15,6 @@ pièce de céramique chanfreinée, comportant une glaçure miel
   \item \emph{Masse} : \SI{83.5}{\g}
 \end{itemize}
 
-
 \begin{figure}[htb]
   \begin{minipage}[b]{3.9cm}
     \centerfloat
@@ -77,10 +76,22 @@ de couleurs variées.
   \begin{plotspectre}
     \addplot [thick, Orange] 
        table [x=lambda, y=6531gla] {\gladata} ;
+    \addlegendentry{glaçure miel}
     \addplot [thick, FireBrick] 
        table [x=lambda, y=6531tc] {\tcdata} ;
+    \addlegendentry{terre cuite}
+
+    \begin{scope}[<-, >=stealth, shorten <=5pt, thin]
+      \node (Fe) at (410.00, 0.45) {\ch{Fe^3+}} ;
+      \node (qm) at (540.00, 0.30) {?} ;
+      \draw (380.00, 0.73) |- (Fe.north) ;
+      \draw (440.00, 0.61) |- (Fe.north) ;
+      \draw (540.00, 0.46) |- (qm.north) ;
+    \end{scope}
   \end{plotspectre}
-  \caption{\legendeD.
+  \caption[\bdx{6531}\ -- Spectres d'\AO en mode réflexion diffuse 
+           de la glaçure et de la terre cuite]
+          {\legendeD.
            Spectres d'\AO en mode réflexion diffuse de la glaçure et 
            de la terre cuite. La glaçure présente des absorptions vers 
            \SIlist{380;440}{\nm}, correspondant au \ch{Fe^3+}.}
@@ -101,36 +112,41 @@ correspondant aux espaces \Yxy et \Lab, calculées à partir des
 spectres d'\AO de la glaçure et de la terre cuite.
 
 La longueur d'onde dominante de la glaçure (\SI{579.24}{\nm}) 
-correspond au domaine du jaune \autocite{Kelly_1976}. la couleur de 
-la glaçure est foncée (réflectance $Y=\num{22.955}$) et assez saturée 
-($\Pe=\SI{43.65}{\percent}$). La \tref{saotab:6531} montre la 
-localisation des coordonnées chromatiques de la glaçure dans les 
+correspond au domaine du jaune \autocite{Kelly_1976}. la couleur 
+de la glaçure est foncée (réflectance $\CIEY=\num{22.955}$) et assez 
+saturée ($\Pe=\SI{43.65}{\percent}$). La \tref{saotab:6531} montre 
+la localisation des coordonnées chromatiques de la glaçure dans les 
 espaces \Yxy et \Lab. La couleur de la terre cuite se situe dans le 
 domaine du jaune orange. Elle est assez claire, étant donnée sa 
-réflectance ($Y=\num{38.927}$).
+réflectance ($\CIEY=\num{38.927}$).
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6531}\ -- Coordonnées chromatiques et longueur d'onde 
+           dominante]
+          {\legendeD.
+           Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
+           et longueur d'onde dominante (illuminant D65, \ang{2},
+           \SIrange{400}{700}{\nm}). (\up{\dag}\,\cite{Kelly_1976})}
+  \label{saotab:6531}
   \begin{chrotab}
       \chrolgna{Glaçure}{579.24}{43.65}
                {22.955}{0.398}{0.400}
                {55.026}{4.617}{27.619} &
-      \chrolgnb{jaune foncé}{Jaune}{575}{580}{\footnotemark{}}
+      \chrolgnb{jaune foncé}{Jaune}{575}{580}{}
+               % {\footnotemark{}}
     \tabularnewline
       \chrolgna{Terre cuite}{583.07}{27.15}
                {38.927}{0.372}{0.366}
                {68.698}{8.231}{19.231} &
-      \chrolgnb{jaune orange clair}{Jaune-Orange}{580}{585}
+      \chrolgnb{jaune orange clair}{Jaune-Orange}{580}{585}{}
                {\footnotemark{}}
     \tabularnewline
   \end{chrotab}
-  \caption{\legendeD 
-           Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
-           et longueur d'onde dominante (illuminant D65, \ang{2},
-           \SIrange{400}{700}{\nm}).}
-  \label{saotab:6531}
 \end{table}
-\footnotetext{\autocite{Kelly_1976}}
-\footnotetext{\autocite{Kelly_1976}}
+% \addtocounter{footnote}{-1}
+% \footnotetext{\autocite{Kelly_1976}}
+% \addtocounter{footnote}{+1}
+% \footnotetext{\autocite{Kelly_1976}}
 
 \begin{figure}[htb]
   \newcommand{\samplename}{6531gla}
@@ -143,7 +159,8 @@ réflectance ($Y=\num{38.927}$).
       \plotYxyLigne{\samplename} ;
       \plotYxyAnnot{\samplename}{south west} ;
     \end{plotYxy}
-    \subcaption{espace \trichro \Yxy. La longueur d'onde 
+    \subcaption[Espace \trichro \Yxy]
+               {Espace \trichro \Yxy. La longueur d'onde 
                 dominante de la glaçure est de \SI{594.38}{\nm} 
                 et correspond au domaine des oranges.}
   \end{minipage}%
@@ -152,10 +169,10 @@ réflectance ($Y=\num{38.927}$).
     \begin{plotLab}
       \plotLabSample{\samplename}{\samplecolor} ;
     \end{plotLab}
-    \subcaption{espace \trichro \Lab.}
+    \subcaption{Espace \trichro \Lab}
   \end{minipage}%
-  \caption[\bdx{6531}\ -- Espaces \trichros]
-          {\legendeD Analyse chromamétrique de la glaçure.}
+  \caption[\bdx{6531}\ -- Analyse chromamétrique de la glaçure]
+          {\legendeD. Analyse chromamétrique de la glaçure.}
   \label{colorfig:6531}
 \end{figure}
 
@@ -167,18 +184,19 @@ réflectance ($Y=\num{38.927}$).
 \subsection{Observation en lumière naturelle}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
-  \begin{minipage}[t]{0.4\textwidth}
+  \begin{minipage}[t]{0.48\textwidth}
     \fakeimg{lum. nat.}
     \subcaption{Lumière naturelle \label{texture:6531_LN}}
-  \end{minipage}
-  \begin{minipage}[t]{0.4\textwidth}
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}
     \fakeimg{Cathodo}
     \subcaption{\CL \label{texture:6531_CL}}
   \end{minipage}
   \caption[\bdx{6531}\ -- Observation de la texture en section]
-          {\legendeD 
-           Observation de la texture en section sur une surface de 
-           \SI{2.6x1.9}{\mm}.}
+          {\legendeD.
+           Observation de la texture en section 
+           sur une surface de \SI{2.6x1.9}{\mm}.}
   \label{texture:6531}
 \end{figure}
 
@@ -195,7 +213,7 @@ On y observe des luminescences ponctuelles mauves.
 La terre cuite présente une luminescence mauve à rose ainsi que 
 quelques luminescences ponctuelles rouges et bleues.
 
-On peut remarquer à l'interface glaçure/terre cuite des luminescences 
+On peut remarquer à l'interface glaçure-terre cuite des luminescences 
 ponctuelles jaunes.
 
 \subsection{Observation en \MEB[ie]}
@@ -209,7 +227,7 @@ ponctuelles mauves détectées en \CL (\fref{MEB:6531_img}).
   \fakeimg{Texture au MEB, retrodiff (fig 55)}
   \caption[\bdx{6531}\ -- Observation de la texture au \MEB, 
            en mode \ERD. Ensemble glaçure/terre cuite]
-          {\legendeD 
+          {\legendeD.
            Observation de la texture au \MEB, en mode \ERD. 
            Ensemble glaçure/terre cuite. La barre d'échelle mesure 
            \SI{200}{\um} (\zone{680x550}{\um}).}
@@ -220,7 +238,7 @@ Une \carto de \RX de l'ensemble glaçure-terre cuite
 (\fref{MEB:6531_carto_tcgla}) montre la présence de cristaux non 
 fondus de quartz (\quartz) dans la glaçure.
 
-On observe très ponctuellement, à l'interface glaçure/terre cuite, la 
+On observe très ponctuellement, à l'interface glaçure-terre cuite, la 
 formation de cristaux de dévitrification de très petite taille. Cette 
 zone semble assez riche en potassium et contient du plomb 
 (\fref{MEB:6531_carto_tcgla}).
@@ -232,17 +250,23 @@ cuite.
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc/gla (fig 56)}
-  \caption[\bdx{6531}\ -- Observation de la texture au \MEB, \carto de \RX de l'ensemble glaçure/terre cuite]
-          {\legendeD 
-           Observation de la texture au \MEB, \carto de \RX de l'ensemble glaçure/terre cuite (Gr=140, \zone{770x625}{\um}).}
+  \caption[\bdx{6531}\ -- Observation de la texture au \MEB, 
+           \carto de \RX de l'ensemble glaçure-terre cuite]
+          {\legendeD.
+           Observation de la texture au \MEB, 
+           \carto de \RX de l'ensemble glaçure-terre cuite 
+           (Gr=140, \zone{770x625}{\um}).}
   \label{MEB:6531_carto_tcgla}
 \end{figure}
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc (fig 57)}
-  \caption[\bdx{6531}\ -- Observation de la texture au \MEB, \carto de \RX de la terre cuite]
-          {\legendeD 
-           Observation de la texture au \MEB, \carto de \RX de la terre cuite (Gr=140, \zone{770x625}{\um}).}
+  \caption[\bdx{6531}\ -- Observation de la texture au \MEB, 
+           \carto de \RX de la terre cuite]
+          {\legendeD.
+           Observation de la texture au \MEB, 
+           \carto de \RX de la terre cuite 
+           (Gr=140, \zone{770x625}{\um}).}
   \label{MEB:6531_carto_tc}
 \end{figure}
 
@@ -254,7 +278,13 @@ carbonates de calcium (\fref{MEB:6531_carto_tc}).
 \section{Composition élémentaire de la glaçure}
 %----------------------------------------------------------------------
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6531}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la glaçure]
+          {\legendeD. Analyse quantitative par \EDS. 
+           Composition élémentaire de la glaçure miel 
+           sur une surface de \SI{54x44}{\um} (\PMO).}
+  \label{compelem:6531_gla}
   \begin{cartotab}
       \cartolgn{SiO2}{39.00}{1.27} &
       \cartolgn{CaO}{2.67}{0.20}   &
@@ -282,12 +312,6 @@ carbonates de calcium (\fref{MEB:6531_carto_tc}).
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-
-  \caption[\bdx{6531}\ -- Analyse quantitative par \EDS, composition élémentaire de la 
-           glaçure]
-          {\legendeD Analyse quantitative par \EDS. Composition élémentaire de la glaçure 
-           miel sur une surface de \SI{54x44}{\um} (\PMO).}
-  \label{compelem:6531_gla}
 \end{table}
 
 Il s'agit d'une glaçure plombifère non opacifiée 
@@ -300,7 +324,13 @@ qui lui donne sa coloration miel.
 
 \subsection{Composition élémentaire}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6531}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la terre cuite]
+          {\legendeD. Analyse quantitative par \EDS. 
+           Composition élémentaire de la terre cuite 
+           sur une surface de \SI{1080x876}{\um} (\PMO).}
+  \label{compelem:6531_tc}
   \begin{cartotab}
       \cartolgn{SiO2}{60.58}{4.99}  &
       \cartolgn{CaO}{17.68}{1.82}   &
@@ -328,9 +358,6 @@ qui lui donne sa coloration miel.
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6531}\ -- Analyse quantitative par \EDS, composition élémentaire de la terre cuite]
-          {\legendeD Analyse quantitative par \EDS. Composition élémentaire de la terre cuite sur une surface de \SI{1080x876}{\um} (\PMO).}
-  \label{compelem:6531_tc}
 \end{table}
 
 La terre cuite est riche en calcium (\tref{compelem:6531_tc}). C'est 
@@ -341,11 +368,12 @@ coloration ocre rosé \autocite{Echallier_1984}.
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{PaM_BDX6531_DX}
-  \caption[\bdx{6531}\ -- \DX sur poudre de la terre cuite]
-          {\legendeA 
-           \DX sur poudre de la terre cuite. 
-           Mise en évidence de la présence de quartz (Q), calcite (C), 
-           albite (Al), gehlénite (G), anorthite (A).}
+  \caption[\bdx{6531}\ -- Diffraction de \RX sur poudre 
+           de la terre cuite]
+          {\legendeD.
+           \DX[D] sur poudre de la terre cuite. 
+           Mise en évidence de la présence de quartz (Q), 
+           calcite (C), albite (Al), gehlénite (G), anorthite (A).}
   \label{DRX:6531}
 \end{figure}
 
@@ -368,7 +396,7 @@ de cuisson de la pâte céramique a atteint
          dévitrification}
 %----------------------------------------------------------------------
 
-On distingue, dans la zone d'interface terre cuite/glaçure, des 
+On distingue, dans la zone d'interface terre cuite-glaçure, des 
 cristaux de forme aciculaire. Ce sont des cristaux de dévitrification 
 dont la composition élémentaire n'a pu être déterminée étant données 
 leurs faibles dimensions.
@@ -392,7 +420,9 @@ Son support de terre cuite est de type calcique. Sa coloration
 ocre-rose est due à la présence de \ch{Fe^3+} en atmosphère de 
 cuisson oxydante.
 
-Sa composition \cristallo (quartz, calcite, albite, gehlénite, anorthite) laisse penser qu'elle a été cuite à une température de l'ordre de \SIrange[range-phrase=\ à\ ]{850}{900}{\degC}.
+Sa composition \cristallo (quartz, calcite, albite, gehlénite, 
+anorthite) laisse penser qu'elle a été cuite à une température de 
+l'ordre de \SIrange[range-phrase=\ à\ ]{850}{900}{\degC}.
 
 À l'interface glaçure-terre cuite, on distingue des luminescences 
 ponctuelles jaunes, associées à la présence de cristaux de 

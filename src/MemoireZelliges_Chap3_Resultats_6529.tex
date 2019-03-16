@@ -84,29 +84,72 @@ inclusions rouges et blanches.
 
 \subsection{Identification des ions chromogènes}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert (\fref{spectre:6529}) laisse apparaître trois bandes d'absorption à \SIlist{525;600;660}{\nm}, caractéristiques du \ch{Co^2+} \autocite{Lajarte_1979}.
+Le spectre d'\AO en mode réflexion diffuse de la glaçure bleu vert 
+(\fref{spectre:6529}) laisse apparaître trois bandes d'absorption à 
+\SIlist{525;600;660}{\nm}, caractéristiques du \ch{Co^2+} 
+\autocite{Lajarte_1979}.
 
 \begin{figure}[htb]
   \begin{plotspectre}
     \addplot [thick, PowderBlue!75!black] 
        table [x=lambda, y=6529gla] {\gladata} ;
+    \addlegendentry{glaçure bleue}
     \addplot [thick, PowderBlue!50!black] 
        table [x=lambda, y=6529glaSPMO] {\gladata} ;
+    \addlegendentry{glaçure bleue, SPMO}
     \addplot [thick, FireBrick] 
        table [x=lambda, y=6529tc] {\tcdata} ;
+    \addlegendentry{terre cuite}
+
+    \begin{scope}[<-, >=stealth, shorten <=5pt, thin]
+      \node (Co) at (595.00, 0.80) {\ch{Co^2+}} ;
+      \draw (525.00, 0.56) |- (Co.south) ;
+      \draw (600.00, 0.61) |- (Co.south) ;
+      \draw (660.00, 0.59) |- (Co.south) ;
+    \end{scope}
   \end{plotspectre}
-  \caption{\legendeB 
-           Spectres d'\AO en mode réflexion diffuse de la glaçure et de la terre cuite. La coloration de la glaçure est due au \ch{Co^2+} mis en évidence par les trois bandes d'absorption à \SIlist{525;600;660}{\nm}.}
+  \caption[\bdx{6529}\ -- Spectres d'\AO en mode réflexion diffuse 
+           de la glaçure et de la terre cuite]
+          {\legendeB.
+           Spectres d'\AO en mode réflexion diffuse de la glaçure et 
+           de la terre cuite. La coloration de la glaçure est due au 
+           \ch{Co^2+} mis en évidence par les trois bandes 
+           d'absorption à \SIlist{525;600;660}{\nm}.}
   \label{spectre:6529}
 \end{figure}
 
 \subsection{Mesure physique de la couleur}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-À partir du spectre d'\AO, ont été calculées les coordonnées chromatiques correspondant aux espaces \Yxy et \Lab (\tref{saotab:6529}). La longueur d'onde dominante associée au rayonnement correspond au domaine du vert jaunâtre \autocite{Kelly_1976}. Ce résultat, en contradiction avec l'observation visuelle, peut s'expliquer par la forte usure de la glaçure. En effet, elle laisse par endroit apparaître le support céramique rougeâtre sous-jacent, ce qui altère la perception de la couleur de la glaçure.
+À partir du spectre d'\AO, ont été calculées les coordonnées 
+chromatiques correspondant aux espaces \Yxy et \Lab 
+(\tref{saotab:6529}). La longueur d'onde dominante associée 
+au rayonnement correspond au domaine du vert jaunâtre 
+\autocite{Kelly_1976}. Ce résultat, en contradiction avec 
+l'observation visuelle, peut s'expliquer par la forte usure de la 
+glaçure. En effet, elle laisse par endroit apparaître le support 
+céramique rougeâtre sous-jacent, ce qui altère la perception de la 
+couleur de la glaçure.
 
-Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40) permettent de focaliser le faisceau pour analyser une zone saine de la glaçure. Le spectre obtenu présente, lui aussi, les trois bandes d'absorption caractéristiques du \ch{Co^2+}. Les résultats de \CHRO sont consignés dans le \tref{saotab:6529} et la \fref{colorfig:6529} en donne les représentations graphiques. La longueur d'onde dominante est cette fois de \SI{482.54}{\nm}, elle correspond au domaine du bleu verdâtre \autocite{Kelly_1976}. La pureté d'excitation \SI{3.71}{\percent} est celle d'une couleur très peu saturée, la réflectance $Y$ (\num{27.839}) indique une couleur assez foncée.
+Nous avons donc utilisé un montage spectrophotomètre/microscope 
+optique (Gr=40) permettent de focaliser le faisceau pour analyser 
+une zone saine de la glaçure. Le spectre obtenu présente, lui aussi, 
+les trois bandes d'absorption caractéristiques du \ch{Co^2+}. 
+Les résultats de \CHRO sont consignés dans le \tref{saotab:6529} et 
+la \fref{colorfig:6529} en donne les représentations graphiques. 
+La longueur d'onde dominante est cette fois de \SI{482.54}{\nm}, 
+elle correspond au domaine du bleu verdâtre \autocite{Kelly_1976}. 
+La pureté d'excitation \SI{3.71}{\percent} est celle d'une couleur très 
+peu saturée, la réflectance \CIEY (\num{27.839}) indique une couleur 
+assez foncée.
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6529}\ -- Coordonnées chromatiques et longueur d'onde 
+           dominante]
+          {\legendeB.
+           Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
+           et longueur d'onde dominante (illuminant D65, \ang{2},
+           \SIrange{400}{700}{\nm}). (\up{\dag}\,\cite{Kelly_1976})}
+  \label{saotab:6529}
   \begin{chrotab}[Appareillage]
       \chrolgna{Spectro\-photo\-mètre}{551.45}{3.81}
                {27.953}{0.313}{0.343}
@@ -117,17 +160,12 @@ Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40
                {482.54}{3.71}
                {27.839}{0.304}{0.323}
                {59.743}{-1.006}{-2.601} &
-      \chrolgnb{bleu verdâtre foncé}{Bleu-verdâtre}{482}{487}
-               {\footnotemark{}}
+      \chrolgnb{bleu verdâtre foncé}{Bleu-verdâtre}{482}{487}{}
+               % {\footnotemark{}}
     \tabularnewline
   \end{chrotab}
-  \caption{\legendeB 
-         Coordonnées chromatiques dans les systèmes \Yxy et \Lab 
-         et longueur d'onde dominante (illuminant D65, \ang{2},
-         \SIrange{400}{700}{\nm}).}
-  \label{saotab:6529}
 \end{table}
-\footnotetext{\autocite{Kelly_1976}}
+% \footnotetext{\autocite{Kelly_1976}}
 
 \begin{figure}[htb]
   \newcommand{\samplename}{6529gla}
@@ -140,7 +178,8 @@ Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40
       \plotYxyLigne{\samplename} ;
       \plotYxyAnnot{\samplename}{north west} ;
     \end{plotYxy}
-    \subcaption{espace \trichro \Yxy. La longueur d'onde 
+    \subcaption[Espace \trichro \Yxy]
+               {Espace \trichro \Yxy. La longueur d'onde 
                 dominante de la glaçure est de \SI{482.54}{\nm} et 
                 correspond au domaine du bleu vert. La couleur est 
                 très peu saturée : son point représentatif est très 
@@ -151,11 +190,12 @@ Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40
     \begin{plotLab}
       \plotLabSample{\samplename}{\samplecolor} ;
     \end{plotLab}
-    \subcaption{espace \trichro \Lab. Le point représentatif de 
+    \subcaption[Espace \trichro \Lab]
+               {Espace \trichro \Lab. Le point représentatif de 
                 la couleur de la glaçure est dans le quart vert-bleu.}
   \end{minipage}%
-  \caption[\bdx{6529}\ -- Espaces \trichros]
-          {\legendeB Analyse chromamétrique de la glaçure.}
+  \caption[\bdx{6529}\ -- Analyse chromamétrique de la glaçure]
+          {\legendeB. Analyse chromamétrique de la glaçure.}
   \label{colorfig:6529}
 \end{figure}
 
@@ -166,17 +206,19 @@ Nous avons donc utilisé un montage spectrophotomètre/microscope optique (Gr=40
 \subsection{Observation en lumière naturelle}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{figure}[htb]
-  \begin{minipage}[t]{0.4\textwidth}
+  \begin{minipage}[t]{0.48\textwidth}
     \fakeimg{lum. nat.}
     \subcaption{Lumière naturelle \label{texture:6529_LN}}
-  \end{minipage}
-  \begin{minipage}[t]{0.4\textwidth}
+  \end{minipage}%
+  \hfill%
+  \begin{minipage}[t]{0.48\textwidth}
     \fakeimg{Cathodo}
     \subcaption{\CL \label{texture:6529_CL}}
   \end{minipage}
-  \caption{\legendeB 
-           Observation de la texture en section sur une surface de 
-           \SI{2.6x1.9}{\mm}.}
+  \caption[\bdx{6529}\ -- Observation de la texture en section]
+          {\legendeB.
+           Observation de la texture en section 
+           sur une surface de \SI{2.6x1.9}{\mm}.}
   \label{texture:6529}
 \end{figure}
 
@@ -210,7 +252,7 @@ dans la terre cuite (\fref{MEB:6529_img}).
   \fakeimg{Texture au MEB, retrodiff (fig 33)}
   \caption[\bdx{6529}\ -- Observation de la texture au \MEB, 
            en mode \ERD. Ensemble glaçure/terre cuite]
-          {\legendeB
+          {\legendeB.
            Image en mode \ERD de l'ensemble glaçure/terre cuite. 
            La barre d'échelle mesure \SI{1}{\mm} (\zone{2.4x1.9}{\mm}).}
   \label{MEB:6529_img}
@@ -221,7 +263,7 @@ que ces cristaux sont des quartz (\quartz). Ils sont responsables
 des luminescences mauves détectées en \CL.
 
 Des cristaux de forme aciculaire se développent à l'interface 
-glaçure/terre cuite (\fref{MEB:6529_img_int}). Cette zone semble être 
+glaçure-terre cuite (\fref{MEB:6529_img_int}). Cette zone semble être 
 riche en potassium, aluminium, calcium, mais plus pauvre en plomb que 
 la glaçure environnante.
 
@@ -249,17 +291,21 @@ cuite de calcium, probablement sous forme de calcite (\calcite).
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc/gla (fig 35)}
-  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, \carto de \RX de l'ensemble glaçure/terre cuite]
-          {\legendeB
-           Observation de la texture au \MEB, \carto de \RX de l'ensemble glaçure/terre cuite (Gr=90, \zone{1.2x1}{\mm}).}
+  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, \carto 
+           de \RX de l'ensemble glaçure-terre cuite]
+          {\legendeB.
+           Observation de la texture au \MEB, \carto de \RX de 
+           l'ensemble glaçure-terre cuite (Gr=90, \zone{1.2x1}{\mm}).}
   \label{MEB:6529_carto_tcgla}
 \end{figure}
 
 \begin{figure}[htb]
   \fakeimg{Texture au MEB, carto tc (fig 36)}
-  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, \carto de \RX de la terre cuite]
-          {\legendeB
-           Observation de la texture au \MEB, \carto de \RX de la terre cuite (Gr=200, \zone{550x450}{\um}).}
+  \caption[\bdx{6529}\ -- Observation de la texture au \MEB, \carto 
+           de \RX de la terre cuite]
+          {\legendeB.
+           Observation de la texture au \MEB, \carto de \RX de la 
+           terre cuite (Gr=200, \zone{550x450}{\um}).}
   \label{MEB:6529_carto_tc}
 \end{figure}
 
@@ -267,7 +313,13 @@ cuite de calcium, probablement sous forme de calcite (\calcite).
 \section{Composition élémentaire de la glaçure}
 %----------------------------------------------------------------------
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la glaçure]
+          {\legendeB. Analyse quantitative par \EDS. 
+           Composition élémentaire de la glaçure bleue 
+           sur une surface de \SI{54x44}{\um} (\PMO).}
+  \label{compelem:6529_gla}
   \begin{cartotab}
       \cartolgn{SiO2}{34.02}{1.03} &
       \cartolgn{CaO}{1.95}{0.24} &
@@ -295,12 +347,6 @@ cuite de calcium, probablement sous forme de calcite (\calcite).
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, composition élémentaire 
-           de la glaçure]
-          {\legendeB Analyse quantitative par \EDS. Composition élémentaire de la 
-           glaçure bleue sur une surface de \SI{54x44}{\um}
-           (\PMO).}
-  \label{compelem:6529_gla}
 \end{table}
 
 La glaçure est plombifère et opacifiée à l'étain 
@@ -317,7 +363,13 @@ moyen \autocite{Rhodes_1999}.
 
 \subsection{Composition élémentaire}
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire de la terre cuite]
+          {\legendeB. Analyse quantitative par \EDS. 
+           Composition élémentaire de la terre cuite 
+           sur une surface de \SI{1080x876}{\um} (\PMO)}
+  \label{compelem:6529_tc}
   \begin{cartotab}
       \cartolgn{SiO2}{49.38}{0.61} &
       \cartolgn{CaO}{18.70}{0.88} &
@@ -345,12 +397,6 @@ moyen \autocite{Rhodes_1999}.
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, composition élémentaire de la 
-           terre cuite]
-          {\legendeB Analyse quantitative par \EDS. Composition élémentaire de la 
-           terre cuite sur une surface de \SI{1080x876}{\um} 
-           (\PMO)}
-  \label{compelem:6529_tc}
 \end{table}
 
 La terre cuite est de type calcique (\SI{18.70}{\percent} de CaO). 
@@ -375,9 +421,12 @@ température de cuisson de la céramique se situe autour de
 
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{PaM_BDX6529_DX}
-  \caption[\bdx{6529}\ -- \DX sur poudre de la terre cuite]
-          {\legendeB 
-           \DX sur poudre de la terre cuite. Mise en évidence de la présence de quartz (Q), calcite (C), albite (Al), gehlénite (G), diopside (D).}
+  \caption[\bdx{6529}\ -- Diffraction de \RX sur poudre 
+           de la terre cuite]
+          {\legendeB.
+           \DX[D] sur poudre de la terre cuite. 
+           Mise en évidence de la présence de quartz (Q), 
+           calcite (C), albite (Al), gehlénite (G), diopside (D).}
   \label{DRX:6529}
 \end{figure}
 
@@ -386,7 +435,7 @@ température de cuisson de la céramique se situe autour de
          dévitrification}
 %----------------------------------------------------------------------
 
-On distingue, dans la zone d'interface terre cuite/glaçure, des 
+On distingue, dans la zone d'interface terre cuite-glaçure, des 
 cristaux de forme aciculaire (\fref{MEB:6529_img_cx}). Ce sont 
 des cristaux de dévitrification qui se développent pendant le 
 refroidissement lent du matériau, à partir de germes se formant à 
@@ -400,7 +449,7 @@ plomb}.
   \fakeimg{MEB img cx (fig 38)}
   \caption[\bdx{6529}\ -- Image en mode \ERD, 
            cristaux de dévitrification de forme aciculaire]
-          {\legendeB 
+          {\legendeB.
            Observation au \MEB, image en mode \ERD. 
            Cristaux de dévitrification de forme aciculaire. La barre 
            d'échelle mesure \SI{20}{\um} (\zone{70x55}{\um}).}
@@ -408,7 +457,13 @@ plomb}.
 \end{figure}
 
 
-\begin{table}
+\begin{table}[hbt]
+  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, 
+           composition élémentaire des cristaux de dévitrification]
+          {\legendeB. Analyse quantitative par \EDS. 
+           Composition élémentaire des cristaux de dévitrification 
+           par analyses ponctuelles (\SI{1}{\um\squared}) (\PMO).}
+  \label{compelem:6529_cx}
   \begin{cartotab}
       \cartolgn{SiO2}{54.61}{6.48}  &
       \cartolgn{CaO}{3.51}{1.64}    &
@@ -436,12 +491,6 @@ plomb}.
       \cartolgnnd{As2O3}
     \tabularnewline
   \end{cartotab}
-  \caption[\bdx{6529}\ -- Analyse quantitative par \EDS, composition élémentaire des 
-           cristaux de dévitrification]
-          {\legendeB Analyse quantitative par \EDS. Composition élémentaire des cristaux 
-           de dévitrification par analyses ponctuelles 
-           (\SI{1}{\um\squared}) (\PMO).}
-  \label{compelem:6529_cx}
 \end{table}
 
 
