@@ -1,5 +1,8 @@
 ## Misc
 data/descr/old/*
+data/descr/raw/*
+src/stuff/*
+bib/*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
