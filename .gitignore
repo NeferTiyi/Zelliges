@@ -1,6 +1,7 @@
 ## Misc
 data/descr/old/*
 data/descr/raw/*
+data/ref/raw/*
 src/stuff/*
 bib/*.pdf
 
