@@ -1,3 +1,4 @@
+% \newgeometry{margin=1cm}
 \thispagestyle{empty}
 
 \begin{tikzpicture}[
@@ -23,9 +24,10 @@
 }
 \centering\tiny
 \setlength{\tabcolsep}{1pt}
-\newlength{\larg}\setlength{\larg}{7mm}
+\newlength{\larg}\setlength{\larg}{7.5mm}
 %
-\begin{tabular}{|*{34}{M{\larg}|}}
+\begin{tabular}{|*{2}{M{7mm}|}*{32}{M{\larg}|}}
+% \begin{tabular}{|*{34}{M{\larg}|}}
   \hline
     \multirow{3}{\larg}{BDX\\\no} & \multirow{3}{*}{Nature} &   % 01-02
     \multirow{3}{*}{Photo} & \multirow{3}{*}{Dessin} &          % 03-04
@@ -115,3 +117,5 @@
   \node at (tab.east) [rotate=-90] 
         {\bfseries ÉCHANTILLONS ÉTUDIÉS} ;
 \end{tikzpicture}
+
+% \restoregeometry{}
