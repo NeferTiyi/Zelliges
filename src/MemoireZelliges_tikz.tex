@@ -1,24 +1,52 @@
 %!TEX root = MemoireZelliges.tex
+\newcommand{\definelength}{%
+  \pgfmathsetmacro{\rayonH}{sqrt(2)}
+  \pgfmathsetmacro{\lenH}{(sqrt(2)-1)/cos(45)}
+}
 
 \newcommand{\drawhatim}{%
-  (    0.000 , {sqrt(2)}) -- ({1-sqrt(2)},     1.000 ) --
-  (   -1.000 ,    1.000 ) -- (    -1.000 ,{sqrt(2)-1}) --
-  ({-sqrt(2)},    0.000 ) -- (    -1.000 ,{1-sqrt(2)}) --
-  (   -1.000 ,   -1.000 ) -- ({1-sqrt(2)},    -1.000 ) --
-  (    0.000 ,-{sqrt(2)}) -- ({sqrt(2)-1},    -1.000 ) --
-  (    1.000 ,   -1.000 ) -- (     1.000 ,{1-sqrt(2)}) --
-  ( {sqrt(2)},    0.000 ) -- (     1.000 ,{sqrt(2)-1}) --
-  (    1.000 ,    1.000 ) -- ({sqrt(2)-1},     1.000 ) -- cycle
+  % (    0.000 , {sqrt(2)}) -- ({1-sqrt(2)},     1.000 ) --
+  % (   -1.000 ,    1.000 ) -- (    -1.000 ,{sqrt(2)-1}) --
+  % ({-sqrt(2)},    0.000 ) -- (    -1.000 ,{1-sqrt(2)}) --
+  % (   -1.000 ,   -1.000 ) -- ({1-sqrt(2)},    -1.000 ) --
+  % (    0.000 ,-{sqrt(2)}) -- ({sqrt(2)-1},    -1.000 ) --
+  % (    1.000 ,   -1.000 ) -- (     1.000 ,{1-sqrt(2)}) --
+  % ( {sqrt(2)},    0.000 ) -- (     1.000 ,{sqrt(2)-1}) --
+  % (    1.000 ,    1.000 ) -- ({sqrt(2)-1},     1.000 ) -- cycle
+    ++ (90:\rayonH) 
+  --++ (225:\lenH) 
+  --++ (180:\lenH) 
+  --++ (-90:\lenH) 
+  --++ (225:\lenH) 
+  --++ (-45:\lenH) 
+  --++ (-90:\lenH) 
+  --++ (  0:\lenH) 
+  --++ (-45:\lenH) 
+  --++ ( 45:\lenH) 
+  --++ (  0:\lenH) 
+  --++ ( 90:\lenH) 
+  --++ ( 45:\lenH) 
+  --++ (135:\lenH) 
+  --++ ( 90:\lenH) 
+  --++ (180:\lenH) 
+  -- cycle
 }
 
-\newcommand{\drawluza}{%
-  (     0.000 ,   0.000 ) -- ({2-sqrt(2)},     0.000 ) -- 
-  ({2-sqrt(2)},{sqrt(2)}) -- ({1-sqrt(2)},{sqrt(2)-1}) -- cycle
-}
+% \newcommand{\drawluza}{%
+%   (     0.000 ,   0.000 ) -- ({2-sqrt(2)},     0.000 ) -- 
+%   ({2-sqrt(2)},{sqrt(2)}) -- ({1-sqrt(2)},{sqrt(2)-1}) -- cycle
+% }
 
 \newcommand{\drawsaft}{%
-  (-2.00, 0.00) -- (-1.00, 1.00) -- ( 1.00, 1.00) -- 
-  ( 2.00, 0.00) -- ( 1.00,-1.00) -- (-1.00,-1.00) -- cycle
+  % (-2.00, 0.00) -- (-1.00, 1.00) -- ( 1.00, 1.00) -- 
+  % ( 2.00, 0.00) -- ( 1.00,-1.00) -- (-1.00,-1.00) -- cycle
+       ( 2.00, 0.00)
+  --++ ( 135.0:\rayonH)
+  --++ ( 180.0:2)
+  --++ (-135.0:\rayonH)
+  --++ ( -45.0:\rayonH)
+  --++ (   0.0:2)
+  -- cycle
 }
 
 % % Fawrkat
@@ -29,72 +57,76 @@
 %       ( 0.000, 0.000) -- ( 0.414,-0.414) -- cycle ;
 
 \newcommand{\squeletteb}{%
+  \definelength
+
   \draw [domain=-1:1] plot( \x, {-\x} ) ;
   \draw [domain=-2:2] plot( 0, \x ) ;
-  \draw [domain=0:{2-2*sqrt(2)}] plot(-2, \x ) ;
-  \draw [domain=0:{2*sqrt(2)-2}] plot( 2, \x ) ;
-  \draw [domain=-2:2] plot( \x, {+sqrt(2)} ) ;
-  \draw [domain=-2:2] plot( \x, {-sqrt(2)}   ) ;
-  \draw [domain=0:5]  plot( \x, {+sqrt(2)+2} ) ;
-  \draw [domain=-5:0] plot( \x, {-sqrt(2)-2}   ) ;
+  \draw [domain=0:{2-2*\rayonH}] plot(-2, \x ) ;
+  \draw [domain=0:{2*\rayonH-2}] plot( 2, \x ) ;
+  \draw [domain=-2:2] plot( \x, {+\rayonH} ) ;
+  \draw [domain=-2:2] plot( \x, {-\rayonH}   ) ;
+  \draw [domain=0:5]  plot( \x, {+\rayonH+2} ) ;
+  \draw [domain=-5:0] plot( \x, {-\rayonH-2}   ) ;
 
-  \draw [domain=2:1] plot(\x, {-\x + 2*sqrt(2)}) ;
-  \draw [domain=-2:-1] plot(\x, {-\x - 2*sqrt(2)}) ;
+  \draw [domain=2:1] plot(\x, {-\x + 2*\rayonH}) ;
+  \draw [domain=-2:-1] plot(\x, {-\x - 2*\rayonH}) ;
 
   \draw [domain=-1:-3] plot( \x, {\x + 2}) ;
   \draw [domain=1:3] plot( \x, {\x - 2}) ;
-  \draw [domain=-6:-2] plot( \x, {\x + 2*sqrt(2) + 2}) ;
-  \draw [domain=2:6] plot( \x, {\x - 2*sqrt(2) - 2}) ;
+  \draw [domain=-6:-2] plot( \x, {\x + 2*\rayonH + 2}) ;
+  \draw [domain=2:6] plot( \x, {\x - 2*\rayonH - 2}) ;
 
-  \filldraw [shift={( 1 , {-sqrt(2)-1} )}] 
+  \filldraw [shift={( 1 , {-\rayonH-1} )}] 
     \drawhatim ;
-  \filldraw [shift={( -1 , {sqrt(2)+1} )}] 
+  \filldraw [shift={( -1 , {\rayonH+1} )}] 
     \drawhatim ;
-  \filldraw [shift={( {-2*sqrt(2)-3} , {-sqrt(2)-1} )}] 
+  \filldraw [shift={( {-2*\rayonH-3} , {-\rayonH-1} )}] 
     \drawhatim ;
-  \filldraw [shift={( {2*sqrt(2)+3} , {sqrt(2)+1} )}] 
+  \filldraw [shift={( {2*\rayonH+3} , {\rayonH+1} )}] 
     \drawhatim ;
 
-  \filldraw [shift={( {-sqrt(2)-1} , {-sqrt(2)-1} )}] 
+  \filldraw [shift={( {-\rayonH-1} , {-\rayonH-1} )}] 
     \drawsaft ;
-  \filldraw [shift={( {sqrt(2)+1} , {sqrt(2)+1} )}] 
+  \filldraw [shift={( {\rayonH+1} , {\rayonH+1} )}] 
     \drawsaft ;
-  \filldraw [shift={( {-sqrt(2)-2} , 0 )}, rotate=45] 
+  \filldraw [shift={( {-\rayonH-2} , 0 )}, rotate=45] 
     \drawsaft ;
-  \filldraw [shift={( {sqrt(2)+2} , 0 )}, rotate=45] 
+  \filldraw [shift={( {\rayonH+2} , 0 )}, rotate=45] 
     \drawsaft ;
 }
 
 \newcommand{\squelettea}{%
+  \definelength
+
   \begin{scope}
     \clip (-4,-4) rectangle (4,4) ;
-    \draw plot( \x, {\x + sqrt(2)}) ;
-    \draw plot( \x, {\x - sqrt(2)}) ;
-    \draw plot(-\x, {\x + sqrt(2)}) ;
-    \draw plot(-\x, {\x - sqrt(2)}) ;
+    \draw plot( \x, {\x + \rayonH}) ;
+    \draw plot( \x, {\x - \rayonH}) ;
+    \draw plot(-\x, {\x + \rayonH}) ;
+    \draw plot(-\x, {\x - \rayonH}) ;
   \end{scope}
 
-  \draw ( {-1-sqrt(2)} , {-1-sqrt(2)} ) rectangle
-        ( {+1+sqrt(2)} , {+1+sqrt(2)} ) ;
-  \draw ( {-3-sqrt(2)} , {-3-sqrt(2)} ) rectangle
-        ( {+3+sqrt(2)} , {+3+sqrt(2)} ) ;
+  \draw ( {-1-\rayonH}, {-1-\rayonH} ) rectangle
+        ( {+1+\rayonH}, {+1+\rayonH} ) ;
+  \draw ( {-3-\rayonH}, {-3-\rayonH} ) rectangle
+        ( {+3+\rayonH}, {+3+\rayonH} ) ;
 
-  \filldraw [shift={( {+2+sqrt(2)} , {+2+sqrt(2)} )}] 
+  \filldraw [shift={( {+2+\rayonH}, {+2+\rayonH} )}] 
     \drawhatim ;
-  \filldraw [shift={( {+2+sqrt(2)} , {-2-sqrt(2)} )}] 
+  \filldraw [shift={( {+2+\rayonH}, {-2-\rayonH} )}] 
     \drawhatim ;
-  \filldraw [shift={( {-2-sqrt(2)} , {+2+sqrt(2)} )}] 
+  \filldraw [shift={( {-2-\rayonH}, {+2+\rayonH} )}] 
     \drawhatim ;
-  \filldraw [shift={( {-2-sqrt(2)} , {-2-sqrt(2)} )}] 
+  \filldraw [shift={( {-2-\rayonH}, {-2-\rayonH} )}] 
     \drawhatim ;
 
-  \filldraw [shift={( 0 , {-2-sqrt(2)} )}] 
+  \filldraw [shift={( 0, {-2-\rayonH} )}] 
     \drawsaft ;
-  \filldraw [shift={( 0 , {+2+sqrt(2)} )}] 
+  \filldraw [shift={( 0, {+2+\rayonH} )}] 
     \drawsaft ;
-  \filldraw [shift={( {-2-sqrt(2)} , 0 )} , rotate=90] 
+  \filldraw [shift={( {-2-\rayonH}, 0 )}, rotate=90] 
     \drawsaft ;
-  \filldraw [shift={( {+2+sqrt(2)} , 0 )} , rotate=90] 
+  \filldraw [shift={( {+2+\rayonH}, 0 )}, rotate=90] 
     \drawsaft ;
 }
 
@@ -362,9 +394,9 @@
             ( 1.20, 1.75) -- ( 2.00, 1.75) -- 
             ( 2.00, 3.50) -- ( 5.00, 3.50) ; 
       \draw ( 3.20, 2.50) -- ( 4.20, 2.50) 
-            node [right] {\ch{(I+)^*}} ;
+            node [right] {\ch{(I^+)^*}} ;
       \draw ( 2.50, 1.00) -- ( 4.20, 1.00) 
-            node [right] {\ch{(I+)}} ;
+            node [right] {\ch{(I^+)}} ;
     \end{scope}
 
     \begin{scope}[->, densely dotted, thick, DarkSlateBlue]
@@ -390,15 +422,11 @@
     \draw [DarkRed, ->, ultra thick]
           ( 1.00,-1.50) -- ( 0.60,-0.70) 
           node [pos=0, right, align=left] 
-               {bombardement\\électronique} ;
+               {bombardement\\éctronique} ;
 
-    \coordinate (L) at ( 6.00, 0.00) ;
-  \end{scope}
-}
+    \coordinate (L) at (6.50,-1.00) ;
 
-\newcommand{\CLpcpL}{%
-  \begin{scope}[every node/.style={font=\smaller}]
-    \node at (L) [above right, align=left, text width=6.3cm] 
+    \node at (L) [above right, align=left, text width=6.5cm] 
     {
       \begin{itemize}
         \item [BC :] bande de conduction ;
@@ -412,8 +440,37 @@
         \item [$a$ :] ionisation d'un atome sans intervention 
               d'un centre piège ;
         \item [$b$ :] capture de l'électron par l'impureté 
-              \ch{(I+)} ;
-        \item [$c$ :] excitation en \ch{(I+)^*} ;
+              \ch{(I^+)} ;
+        \item [$c$ :] excitation en \ch{(I^+)^*} ;
+        \item [$d$ :] désexcitation radiative ;
+        \item [$e$ :] recapture de l'électron dans la bande 
+              de valence (il n'y a pas forcément ionisation, 
+              l'électron peut directement être capturé par 
+              l'impureté).
+      \end{itemize}
+    } ;
+
+  \end{scope}
+}
+
+\newcommand{\CLpcpL}{%
+  \begin{scope}[every node/.style={font=\smaller}]
+    \node at (L) [above right, align=left, text width=5cm] 
+    {
+      \begin{itemize}
+        \item [BC :] bande de conduction ;
+        \item [BI :] bande interdite ;
+        \item [BV :] bande de valence.
+      \end{itemize}
+
+      \bigskip
+
+      \begin{itemize}
+        \item [$a$ :] ionisation d'un atome sans intervention 
+              d'un centre piège ;
+        \item [$b$ :] capture de l'électron par l'impureté 
+              \ch{(I^+)} ;
+        \item [$c$ :] excitation en \ch{(I^+)^*} ;
         \item [$d$ :] désexcitation radiative ;
         \item [$e$ :] recapture de l'électron dans la bande 
               de valence (il n'y a pas forcément ionisation, 
@@ -532,29 +589,33 @@
 
       % Diffractogramme
       \begin{scope}[shift={( 0.50,-3.30)}, x=0.55mm, y=0.4mm]
-        \draw (  0.06,  0.63) .. controls (  4.85,  0.20) and (  3.95,  6.14) .. 
-              (  4.35,  9.27) -- 
-              (  5.13, 36.84) -- 
-              (  6.20,  2.81) .. controls (  7.37, -1.02) and ( 12.72,  0.93) .. 
-              ( 15.76,  0.78) .. controls ( 19.59,  1.22) and ( 19.37,  5.78) .. 
-              ( 19.79,  8.65) -- 
-              ( 20.99, 32.80) -- 
-              ( 22.78,  5.59) .. controls ( 23.20,  0.50) and ( 28.08,  0.44) .. 
-              ( 31.76,  0.41) .. controls ( 39.54,  0.61) and ( 47.31,  0.40) .. 
-              ( 55.09,  0.37) .. controls ( 58.72,  0.50) and ( 61.02,  0.87) .. 
-              ( 62.55,  5.38) -- 
-              ( 63.48, 45.63) -- 
-              ( 63.61, 53.65) -- 
-              ( 64.34, 20.19) .. controls ( 64.60, 13.97) and ( 64.80,  7.61) .. 
-              ( 65.40,  1.52) .. controls ( 68.18, -0.46) and ( 71.96,  0.68) .. 
-              ( 75.15,  0.64) .. controls ( 79.53,  0.10) and ( 78.66,  5.75) .. 
-              ( 79.21,  8.77) -- 
-              ( 79.65, 22.73) -- 
-              ( 80.35, 11.69) .. controls ( 80.50, 10.18) and ( 81.02,  6.56) .. 
-              ( 81.36,  5.14) -- 
-              ( 82.98, 23.23) -- 
-              ( 83.55, 23.99) -- 
-              ( 84.85,  5.20) .. controls ( 85.35,  1.09) and ( 87.93,  1.12) .. 
+        \draw (  0.06,  0.63) .. 
+              controls (  4.85,  0.20) and (  3.95,  6.14) .. 
+              (  4.35,  9.27) -- (  5.13, 36.84) --
+              (  6.20,  2.81) .. 
+              controls (  7.37, -1.02) and ( 12.72,  0.93) .. 
+              ( 15.76,  0.78) .. 
+              controls ( 19.59,  1.22) and ( 19.37,  5.78) .. 
+              ( 19.79,  8.65) -- ( 20.99, 32.80) --
+              ( 22.78,  5.59) .. 
+              controls ( 23.20,  0.50) and ( 28.08,  0.44) .. 
+              ( 31.76,  0.41) .. 
+              controls ( 39.54,  0.61) and ( 47.31,  0.40) .. 
+              ( 55.09,  0.37) .. 
+              controls ( 58.72,  0.50) and ( 61.02,  0.87) .. 
+              ( 62.55,  5.38) -- ( 63.48, 45.63) --
+              ( 63.61, 53.65) -- ( 64.34, 20.19) ..
+              controls ( 64.60, 13.97) and ( 64.80,  7.61) .. 
+              ( 65.40,  1.52) .. 
+              controls ( 68.18, -0.46) and ( 71.96,  0.68) .. 
+              ( 75.15,  0.64) .. 
+              controls ( 79.53,  0.10) and ( 78.66,  5.75) .. 
+              ( 79.21,  8.77) -- ( 79.65, 22.73) --
+              ( 80.35, 11.69) .. 
+              controls ( 80.50, 10.18) and ( 81.02,  6.56) .. 
+              ( 81.36,  5.14) -- ( 82.98, 23.23) --
+              ( 83.55, 23.99) -- ( 84.85,  5.20) ..
+              controls ( 85.35,  1.09) and ( 87.93,  1.12) .. 
               ( 91.11,  0.00) ;
 
         \node (P1) at (  5.13, 3.00) {} ;
@@ -630,13 +691,6 @@
     \pgfmathsetmacro{\t}{30.00}    % theta
     \pgfmathsetmacro{\d}{1.00}     % d
 
-    % \draw [help lines, densely dotted, red, step=0.1] 
-    %       (-\xm, 0.00) grid ( \xm, 5.00) ;
-    % \draw [help lines, ultra thin, red, step=0.5] 
-    %       (-\xm, 0.00) grid ( \xm, 5.00) ;
-    % \draw [help lines, very thin, blue] 
-    %       ( 0.00, 0.00) -- ( 0.00, 5.00) ;
-
     \foreach \y in {0.00, 1.00, 2.00} {
       \draw (-\xm, \y) -- ( \xm, \y) ;
       \foreach \x in {-3.00, -1.50, ..., 4.00} {
@@ -693,3 +747,823 @@
 
   \end{scope}
 }
+
+
+% Triangle minimal
+\newcommand{\triangleminimal}{%
+  \tikzset{%
+    add/.style args={##1 and ##2}{
+      to path={%
+       ($(\tikztostart)!-##1!(\tikztotarget)$) -- %
+       ($(\tikztotarget)!-##2!(\tikztostart)$)\tikztonodes%
+      },%
+      add/.default={.2 and .2}%
+    },
+    forme/.style={
+      draw, blue, fill=blue!25
+    },
+    ligne/.style={
+      red
+    },
+    fleche/.style={
+      thin,
+      ->,
+      >=stealth,
+      shorten >=1pt
+    }
+  }
+
+  \definelength
+  \pgfmathsetmacro{\angle}{22.5} ;
+  % \pgfmathsetmacro{\rayonH}{sqrt(2)} ;
+  % \pgfmathsetmacro{\lenH}{(sqrt(2)-1)/cos(45)} ;
+  \pgfmathsetmacro{\rayon}{(1+(3+\rayonH)/tan(\angle))} ;
+
+  \coordinate (O) at (0, 0) ;
+  \coordinate (O1) at ([shift={(180:\rayon)}] O) ;
+  \coordinate (O2) at ([shift={(135:\rayon)}] O) ;
+
+  \clip ({-(0.5+\rayon+\rayonH)}, {-(0.5+\rayonH)}) rectangle 
+        ({0.5+0}, {0.5+\rayonH+cos(45)*\rayon}) ;
+
+  \draw [name path=cercleO, gray, thin, dashed] 
+        (O) circle (\rayon) ;
+
+  \draw [name path=lgnOO1] (O) -- (180:\rayon+2) ;
+  \draw [name path=lgnOO2] (O) -- (135:\rayon+2) ;
+  \draw [name path=lgnOH, dashed] (O) -- (157.5:\rayon+3) ;
+
+  \node [right] at (O) {} ;
+  \node [above left] at (O1) {} ;
+  \node [left] at (O2) {} ;
+
+  \begin{scope}[gray, thin, dashed]
+    \draw (O) circle (\rayonH) ;
+    \draw ([shift={(-1,-1)}] O) rectangle ([shift={(1,1)}] O) ;
+    \draw [rotate=45] ([shift={(-1,-1)}] O) rectangle ([shift={(1,1)}] O) ;
+    \draw (O1) circle (\rayonH) ;
+    \draw ([shift={(-1,-1)}] O1) rectangle ([shift={(1,1)}] O1) ;
+    \draw [rotate=45] ([shift={(-1,-1)}] O1) rectangle ([shift={(1,1)}] O1) ;
+    \draw (O2) circle (\rayonH) ;
+    \draw ([shift={(-1,-1)}] O2) rectangle ([shift={(1,1)}] O2) ;
+    \draw [rotate=45] ([shift={(-1,-1)}] O2) rectangle ([shift={(1,1)}] O2) ;
+  \end{scope}
+
+  \draw [dotted, name path=lgn1] 
+        ([shift={(45:\rayonH)}] O1) --++ (45:9) ;
+  \draw [dotted, name path=lgn2] 
+        ([shift={(-90:\rayonH)}] O2) --++ (-90:9) ;
+  \node [name intersections={of=lgn1 and lgn2}] 
+        (H1) at (intersection-1) {} ;
+
+  \draw [dotted, name path=lgn1] 
+        ([shift={(90:\rayonH)}] O1) --++ (90:4) ;
+  \draw [dotted, name path=lgn2] 
+        ([shift={(225:\rayonH)}] O2) --++ (225:4) ;
+  \node [name intersections={of=lgn1 and lgn2}] 
+        (H2) at (intersection-1) {} ;
+
+  % Forme 1 - Octogone
+  % ===================================================================
+
+  \draw [dotted, name path=lgnO1ne90] 
+        (O1) ++ (45:\rayonH) --++ (90:4) ;
+  \draw [dotted, name path=lgnO2s225] 
+        (O2) ++ (-90:\rayonH) --++ (225:4) ;
+
+  \draw [dotted, name path=lgnO1nw90] 
+        (O1) ++ (135:\rayonH) --++ (90:5) ;
+  \draw [dotted, name path=lgnO2w225] 
+        (O2) ++ (180:\rayonH) --++ (225:5) ;
+
+  \draw [dotted, name path=lgnO1n135] 
+        (O1) ++ (90:\rayonH) --++ (135:2) ;
+  \draw [dotted, name path=lgnO1n45] 
+        (O1) ++ (90:\rayonH) --++ (45:9) ;
+
+  \draw [dotted, name path=lgnO2sw180] 
+        (O2) ++ (225:\rayonH) --++ (180:2) ;
+  \draw [dotted, name path=lgnO2sw270] 
+        (O2) ++ (225:\rayonH) --++ (270:9) ;
+
+  \path (O1) ++ (90:\rayonH) node (Aa) {} ;
+  \path (O2) ++ (225:\rayonH) node (Ae) {} ;
+  \node [name intersections={of=lgnO1n45 and lgnO1ne90}] 
+        (Ab) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2s225 and lgnO1ne90}] 
+        (Ac) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2s225 and lgnO2sw270}] 
+        (Ad) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2sw180 and lgnO2w225}] 
+        (Af) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1nw90 and lgnO2w225}] 
+        (Ag) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1n135 and lgnO1nw90}] 
+        (Ah) at (intersection-1) {} ;
+
+  % 
+  % ===================================================================
+  \draw [dotted, name path=lgnO1On] 
+        ([shift={(45:\rayonH)}] O1) -- ([shift={(135:\rayonH)}] O) ;
+  \draw [dotted, name path=lgnO1Os] 
+        ([shift={(-45:\rayonH)}] O1) -- ([shift={(225:\rayonH)}] O) ;
+  \draw [dotted, name path=lgnO2Osw] 
+        ([shift={(-90:\rayonH)}] O2) -- ([shift={(180:\rayonH)}] O) ;
+  \draw [dotted, name path=lgnO2Oen] 
+        ([shift={(0:\rayonH)}] O2) -- ([shift={(90:\rayonH)}] O) ;
+
+  % 
+  % ===================================================================
+  \draw [dotted, name path=lgnO1e45] 
+        ([shift={(0:\rayonH)}] O1) --++ (45:6) ;
+  \draw [dotted, name path=lgnO2se270] 
+        ([shift={(-45:\rayonH)}] O2) --++ (-90:6) ;
+
+  \draw [dotted, name path=lgnOwsw157] 
+        ([shift={(202.5:\rayonH)}] O) --++ (157.5:10) ;
+  \draw [dotted, name path=lgnOnnw157] 
+        ([shift={(112.5:\rayonH)}] O) --++ (157.5:10) ;
+
+  \node [name intersections={of=lgnO1e45 and lgnO2se270}] 
+        (Ba) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1e45 and lgnOnnw157}] 
+        (Bb) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2Osw and lgnOnnw157}] 
+        (Bc) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1On and lgnO2Osw}] 
+        (Bd) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1On and lgnOwsw157}] 
+        (Be) at (intersection-1) {} ;
+  \node [name intersections={of=lgnOwsw157 and lgnO2se270}] 
+        (Bf) at (intersection-1) {} ;
+
+  \draw [dotted, name path=lgnOwnw202] 
+        ([shift={(157.5:\rayonH)}] O) --++ (202.5:5) ;
+  \draw [dotted, name path=lgnOwnw112] 
+        ([shift={(157.5:\rayonH)}] O) --++ (112.5:5) ;
+
+  \node [draw, gray, thin, dashed, name path=cercleBa] 
+        at (O) [circle through={(Ba)}] {};
+  \node [draw, gray, thin, dashed, name path=cercleBb] 
+        at (O) [circle through={(Bb)}] {};
+  \node [draw, gray, thin, dashed, name path=cercleBd] 
+        at (O) [circle through={(Bd)}] {};
+
+  \node [name intersections={of=lgnOO1 and cercleBa}] 
+        (B1a) at (intersection-1) {} ;
+  \node [name intersections={of=lgnOO2 and cercleBa}] 
+        (B2a) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnOO1 and cercleBd}] 
+        (B1d) at (intersection-1) {} ;
+  \node [name intersections={of=lgnOO2 and cercleBd}] 
+        (B2d) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnO1On and cercleBb}] 
+        (B1f) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1Os and cercleBb}] 
+        (B1b) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnO2Osw and cercleBb}] 
+        (B2b) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2Oen and cercleBb}] 
+        (B2f) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnOwnw112 and lgnO2Oen}] 
+        (B2e) at (intersection-1) {} ;
+  \node [name intersections={of=lgnOwnw202 and lgnO1Os}] 
+        (B1c) at (intersection-1) {} ;
+
+  \draw [name path=lgnB1aB2a, add= 0.3 and 0.3, dotted] 
+        (B1a) to (B2a) ;
+  \draw [name path=lgnB2aB2f, add= 0.3 and 4.5, dotted] 
+        (B2f) to (B2a) ;
+  \draw [name path=lgnB1aB1b, add= 0.3 and 4.5, dotted] 
+        (B1b) to (B1a) ;
+
+  \node [name intersections={of=lgnO2se270 and lgnOnnw157}] 
+        (Cb) at (intersection-1) {} ;
+  \node [name intersections={of=lgnB2aB2f and lgnOnnw157}] 
+        (Cc) at (intersection-1) {} ;
+  \node [name intersections={of=lgnB2aB2f and lgnB1aB1b}] 
+        (Cd) at (intersection-1) {} ;
+  \node [name intersections={of=lgnB1aB1b and lgnOwsw157}] 
+        (Ce) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1e45 and lgnOwsw157}] 
+        (Cf) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnB1aB2a and lgnO1Os}] 
+        (C1b) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2sw270 and lgnO1Os}] 
+        (C1c) at (intersection-1) {} ;
+  \node (C1d) at ([shift={(0:\rayonH)}] O1) {} ;
+  \node [name intersections={of=lgnO2sw270 and lgnO1On}] 
+        (C1e) at (intersection-1) {} ;
+  \node [name intersections={of=lgnB1aB1b and lgnO1On}] 
+        (C1f) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnB2aB2f and lgnO2Osw}] 
+        (C2b) at (intersection-1) {} ;
+  \node (C2d) at ([shift={(-45:\rayonH)}] O2) {} ;
+  \node [name intersections={of=lgnB1aB2a and lgnO2Oen}] 
+        (C2f) at (intersection-1) {} ;
+
+  \node [name intersections={of=lgnO1n45 and lgnO2Osw}] 
+        (C2c) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1n45 and lgnO2Oen}] 
+        (C2e) at (intersection-1) {} ;
+
+  \node (D1a) at ([shift={(45:\rayonH)}] O1) {} ;
+  \node (D2a) at ([shift={(-90:\rayonH)}] O2) {} ;
+  \node [name intersections={of=lgnO1n45 and lgnOwsw157}] 
+        (D1b) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2sw270 and lgnOnnw157}] 
+        (D2b) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO1e45 and lgnB1aB1b}] 
+        (D1c) at (intersection-1) {} ;
+  \node [name intersections={of=lgnO2se270 and lgnB2aB2f}] 
+        (D2c) at (intersection-1) {} ;
+
+  % Fond blanc
+  % ===================================================================
+  \fill [white]
+        ([shift={(1,-2)}] O) rectangle ({-(\rayon+3)}, {\rayon-1}) ;
+  \draw ({-(0.5+\rayon+\rayonH)}, {-(0.5+\rayonH)}) rectangle
+        ({0.5+0}, {0.5+\rayonH+cos(45)*\rayon}) ;
+
+  % Hatims
+  % ===================================================================
+  % \draw [red, thick] (O) \drawhatim ;
+  \draw [forme] (O1) \drawhatim ;
+  \draw [forme] (O2) \drawhatim ;
+
+  % Octogone
+  % ===================================================================
+  \draw [forme] 
+           (Aa.center)
+        -- (Ab.center)
+        -- (Ac.center)
+        -- (Ad.center)
+        -- (Ae.center)
+        -- (Af.center)
+        -- (Ag.center)
+        -- (Ah.center)
+        -- cycle
+        ;
+
+  % Hexagones allongés
+  % ===================================================================
+  % Central
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (Ba.center)
+        -- (Bb.center)
+        -- (Bc.center)
+        -- (Bd.center)
+        -- (Be.center)
+        -- (Bf.center)
+        -- cycle
+        ;
+  % Bas
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (B1a.center)
+        -- (B1b.center)
+        -- (B1c.center)
+        -- (B1d.center)
+        -- (Be.center)
+        -- (B1f.center)
+        -- cycle
+        ;
+  % Haut
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (B2a.center)
+        -- (B2b.center)
+        -- (Bc.center)
+        -- (B2d.center)
+        -- (B2e.center)
+        -- (B2f.center)
+        -- cycle
+        ;
+
+  % Hexagones
+  % ===================================================================
+  % Central
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (Ba.center)
+        -- (Cb.center)
+        -- (Cc.center)
+        -- (Cd.center)
+        -- (Ce.center)
+        -- (Cf.center)
+        -- cycle
+        ;
+  % Bas
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (B1a.center)
+        -- (C1b.center)
+        -- (C1c.center)
+        -- (C1d.center)
+        -- (C1e.center)
+        -- (C1f.center)
+        -- cycle
+        ;
+  % Haut
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (B2a.center)
+        -- (C2b.center)
+        -- (C2c.center)
+        -- (C2d.center)
+        -- (C2e.center)
+        -- (C2f.center)
+        -- cycle
+        ;
+
+  % Hexagones rotation
+  % ===================================================================
+  % Bas
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (D1a.center)
+        -- (Ab.center)
+        -- (D1b.center)
+        -- (Ce.center)
+        -- (D1c.center)
+        -- (C1e.center)
+        -- cycle
+        ;
+  % Haut
+  % -------------------------------------------------------------------
+  \draw [forme] 
+           (D2a.center)
+        -- (Ad.center)
+        -- (D2b.center)
+        -- (Cc.center)
+        -- (D2c.center)
+        -- (C2c.center)
+        -- cycle
+        ;
+
+  \draw (O) -- (O1) ;
+  \draw (O) -- (O2) ;
+  \draw (O1) arc (180:110:\rayon) ;
+  \draw (O1) arc (180:200:\rayon) ;
+  \draw [densely dotted] (O1) --++ (45:5.5) ;
+  \draw [densely dotted] (O2) --++ (-90:5.5) ;
+
+
+  \begin{scope}[red, densely dashed]
+    \draw (O) ++ (-22.5:2) --++ (157.5:20) ;
+    \draw (O) -- (O1) arc (180:135:\rayon) -- cycle ;
+  \end{scope}
+  % \draw [ligne] (Cc) circle (0.3) ;
+
+  \begin{scope}[red, font=\scriptsize]
+    \node [text width=1cm] 
+          (X) at (-\rayon, 8.5) {axe de symétrie} ;
+    \node [text width=1cm, align=right] 
+          (T) at (-1.5, 5.5) {triangle minimal} ;
+
+    \draw [fleche, out=-90, in=45] 
+          (T) to ($(O)!0.1!(O2)$) ;
+    \draw [fleche, out=-90, in=60] 
+          (X) to ($(O)!1.12!(H2)$) ;
+  \end{scope}
+}
+
+
+% =====================================================================
+% =====================================================================
+% == Système Lab                                                     ==
+% =====================================================================
+% =====================================================================
+\newcommand{\cylindre}[1]{%
+  \pgfmathsetmacro{\color}{-10*#1+50}
+  \draw [fill=black!\color]
+        ({-\Rx}, {\Rz/2+#1*(\of+\Rz)}) arc (180:360:{\Rx} and {\Ry}) 
+        -- ++ (-90:\Rz) 
+        arc (360:180:{\Rx} and {\Ry}) 
+        -- cycle
+        ;
+  \draw [fill=white]
+        (0, {\Rz/2+#1*(\of+\Rz)}) ellipse ({\Rx} and {\Ry}) ;
+}
+
+\newcommand{\secteur}[4]{%
+  \draw [shading=#3, shading angle=#4] 
+        ({\Rxp*cos(#1)}, {\Ryp*sin(#1)}) 
+        arc ({#1}:{#2}:{\Rxp} and {\Ryp}) 
+        -- ({\Rxg*cos(#2)}, {\Ryg*sin(#2)})
+        arc ({#2}:{#1}:{\Rxg} and {\Ryg}) 
+        -- cycle
+        ;
+}
+
+\newcommand{\cadre}[4]{%
+  % Angle de l'équation de l'ellipse
+  \pgfmathsetmacro{\ang}{#1}
+  % Angle géométrique
+  \pgfmathsetmacro{\angb}{#2}
+  % Numéro du cadre
+  \pgfmathsetmacro{\num}{#3}
+  % Coordonnées du point au bord du cylindre
+  \pgfmathsetmacro{\xa}{\Rx*cos(\ang)}
+  \pgfmathsetmacro{\ya}{\Ry*sin(\ang)}
+  % longeur (abscisses) d'un cadre = 1/3 de la distance cylindre/roue
+  \pgfmathsetmacro{\len}{(\Rxp-\Rx)*cos(\ang)/3}
+  \pgfmathsetmacro{\offset}{0.1*(sign(90-abs(\angb)))}
+
+  % Coordonnées du centre du cadre
+  \pgfmathsetmacro{\xc}{\xa+((\num-1+0.5)*\len)}
+  \pgfmathsetmacro{\yc}{\xc*tan(\angb)}
+  % Coordonnées de l'angle haut gauche
+  \pgfmathsetmacro{\xb}{\xc-(0.5*(\len-\offset))}
+  \pgfmathsetmacro{\yb}{\yc+(0.5*\Rz-0.5*(\len-\offset)*tan(\angb))}
+
+  \draw [very thin, fill=#4]
+        (\xb, \yb)
+        -- ++ (\angb:{(\len-\offset)/cos(\angb)})
+        -- ++ (-90:\Rz)
+        -- ++ ({180+\angb}:{(\len-\offset)/cos(\angb)})
+        -- cycle
+        ;
+}
+
+\newcommand{\rangee}[3]{%
+  % Angle de l'équation de l'ellipse
+  \pgfmathsetmacro{\ang}{#1}
+  % Angle géométrique
+  \pgfmathsetmacro{\angb}{#2}
+  % Nombre de cadres dans la rangée
+  \pgfmathsetmacro{\num}{#3}
+  % Coordonnées de l'angle supérieur côté cylindre
+  \pgfmathsetmacro{\xa}{\Rx*cos(\ang)}
+  \pgfmathsetmacro{\ya}{\Ry*sin(\ang)+0.5*\Rz}
+  % \node at (\xa, \ya) {$\times$} ;
+  % longeur (abscisses) d'un cadre = 1/3 de la distance cylindre/roue
+  \pgfmathsetmacro{\len}{\num*(\Rxp-\Rx)*cos(\ang)/3}
+
+  \fill [very thin, yellow!5, draw]
+        (\xa, \ya)
+        -- ++ (\angb:{\len/cos(\angb)})
+        -- ++ (-90:\Rz)
+        -- ++ ({180+\angb}:{\len/cos(\angb)})
+        -- cycle
+        ;
+}
+
+\pgfmathsetmacro{\coeff}{2.5}
+\pgfmathsetmacro{\Rx}{1.00}
+\pgfmathsetmacro{\Ry}{\Rx/\coeff}
+\pgfmathsetmacro{\Rz}{2.00}
+\pgfmathsetmacro{\of}{0.25}
+\pgfmathsetmacro{\Rxp}{7*\Rx}
+\pgfmathsetmacro{\Ryp}{\Rxp/\coeff}
+\pgfmathsetmacro{\Rxg}{9*\Rx}
+\pgfmathsetmacro{\Ryg}{\Rxg/\coeff}
+
+\definecolor{rayon01}{RGB}{ 85,  16,  18}
+\definecolor{rayon02}{RGB}{ 91,  16,  31}
+\definecolor{rayon03}{RGB}{ 70,  19,  32}
+\definecolor{rayon04}{RGB}{ 27,  16,  54}
+\definecolor{rayon05}{RGB}{ 22,  33,  76}
+\definecolor{rayon06}{RGB}{ 18,  39,  65}
+\definecolor{rayon07}{RGB}{ 22,  52,  31}
+\definecolor{rayon08}{RGB}{ 99, 110,  36}
+\definecolor{rayon09}{RGB}{140, 107,  32}
+\definecolor{rayon10}{RGB}{144,  77,  25}
+
+\definecolor{cadre01a}{RGB}{ 50,  13,  13}
+\definecolor{cadre01b}{RGB}{ 63,  13,  14}
+\definecolor{cadre01c}{RGB}{ 73,  14,  15}
+\definecolor{cadre01d}{RGB}{ 87,  15,  18}
+\definecolor{cadre01e}{RGB}{ 98,  17,  19}
+\definecolor{cadre01f}{RGB}{112,  19,  20}
+\definecolor{cadre01g}{RGB}{115,  19,  21}
+
+\definecolor{cadre02a}{RGB}{ 55,  12,  25}
+\definecolor{cadre02b}{RGB}{ 67,  14,  27}
+\definecolor{cadre02c}{RGB}{ 77,  14,  27}
+\definecolor{cadre02d}{RGB}{ 92,  16,  31}
+\definecolor{cadre02e}{RGB}{109,  19,  40}
+\definecolor{cadre02f}{RGB}{123,  19,  42}
+
+\definecolor{cadre03b}{RGB}{ 51,  16,  27}
+\definecolor{cadre03c}{RGB}{ 55,  17,  27}
+\definecolor{cadre03d}{RGB}{ 70,  19,  31}
+\definecolor{cadre03e}{RGB}{ 81,  21,  36}
+
+\definecolor{cadre04b}{RGB}{ 22,  15,  38}
+\definecolor{cadre04c}{RGB}{ 25,  16,  47}
+\definecolor{cadre04d}{RGB}{ 28,  18,  56}
+\definecolor{cadre04e}{RGB}{ 32,  18,  56}
+\definecolor{cadre04f}{RGB}{ 31,  19,  64}
+
+\definecolor{cadre05a}{RGB}{ 20,  21,  41}
+\definecolor{cadre05b}{RGB}{ 20,  25,  50}
+\definecolor{cadre05c}{RGB}{ 22,  28,  60}
+\definecolor{cadre05d}{RGB}{ 24,  33,  74}
+
+\definecolor{cadre06a}{RGB}{ 16,  26,  43}
+\definecolor{cadre06b}{RGB}{ 19,  32,  46}
+\definecolor{cadre06c}{RGB}{ 18,  34,  57}
+\definecolor{cadre06d}{RGB}{ 20,  38,  61}
+
+\definecolor{cadre07a}{RGB}{ 20,  33,  22}
+\definecolor{cadre07b}{RGB}{ 22,  38,  25}
+\definecolor{cadre07c}{RGB}{ 24,  48,  29}
+\definecolor{cadre07d}{RGB}{ 22,  54,  31}
+\definecolor{cadre07e}{RGB}{ 23,  58,  34}
+
+\definecolor{cadre08a}{RGB}{ 53,  55,  25}
+\definecolor{cadre08b}{RGB}{ 71,  71,  29}
+\definecolor{cadre08c}{RGB}{ 90,  95,  34}
+\definecolor{cadre08d}{RGB}{ 99, 110,  36}
+
+\definecolor{cadre09a}{RGB}{ 82,  56,  24}
+\definecolor{cadre09b}{RGB}{101,  67,  26}
+\definecolor{cadre09c}{RGB}{122,  93,  31}
+\definecolor{cadre09d}{RGB}{140, 107,  33}
+
+\definecolor{cadre10a}{RGB}{ 86,  40,  18}
+\definecolor{cadre10b}{RGB}{100,  51,  21}
+\definecolor{cadre10c}{RGB}{126,  64,  24}
+\definecolor{cadre10d}{RGB}{146,  78,  25}
+\definecolor{cadre10e}{RGB}{177,  88,  29}
+\definecolor{cadre10f}{RGB}{193,  94,  28}
+
+\pgfdeclarehorizontalshading{secteur01}{1.1cm}{
+  color(0.0cm)=(rayon01); 
+  color(2.5cm)=(rayon02)
+}
+\pgfdeclarehorizontalshading{secteur02}{1.1cm}{
+  color(0.0cm)=(rayon02); 
+  color(2.2cm)=(rayon03)
+}
+\pgfdeclarehorizontalshading{secteur03}{1.7cm}{
+  color(0.0cm)=(rayon03); 
+  color(1.8cm)=(rayon04)
+}
+\pgfdeclarehorizontalshading{secteur04}{1.1cm}{
+  color(0.0cm)=(rayon04); 
+  color(2.2cm)=(rayon05)
+}
+\pgfdeclarehorizontalshading{secteur05}{1.1cm}{
+  color(0.0cm)=(rayon05); 
+  color(2.5cm)=(rayon06)
+}
+\pgfdeclarehorizontalshading{secteur06}{1.1cm}{
+  color(0.0cm)=(rayon06); 
+  color(2.5cm)=(rayon07)
+}
+\pgfdeclarehorizontalshading{secteur07}{1.1cm}{
+  color(0.0cm)=(rayon07); 
+  color(2.2cm)=(rayon08)
+}
+\pgfdeclarehorizontalshading{secteur08}{1.7cm}{
+  color(0.0cm)=(rayon08); 
+  color(1.8cm)=(rayon09)
+}
+\pgfdeclarehorizontalshading{secteur09}{1.1cm}{
+  color(0.0cm)=(rayon09); 
+  color(2.2cm)=(rayon10)
+}
+\pgfdeclarehorizontalshading{secteur10}{1.1cm}{
+  color(0.0cm)=(rayon10); 
+  color(2.5cm)=(rayon01)
+}
+
+\newcommand{\systemeLab}{%
+  \secteur{105.1}{ 74.9}{secteur03}{ 180}
+
+  \rangee{74.9}{56}{5}
+  \cadre{74.9}{56}{1}{white}
+  \cadre{74.9}{56}{2}{cadre03b}
+  \cadre{74.9}{56}{3}{cadre03c}
+  \cadre{74.9}{56}{4}{cadre03d}
+  \cadre{74.9}{56}{5}{cadre03e}
+
+  \secteur{74.9}{40.7}{secteur02}{-213}
+
+  \rangee{105.1}{124}{6}
+  \cadre{105.1}{124}{1}{white}
+  \cadre{105.1}{124}{2}{cadre04b}
+  \cadre{105.1}{124}{3}{cadre04c}
+  \cadre{105.1}{124}{4}{cadre04d}
+  \cadre{105.1}{124}{5}{cadre04e}
+  \cadre{105.1}{124}{6}{cadre04f}
+
+  \secteur{139.3}{105.1}{secteur04}{213}
+
+  \rangee{40.7}{19}{6}
+  \cadre{40.7}{19}{1}{cadre02a}
+  \cadre{40.7}{19}{2}{cadre02b}
+  \cadre{40.7}{19}{3}{cadre02c}
+  \cadre{40.7}{19}{4}{cadre02d}
+  \cadre{40.7}{19}{5}{cadre02e}
+  \cadre{40.7}{19}{6}{cadre02f}
+
+  \secteur{40.7}{0.0}{secteur01}{-235}
+
+  \rangee{139.3}{161}{4}
+  \cadre{139.3}{161}{1}{cadre05a}
+  \cadre{139.3}{161}{2}{cadre05b}
+  \cadre{139.3}{161}{3}{cadre05c}
+  \cadre{139.3}{161}{4}{cadre05d}
+
+  \secteur{180.0}{139.3}{secteur05}{235}
+
+  \rangee{0}{0}{7}
+  \cadre{0}{0}{1}{cadre01a}
+  \cadre{0}{0}{2}{cadre01b}
+  \cadre{0}{0}{3}{cadre01c}
+  \cadre{0}{0}{4}{cadre01d}
+  \cadre{0}{0}{5}{cadre01e}
+  \cadre{0}{0}{6}{cadre01f}
+  \cadre{0}{0}{7}{cadre01g}
+
+  \rangee{180.0}{180}{4}
+  \cadre{180.0}{180}{1}{cadre06a}
+  \cadre{180.0}{180}{2}{cadre06b}
+  \cadre{180.0}{180}{3}{cadre06c}
+  \cadre{180.0}{180}{4}{cadre06d}
+
+  % Colonne de cylindres
+  \begin{scope}
+    \foreach \z in {-4, ..., 4}{
+      \cylindre{\z}
+    }
+  \end{scope}
+
+  \secteur{-180.0}{-139.3}{secteur06}{-55}
+
+  \rangee{-139.3}{-161}{5}
+  \cadre{-139.3}{-161}{1}{cadre07a}
+  \cadre{-139.3}{-161}{2}{cadre07b}
+  \cadre{-139.3}{-161}{3}{cadre07c}
+  \cadre{-139.3}{-161}{4}{cadre07d}
+  \cadre{-139.3}{-161}{5}{cadre07e}
+
+  \secteur{-139.3}{-105.1}{secteur07}{-33}
+  \secteur{-40.7}{0.0}{secteur10}{55}
+
+  \rangee{-40.7}{-19}{6}
+  \cadre{-40.7}{-19}{1}{cadre10a}
+  \cadre{-40.7}{-19}{2}{cadre10b}
+  \cadre{-40.7}{-19}{3}{cadre10c}
+  \cadre{-40.7}{-19}{4}{cadre10d}
+  \cadre{-40.7}{-19}{5}{cadre10e}
+  \cadre{-40.7}{-19}{6}{cadre10f}
+
+  \rangee{-105.1}{-124}{4}
+  \cadre{-105.1}{-124}{1}{cadre08a}
+  \cadre{-105.1}{-124}{2}{cadre08b}
+  \cadre{-105.1}{-124}{3}{cadre08c}
+  \cadre{-105.1}{-124}{4}{cadre08d}
+
+  \secteur{-74.9}{-40.7}{secteur09}{33}
+
+  \rangee{-74.9}{-56}{4}
+  \cadre{-74.9}{-56}{1}{cadre09a}
+  \cadre{-74.9}{-56}{2}{cadre09b}
+  \cadre{-74.9}{-56}{3}{cadre09c}
+  \cadre{-74.9}{-56}{4}{cadre09d}
+
+  \secteur{-105.1}{-74.9}{secteur08}{0}
+
+  \node at (-2.0,  9.2) {\CIELb} ;
+  \node at (10.7,  3.7) {\CIEab} ;
+  \node at ( 3.0, -4.6) {\CIEbb} ;
+}
+
+
+
+\newcommand{\systemeYxy}{%
+  \begin{axis}[%
+    width=8cm, height=9cm,
+    xmin=0, xmax=0.8,
+    ymin=0, ymax=0.9,
+    axis lines*=left,
+    tick align=outside,
+    tick style={black, thin},
+    ticklabel style={font=\small},
+    minor tick num=3,
+    xtick={0.0, 0.1, ..., 1.0},
+    ytick={0.0, 0.1, ..., 1.0},
+    minor tick={0.0, 0.05, ..., 1.0},
+    xlabel=\CIExb, ylabel=\CIEyb,
+    xlabel near ticks, ylabel near ticks,
+    every axis x label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=west,
+    },
+    every axis y label/.style={
+        at={(ticklabel* cs:1.0)},
+        anchor=south,
+    },
+    clip mode=individual,
+  ]
+
+    \begin{scope}
+      \clip ( 0.0, 0.0) -- ( 0.0, 0.9) -- ( 0.1, 0.9) --
+            ( 0.8, 0.2) -- ( 0.8, 0.0) -- cycle ;
+      \draw [help lines, step=0.05] 
+            ( 0.0, 0.0) grid ( 0.8, 0.9) ;
+    \end{scope}
+    \draw [help lines] 
+          ( 0.0, 0.9) -- ( 0.1, 0.9) -- 
+          ( 0.8, 0.2) -- ( 0.8, 0.0) ;
+    \draw ( 0.0, 0.9) -- ( 0.0, 0.0) -- ( 0.8, 0.0) ;
+
+    \begin{scope}
+      \addplot graphics [
+        xmin=0.0036363842, xmax=0.7346900904, 
+        ymin=0.0047740307, ymax=0.8340903145
+      ]
+        {pav} ;
+    \end{scope}
+
+    \begin{scope}[thick, line cap=round, line join=round]
+      \addplot [thick, mark=none]
+         table [x=x, y=y] 
+               {\datadir/chro/CIE_espaces2D.dat} ;
+      % \draw plot file {CIE_espaces2D.dat} -- cycle ;
+    \end{scope}
+
+    \begin{scope}[thin, font=\tiny]
+      \draw ( 0.1644117564, 0.0108575583) -- ++ ( 137.64+90:4pt) 
+            node [shift={( 137.64+90:5pt)}] {440} ;
+      \draw ( 0.1439603960, 0.0297029703) -- ++ ( 133.09+90:4pt) 
+            node [shift={( 133.09+90:5pt)}] {460} ;
+      \draw ( 0.0912935070, 0.1327020425) -- ++ ( 110.18+90:4pt) 
+            node [shift={( 110.18+90:5pt)}] {480} ;
+      \draw ( 0.0081680280, 0.5384230705) -- ++ (  94.82+90:4pt) 
+            node [shift={(  94.82+90:5pt)}] {500} ;
+      \draw ( 0.0743024248, 0.8338030913) -- ++ (   6.75+90:4pt) 
+            node [shift={(   6.75+90:5pt)}] {520} ;
+      \draw ( 0.2296196726, 0.7543290899) -- ++ ( -38.31+90:4pt) 
+            node [shift={( -38.31+90:5pt)}] {540} ;
+      \draw ( 0.3731015439, 0.6244508598) -- ++ ( -44.17+90:4pt) 
+            node [shift={( -44.17+90:5pt)}] {560} ;
+      \draw ( 0.5124863668, 0.4865907881) -- ++ ( -44.90+90:4pt) 
+            node [shift={( -44.90+90:5pt)}] {580} ;
+      \draw ( 0.6270365998, 0.3724911452) -- ++ ( -44.87+90:4pt) 
+            node [shift={( -44.87+90:5pt)}] {600} ;
+      \draw ( 0.6915039730, 0.3083422606) -- ++ ( -44.89+90:4pt) 
+            node [shift={( -44.89+90:5pt)}] {620} ;
+      \draw ( 0.7190329416, 0.2809349515) -- ++ ( -44.95+90:4pt) 
+            node [shift={( -44.95+90:5pt)}] {640} ;
+
+      \draw ( 0.1611045796, 0.0137933588) -- ++ ( 138.71+90:2pt) ;  % 445
+      \draw ( 0.1566409326, 0.0177048050) -- ++ ( 138.88+90:2pt) ;  % 450
+      \draw ( 0.1509854084, 0.0227401933) -- ++ ( 137.24+90:2pt) ;  % 455
+      \draw ( 0.1355026712, 0.0398791215) -- ++ ( 126.08+90:2pt) ;  % 465
+      \draw ( 0.1241184767, 0.0578025134) -- ++ ( 119.55+90:2pt) ;  % 470
+      \draw ( 0.1095943236, 0.0868425112) -- ++ ( 114.06+90:2pt) ;  % 475
+      \draw ( 0.0687059213, 0.2007232177) -- ++ ( 106.23+90:2pt) ;  % 485
+      \draw ( 0.0453907347, 0.2949759646) -- ++ ( 102.18+90:2pt) ;  % 490
+      \draw ( 0.0234599425, 0.4127034791) -- ++ (  98.88+90:2pt) ;  % 495
+      \draw ( 0.0038585209, 0.6548231511) -- ++ (  88.65+90:2pt) ;  % 505
+      \draw ( 0.0138702461, 0.7501864280) -- ++ (  77.46+90:2pt) ;  % 510
+      \draw ( 0.0388518024, 0.8120160214) -- ++ (  52.78+90:2pt) ;  % 515
+      \draw ( 0.1141607196, 0.8262069598) -- ++ ( -21.43+90:2pt) ;  % 525
+      \draw ( 0.1547220612, 0.8058635454) -- ++ ( -30.15+90:2pt) ;  % 530
+      \draw ( 0.1928760979, 0.7816292164) -- ++ ( -34.70+90:2pt) ;  % 535
+      \draw ( 0.2657750850, 0.7243239249) -- ++ ( -40.87+90:2pt) ;  % 545
+      \draw ( 0.3016037994, 0.6923077624) -- ++ ( -42.54+90:2pt) ;  % 550
+      \draw ( 0.3373633329, 0.6588482901) -- ++ ( -43.57+90:2pt) ;  % 555
+      \draw ( 0.4087362557, 0.5896068689) -- ++ ( -44.52+90:2pt) ;  % 565
+      \draw ( 0.4440624636, 0.5547139028) -- ++ ( -44.76+90:2pt) ;  % 570
+      \draw ( 0.4787747912, 0.5202023072) -- ++ ( -44.89+90:2pt) ;  % 575
+      \draw ( 0.5447865056, 0.4544341146) -- ++ ( -44.85+90:2pt) ;  % 585
+      \draw ( 0.5751513114, 0.4242322349) -- ++ ( -44.90+90:2pt) ;  % 590
+      \draw ( 0.6029327856, 0.3964966336) -- ++ ( -44.93+90:2pt) ;  % 595
+      \draw ( 0.6482331060, 0.3513949163) -- ++ ( -44.81+90:2pt) ;  % 605
+      \draw ( 0.6657635762, 0.3340106512) -- ++ ( -44.80+90:2pt) ;  % 610
+      \draw ( 0.6800788497, 0.3197472171) -- ++ ( -44.95+90:2pt) ;  % 615
+      \draw ( 0.7006060606, 0.2993006993) -- ++ ( -44.80+90:2pt) ;  % 625
+      \draw ( 0.7079177916, 0.2920271089) -- ++ ( -44.89+90:2pt) ;  % 630
+      \draw ( 0.7140315971, 0.2859288735) -- ++ ( -44.95+90:2pt) ;  % 635
+      \draw ( 0.7230316026, 0.2769483577) -- ++ ( -44.86+90:2pt) ;  % 645
+      \draw ( 0.7259923175, 0.2740076825) -- ++ ( -44.91+90:2pt) ;  % 650
+      \draw ( 0.7282717283, 0.2717282717) -- ++ ( -45.00+90:2pt) ;  % 655
+      \draw ( 0.7299690128, 0.2700309872) -- ++ ( -45.00+90:4pt) ;  % 660
+      \draw ( 0.7310893956, 0.2689106044) -- ++ ( -45.00+90:2pt) ;  % 665
+      \draw ( 0.7319932998, 0.2680067002) -- ++ ( -45.00+90:2pt) ;  % 670
+      \draw ( 0.7327188940, 0.2672811060) -- ++ ( -45.00+90:2pt) ;  % 675
+      \draw ( 0.7334169672, 0.2665830328) -- ++ ( -45.00+90:4pt) ;  % 680
+      \draw ( 0.7340473003, 0.2659526997) -- ++ ( -45.00+90:2pt) ;  % 685
+      \draw ( 0.7343901650, 0.2656098350) -- ++ ( -45.00+90:2pt) ;  % 690
+      \draw ( 0.7345916616, 0.2654083384) -- ++ ( -45.00+90:2pt) ;  % 695
+    \end{scope}
+
+    \draw [->, >=stealth'] 
+          ( 0.58, 0.52) -- ( 0.66, 0.44) 
+          node [midway, above right] {\small\WLdb} ;
+  \end{axis}
+}
+

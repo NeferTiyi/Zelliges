@@ -296,18 +296,69 @@ transport sur le site d'assemblage.
 
 \begin{figure}[hbt]
   \begin{tikzpicture}
-    \node at ( 0.00, 0.00) 
-          {\includegraphics[scale=1]{furmas_luza}} ;
-    \node at ( 0.00, 5.00) 
-          {\includegraphics[scale=1]{furmas_hatim}} ;
-    \node at (-3.00, 2.00) 
-          {\includegraphics[scale=1]{furmas_saft}} ;
-    \node at ( 3.00, 2.00) 
-          {\includegraphics[scale=1]{furmas_kwayra}} ;
-    \node at (-2.50,-2.00) 
-          {\includegraphics[scale=1]{furmas_hattayfa}} ;
-    \node at ( 2.50,-2.00) 
-          {\includegraphics[scale=1]{furmas_fawrkat}} ;
+    \definelength
+    \begin{scope}[shift={( 0.00,-0.50)}, thick]
+      \draw  ( 0.00, {-\lenH*sin(22.5)})
+        --++ (  22.5:\lenH)
+        --++ ( 112.5:\rayonH)
+        --++ (-112.5:\rayonH)
+        -- cycle
+      ;
+      \node at ( 0.00,-0.50) {\emph{l\={u}za}} ;
+    \end{scope}
+
+    \begin{scope}[shift={( 0.00, 3.50)}, thick]
+      \draw ( 0.00, 0.00) \drawhatim ;
+      \node at ( 0.00,-1.70) {\hatim} ;
+    \end{scope}
+
+    \begin{scope}[shift={(-3.50, 1.50)}, thick]
+      \draw  ({-(2*cos(45))}, 0.00)
+        --++ (  45.0:2)
+        --++ ( -45.0:2)
+        --++ ( 180.0:1)
+        --++ ( 247.5:1)
+        --++ ( 112.5:1)
+        -- cycle
+      ;
+      \node at ( 0.00,-1.30) {\emph{ha\d{t}\d{t}ayfa}} ;
+    \end{scope}
+
+    \begin{scope}[shift={( 3.50, 1.50)}, thick]
+      \draw  ( 0.00, {-(0.5+tan(22.5))}) 
+        --++ (  22.5:{1/cos(22.5)}) 
+        --++ (  90.0:1) 
+        --++ ( 135.0:\rayonH) 
+        --++ (-135.0:\rayonH) 
+        --++ ( -90.0:1) 
+        -- cycle
+      ;
+      \node at ( 0.00,-1.25) {\emph{kwayra}} ;
+    \end{scope}
+
+    \begin{scope}[shift={(-2.50,-2.00)}, thick]
+      \draw \drawsaft ;
+      \node at ( 0.00,-1.40) {\saft} ;
+    \end{scope}
+
+    \begin{scope}[shift={( 2.00,-2.00)}, thick]
+      \draw  ( 2.00, 0.00)
+        --++ ( 135.0:\rayonH)
+        --++ ( 180.0:\rayonH)
+        --++ ( -90.0:\lenH)
+        --++ ( -45.0:\lenH)
+        --++ (-135.0:\rayonH)
+        --++ (   0.0:2)
+        -- cycle
+      ;
+      \node at ( 0.50,-1.40) {\emph{fawrkat al-'ar\v{g}a}} ;
+    \end{scope}
+
+    % \begin{scope}[help lines]
+    %   \draw [step=0.5] (-6, -3) grid (5, 5) ;
+    %   \draw [step=1, red] (-6, -3) grid (5, 5) ;
+    %   \node at (0, 0) {$\times$} ;
+    % \end{scope}
   \end{tikzpicture}
   \caption{Différentes \furmas de zelliges \autocite{Castera_1996}.}
   \label{fig:furmas}
@@ -436,58 +487,47 @@ fin.
       \squelettea
       \fill (-2,-2) rectangle (2,2) ;
     \end{tikzpicture}
-    \subcaption{\label{fig:squel_a1}}
-  \end{minipage}%
-  \quad
-  \begin{minipage}[b]{0.33\textwidth}
-    \centerfloat
-    \begin{tikzpicture}[thick, fill=white, scale=0.4]
-      \squelettea
-      \filldraw \drawhatim ;
-    \end{tikzpicture}
-    \subcaption{\label{fig:squel_a2}}
-  \end{minipage}%
-  \quad
-  \begin{minipage}[b]{0.33\textwidth}
-    \centerfloat
-    \begin{tikzpicture}[thick, fill=white, scale=0.4]
-      \squelettea
-      \fill (-1,-1) rectangle (1,1) ;
-      \foreach \x in {0, 90, 180, 270} {%
-        \draw [rotate=\x]
-              ( {1-sqrt(2)} ,  1 )          -- 
-              ( {1-sqrt(2)} , {sqrt(2)-1} ) -- 
-              ( -1 , {sqrt(2)-1} ) ;
-      }
-    \end{tikzpicture}
-    \subcaption{\label{fig:squel_a3}}
-  \end{minipage}%
 
-  \bigskip
+    \bigskip
 
-  \begin{minipage}[b]{0.33\textwidth}
-    \centerfloat
     \begin{tikzpicture}[thick, fill=white, scale=0.4]
       \squeletteb
       \fill (-0.5, 1) -- (-2.5,-1) -- 
             (0.5, -1) -- ( 2.5, 1) -- cycle ;
     \end{tikzpicture}%
-    \subcaption{\label{fig:squel_b1}}
+    \subcaption{différents squelettes}
   \end{minipage}%
-  \quad%
-  \begin{minipage}[b]{0.33\textwidth}
+  \quad
+  \begin{minipage}[b]{0.66\textwidth}
     \centerfloat
-    \begin{tikzpicture}[thick, fill=white, scale=0.4]
-      \squeletteb
-    \end{tikzpicture}
-    \subcaption{\label{fig:squel_b2}}
-  \end{minipage}%
 
-  \caption{\subcaptionref{fig:squel_a1} et 
-           \subcaptionref{fig:squel_b1} : différents squelettes ; 
-           \subcaptionref{fig:squel_a2}, \subcaptionref{fig:squel_a3}, 
-           \subcaptionref{fig:squel_b2} : diverses résolutions des 
-           squelettes \autocite{Castera_1996}.}
+    \begin{tikzpicture}[thick, fill=white, scale=0.4]
+      \squelettea
+      \filldraw \drawhatim ;
+    \end{tikzpicture}
+    \qquad
+    \begin{tikzpicture}[thick, fill=white, scale=0.4]
+      \squelettea
+      \fill (-1.1,-1.1) rectangle (1.1,1.1) ;
+      \foreach \x in {0, 90, 180, 270} {%
+        \draw [rotate=\x, line cap=round]
+              ([shift={(90:\rayonH)}] 0, 0) 
+              --++ (225:\lenH)
+              --++ (-90:\lenH)
+              --++ (180:\lenH)
+              --++ (225:\lenH)
+              ;
+      }
+    \end{tikzpicture}
+
+    \bigskip
+
+    \begin{tikzpicture}[thick, fill=white, scale=0.4, line cap=round]
+      \squeletteb
+    \end{tikzpicture}%
+    \subcaption{diverses résolutions des squelettes}
+  \end{minipage}%
+  \caption{Motifs de zelliges \autocite{Castera_1996}.}
   \label{fig:squelette}
 \end{figure}
 
@@ -497,33 +537,64 @@ qui permet, par des symétries axiales (\fref{fig:sym_triangle} et
 \fref{fig:sym_dessin}) de reconstituer l'ensemble du motif 
 (\fref{fig:sym_complet}).
 
-
 \begin{figure}[htb]
-  \begin{minipage}[b]{0.45\textwidth}
+  \begin{minipage}[b]{5.6cm}
     \centerfloat
-    \includegraphics[height=6.5cm]{symetrie_motif_base_ori}
+    \definelength
+    \begin{tikzpicture}[x=4mm, y=4mm]
+      \triangleminimal
+    \end{tikzpicture}
+    \par
     \subcaption{Triangle minimal 
                 \label{fig:sym_triangle}}
   \end{minipage}%
-
-  \bigskip
-
-  \begin{minipage}[b]{0.45\textwidth}
+  \quad%
+  \begin{minipage}[b]{4.85cm}
     \centerfloat
-    \includegraphics[height=6.5cm]{symetrie_motif_dessin}
+    \includegraphics[height=4.83cm]{symetrie_motif_dessin}
+    \par
     \subcaption{Construction du motif par symétries 
                 \label{fig:sym_dessin}}
   \end{minipage}%
-  \quad
-  \begin{minipage}[b]{0.45\textwidth}
+  \quad%
+  \begin{minipage}[b]{4.8cm}
     \centerfloat
-    \includegraphics[height=6.5cm]{symetrie_motif_complet}
+    \includegraphics[height=4.83cm]{symetrie_motif_complet}
+    \par
     \subcaption{Motif complet 
                 \label{fig:sym_complet}}
   \end{minipage}
   \caption{Symétrie des motifs de zelliges \autocite{Castera_1996}.}
   \label{fig:symetrie}
 \end{figure}
+
+
+% \subsection{Lexique}
+% %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+% \novocalize
+% \begin{tabular}{lrl}
+%   \zlaygi & & \\
+%   \hatim & & \\
+%   \saft & & \\
+%   \manqas & \RL{mnqaS} & ciseau \\
+%   \naqs & \RL{nqS} & gravure \\
+%   \fars & & \\
+%   \tafrisa & & \\
+%   \zillig & \RL{zly^g} & \\
+%   \furma & & \\
+%   \farina & & \\
+%   \mzihrinayy & & \\
+%   \alqala & & \\
+%   \tansif & \RL{tn.zyf} & nettoyage \\
+%   \tagfif & \RL{t|^gfyf} & séchage \\
+%   \zwabi & & \\
+%   \maallem & \RL{m`l|m} & professeur \\
+% \end{tabular}
+
+
+
+
 
 \section{Données physico-chimiques}
 %----------------------------------------------------------------------
